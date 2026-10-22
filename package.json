@@ -4,5 +4,8 @@
   "description": "Grapsyh Retail - P2P Lisans & Kod Pazaryeri",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^10.2.1"
   }
 }

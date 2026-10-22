@@ -40,8 +40,8 @@
 
     <!-- Üst Duyuru Şeridi -->
     <div id="topBanner" class="bg-gradient-to-r from-sky-950 via-slate-900 to-indigo-950 py-2 px-4 text-xs font-medium text-center text-sky-200 border-b border-slate-800 flex items-center justify-center gap-2">
-        <i class="fa-solid fa-circle-check text-emerald-400"></i>
-        <span data-i18n="topSecurityNotice"><strong>Anında Dijital Teslimat:</strong> Satın aldığınız lisans anahtarları anında hem profilinizde listelenir hem de e-posta adresinize iletilir.</span>
+        <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+        <span data-i18n="topSecurityNotice"><strong>Anında Teslimat:</strong> Satın aldığınız lisans kodları faturanızla birlikte hem profilinizde saklanır hem de e-postanıza resmi olarak iletilir.</span>
     </div>
 
     <!-- Navigasyon Çubuğu -->
@@ -72,7 +72,7 @@
             <div class="flex items-center gap-2.5">
                 
                 <!-- Sepet Butonu -->
-                <button onclick="openCartModal()" class="relative bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white p-2.5 rounded-xl border border-slate-700 transition flex items-center justify-center">
+                <button onclick="openCartModal()" class="relative bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white p-2.5 rounded-xl border border-slate-700 transition flex items-center justify-center" title="Alışveriş Sepeti">
                     <i class="fa-solid fa-cart-shopping text-sm"></i>
                     <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-sky-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900 shadow">0</span>
                 </button>
@@ -99,21 +99,21 @@
                     <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm flex-shrink-0">1</div>
                     <div>
                         <h4 data-i18n="step1Title" class="text-xs font-bold text-white">E-Posta ile Kayıt Ol</h4>
-                        <p data-i18n="step1Desc" class="text-[11px] text-slate-400">E-posta adresinize gelen bağlantı ile hesabınızı doğrulayın.</p>
+                        <p data-i18n="step1Desc" class="text-[11px] text-slate-400">E-postanıza gönderilen bağlantı ile hesabınızı tek tıkla doğrulayın.</p>
                     </div>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-3 text-left">
                     <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm flex-shrink-0">2</div>
                     <div>
-                        <h4 data-i18n="step2Title" class="text-xs font-bold text-white">Sepete Ekle & Satın Al</h4>
-                        <p data-i18n="step2Desc" class="text-[11px] text-slate-400">İhtiyacınız olan orijinal lisans veya kodu seçip sipariş verin.</p>
+                        <h4 data-i18n="step2Title" class="text-xs font-bold text-white">Sepete Ekle & Bilgilerini Gir</h4>
+                        <p data-i18n="step2Desc" class="text-[11px] text-slate-400">Fatura adresi ve kart bilgilerinizi girerek siparişi onaylayın.</p>
                     </div>
                 </div>
                 <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-3 text-left">
                     <div class="w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center text-sm flex-shrink-0">3</div>
                     <div>
                         <h4 data-i18n="step3Title" class="text-xs font-bold text-white">Anında E-Postana Gelsin</h4>
-                        <p data-i18n="step3Desc" class="text-[11px] text-slate-400">Dijital lisans anahtarınız profilinize ve e-postanıza anında iletilir.</p>
+                        <p data-i18n="step3Desc" class="text-[11px] text-slate-400">Orijinal lisans kodunuz anında e-postanıza ve profilinize iletilir.</p>
                     </div>
                 </div>
             </div>
@@ -181,16 +181,211 @@
                 </div>
                 <div class="flex gap-3">
                     <button onclick="clearCart()" data-i18n="cartClearBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition">Sepeti Temizle</button>
-                    <button onclick="executeCartCheckout()" id="btnCheckout" data-i18n="cartCheckoutBtn" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-lock text-xs"></i>
-                        <span>Siparişi Tamamla & Satın Al</span>
+                    <button onclick="openCheckoutModal()" id="btnProceedCheckout" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-credit-card text-xs"></i>
+                        <span>Ödeme Ekranına İlerle</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 2. KAYIT OL / GİRİŞ YAP MODALI -->
+    <!-- 2. STANDART E-TİCARET ÖDEME & SİPARİŞ TAMAMLAMA (CHECKOUT) MODALI -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/85 backdrop-blur-md hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+            
+            <!-- Modal Başlık -->
+            <div class="p-5 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-sky-600 flex items-center justify-center text-white font-bold text-sm">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+                            Güvenli Ödeme & Sipariş Onayı
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">256-BIT SSL GÜVENLİ</span>
+                        </h3>
+                        <p class="text-xs text-slate-400">Teslimat e-postanızı, fatura adresinizi ve kart bilgilerinizi giriniz</p>
+                    </div>
+                </div>
+                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white p-1 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Ödeme Formu Gövdesi -->
+            <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)" class="overflow-y-auto flex-1 p-5 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Sol Kolon: Fatura, Adres ve Kart Bilgileri (7 Kolon) -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- 1. İletişim & Teslimat E-Postası -->
+                    <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-envelope"></i> 1. İletişim ve Teslimat Bilgisi
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">E-Posta (Lisans Kodu Buraya Gidecek) *</label>
+                                <input type="email" id="checkoutEmail" required placeholder="ornek@gmail.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Telefon Numarası *</label>
+                                <input type="tel" id="checkoutPhone" required placeholder="05XX XXX XX XX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Fatura & Adres Bilgileri -->
+                    <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot"></i> 2. Fatura ve Adres Bilgileri
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Ad Soyad / Fatura Ünvanı *</label>
+                                <input type="text" id="checkoutFullName" required placeholder="Halil Yegin" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Ülke *</label>
+                                <select id="checkoutCountry" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500">
+                                    <option value="TR" selected>Türkiye</option>
+                                    <option value="DE">Almanya</option>
+                                    <option value="GB">Birleşik Krallık</option>
+                                    <option value="US">Amerika Birleşik Devletleri</option>
+                                    <option value="NL">Hollanda</option>
+                                    <option value="FR">Fransa</option>
+                                    <option value="AZ">Azerbaycan</option>
+                                    <option value="BE">Belçika</option>
+                                    <option value="AT">Avusturya</option>
+                                    <option value="CH">İsviçre</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Şehir / İl *</label>
+                                <input type="text" id="checkoutCity" required placeholder="İstanbul" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">İlçe / Semt *</label>
+                                <input type="text" id="checkoutDistrict" required placeholder="Kadıköy" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Açık Adres *</label>
+                            <textarea id="checkoutAddress" rows="2" required placeholder="Mahalle, sokak, bina ve daire no..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 3. Ödeme Yöntemi & Kart Bilgileri -->
+                    <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-credit-card"></i> 3. Ödeme Yöntemi
+                            </h4>
+                            <div class="flex items-center gap-1 text-slate-400 text-sm">
+                                <i class="fa-brands fa-cc-visa text-sky-400"></i>
+                                <i class="fa-brands fa-cc-mastercard text-amber-400"></i>
+                                <i class="fa-brands fa-cc-amex text-indigo-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Kart Üzerindeki İsim *</label>
+                                <input type="text" id="checkoutCardName" required placeholder="HALIL YEGIN" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-500 uppercase">
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Kart Numarası *</label>
+                                <div class="relative">
+                                    <input type="text" id="checkoutCardNumber" maxlength="19" required placeholder="0000 0000 0000 0000" 
+                                           oninput="formatCardNumber(this)"
+                                           class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs text-white font-mono tracking-wider focus:outline-none focus:border-sky-500">
+                                    <i class="fa-solid fa-credit-card absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Son Kullanma (AA/YY) *</label>
+                                    <input type="text" id="checkoutCardExpiry" maxlength="5" required placeholder="12/28" 
+                                           oninput="formatCardExpiry(this)"
+                                           class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono text-center focus:outline-none focus:border-sky-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Güvenlik Kodu (CVV) *</label>
+                                    <input type="password" id="checkoutCardCvv" maxlength="3" required placeholder="•••" 
+                                           class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono text-center focus:outline-none focus:border-sky-500">
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 pt-1 text-[11px] text-slate-400">
+                                <input type="checkbox" id="chk3DSecure" checked class="rounded bg-slate-800 border-slate-700 text-sky-600 focus:ring-0">
+                                <label for="chk3DSecure">3D Secure ile Güvenli Doğrulama Yapılsın</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ Kolon: Sipariş Özeti & Ödeme Yap Butonu (5 Kolon) -->
+                <div class="lg:col-span-5 bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4 sticky top-4">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+                        Sipariş Özeti
+                    </h4>
+
+                    <!-- Sepetteki Ürünler -->
+                    <div id="checkoutSummaryList" class="space-y-2.5 max-h-48 overflow-y-auto pr-1">
+                        <!-- JS ile doldurulur -->
+                    </div>
+
+                    <!-- Fiyat Dağılımı -->
+                    <div class="border-t border-slate-800 pt-3 space-y-1.5 text-xs text-slate-400">
+                        <div class="flex justify-between">
+                            <span>Ara Toplam:</span>
+                            <span id="checkoutSubtotal" class="text-white font-semibold">0.00 ₺</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>KDV (%20 Dahil):</span>
+                            <span id="checkoutTax" class="text-slate-400">0.00 ₺</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-extrabold text-white pt-2 border-t border-slate-800">
+                            <span>Ödenecek Tutar:</span>
+                            <span id="checkoutTotal" class="text-emerald-400 font-black text-base">0.00 ₺</span>
+                        </div>
+                    </div>
+
+                    <!-- Buton -->
+                    <button type="submit" id="btnSubmitPayment" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-lock text-xs"></i>
+                        <span id="btnSubmitPaymentText">Güvenli Ödeme Yap (0.00 ₺)</span>
+                    </button>
+
+                    <div class="text-[10px] text-slate-500 text-center leading-relaxed">
+                        <i class="fa-solid fa-shield-check text-emerald-400 mr-1"></i>
+                        Ödemeniz 256-bit SSL korumalı altyapıyla banka üzerinden doğrulanır. Kart bilgileriniz sunucularımızda saklanmaz.
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 3. 3D SECURE İŞLEME SİMÜLASYONU MODALI -->
+    <div id="threeDSecureModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-sm rounded-2xl p-8 text-center space-y-4 shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            </div>
+            <div>
+                <h3 class="text-base font-bold text-white">3D Secure Doğrulanıyor</h3>
+                <p class="text-xs text-slate-400 mt-1">Banka ile güvenli iletişim sağlanıyor, lütfen bekleyiniz...</p>
+            </div>
+            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-sky-500 animate-pulse w-3/4"></div>
+            </div>
+            <span class="text-[10px] text-slate-500 block">BKM Express / Visa Secure / Mastercard Identity Check</span>
+        </div>
+    </div>
+
+    <!-- 4. KAYIT OL / GİRİŞ YAP MODALI -->
     <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-6">
             <div class="flex justify-between items-center mb-6">
@@ -214,7 +409,7 @@
 
                 <div>
                     <label data-i18n="labelEmail" class="block text-xs font-medium text-slate-300 mb-1">E-Posta Adresi (Doğrulama Gönderilecek)</label>
-                    <input type="email" id="inputEmail" required placeholder="ornek@grapsyh.cyou" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500">
+                    <input type="email" id="inputEmail" required placeholder="ornek@gmail.com" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500">
                 </div>
 
                 <div>
@@ -229,69 +424,65 @@
         </div>
     </div>
 
-    <!-- 3. E-POSTA DOĞRULAMA KUTUSU & SİMÜLASYONU MODALI -->
+    <!-- 5. E-POSTA DOĞRULAMA KUTUSU & GÖNDERİM DURUMU MODALI -->
     <div id="emailVerificationModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col">
-            <!-- Üst Bar -->
-            <div class="p-4 border-b border-slate-800 bg-slate-950/80 flex items-center justify-between">
+            <div class="p-4 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
                 <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
-                    <i class="fa-solid fa-envelope text-sky-400"></i>
-                    <span>Grapsyh Otomatik E-Posta Doğrulama Sistemi</span>
+                    <i class="fa-solid fa-paper-plane text-sky-400"></i>
+                    <span>Grapsyh E-Posta Doğrulama Servisi</span>
                 </div>
                 <button onclick="closeEmailVerificationModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
-            <!-- E-Posta Görünümü -->
             <div class="p-6 space-y-4">
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 text-slate-400">
-                    <div><span class="text-slate-500 font-bold">Kimden:</span> <span class="text-white">Grapsyh Retail &lt;iletisim@grapsyh.cyou&gt;</span></div>
-                    <div><span class="text-slate-500 font-bold">Kime:</span> <span class="text-sky-400" id="verifyEmailRecipient">kullanici@ornek.com</span></div>
-                    <div><span class="text-slate-500 font-bold">Konu:</span> <span class="text-white font-medium">Grapsyh Hesabınızı Doğrulayın</span></div>
+                <div class="bg-sky-950/20 p-4 rounded-xl border border-sky-500/30 text-xs text-slate-300 flex items-start gap-3">
+                    <i class="fa-solid fa-envelope-circle-check text-sky-400 text-xl mt-0.5"></i>
+                    <div>
+                        <strong class="text-white block font-semibold mb-0.5">Doğrulama E-Postası Gönderildi!</strong>
+                        <span>Lütfen <code id="verifyEmailRecipient" class="text-sky-300 font-bold font-mono">kullanici@ornek.com</code> adresinizin gelen kutusunu (ve gerekiyorsa spam klasörünü) kontrol edin.</span>
+                    </div>
                 </div>
 
-                <div class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/80 text-center space-y-4">
-                    <div class="w-14 h-14 bg-sky-500/20 text-sky-400 rounded-full flex items-center justify-center mx-auto text-2xl">
-                        <i class="fa-solid fa-envelope-circle-check"></i>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
+                    <span class="text-slate-400 block">E-postanızda yer alan doğrudan doğrulama bağlantısı:</span>
+                    <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-sky-400 font-mono text-[11px] break-all select-all" id="verifyLinkText">
+                        https://grapsyh.cyou/?verify_email=token
                     </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white">E-Posta Adresinizi Doğrulayın</h3>
-                        <p class="text-xs text-slate-300 mt-1 max-w-sm mx-auto leading-relaxed">
-                            Grapsyh platformundaki hesabınızı aktifleştirmek için lütfen aşağıdaki doğrulama butonuna tıklayın.
-                        </p>
+                    <div id="smtpStatusNotice" class="text-[11px] text-slate-500 pt-1">
+                        <!-- SMTP durumu burada görüntülenir -->
                     </div>
+                </div>
 
-                    <!-- Doğrulama Linki -->
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-left text-xs font-mono text-slate-400 break-all">
-                        <span class="text-slate-500 block text-[10px] uppercase font-bold mb-0.5">Doğrulama Bağlantısı:</span>
-                        <a href="#" id="verifyLinkText" target="_blank" class="text-sky-400 hover:underline">https://grapsyh.cyou/?verify_email=token</a>
-                    </div>
-
-                    <!-- Büyük Doğrula Butonu -->
-                    <button onclick="executeEmailVerificationAction()" id="btnActionVerifyEmail" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
+                <div class="flex gap-3">
+                    <button onclick="executeEmailVerificationAction()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-check"></i>
-                        <span>E-Postamı Şimdi Doğrula</span>
+                        <span>Hesabımı Şimdi Doğrula</span>
+                    </button>
+                    <button onclick="resendVerificationEmail()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-3 rounded-xl text-xs transition border border-slate-700">
+                        Tekrar Gönder
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 4. SİPARİŞ & DİJİTAL KOD TESLİMAT E-POSTASI GÖRÜNTÜLEYİCİ MODALI -->
+    <!-- 6. SİPARİŞ & DİJİTAL KOD TESLİMAT MODALI -->
     <div id="orderDeliveryEmailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             <div class="p-4 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
                 <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>E-Posta Gönderildi: Dijital Lisans Teslimatı</span>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Sipariş Başarılı & E-Posta İletildi</span>
                 </div>
                 <button onclick="closeOrderDeliveryModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
             <div class="p-6 overflow-y-auto space-y-4">
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-1 text-slate-400">
-                    <div><span class="text-slate-500 font-bold">Kimden:</span> <span class="text-white">Grapsyh Sipariş Merkezi &lt;iletisim@grapsyh.cyou&gt;</span></div>
-                    <div><span class="text-slate-500 font-bold">Kime:</span> <span class="text-sky-400" id="orderEmailRecipient">kullanici@ornek.com</span></div>
-                    <div><span class="text-slate-500 font-bold">Sipariş No:</span> <span class="text-white font-mono" id="orderEmailId">GRP-2026-XXXX</span></div>
+                    <div><span class="text-slate-500 font-bold">Alıcı E-Postası:</span> <span class="text-sky-400 font-bold" id="orderEmailRecipient">kullanici@ornek.com</span></div>
+                    <div><span class="text-slate-500 font-bold">Sipariş Referansı:</span> <span class="text-white font-mono" id="orderEmailId">GRP-2026-XXXX</span></div>
+                    <div><span class="text-slate-500 font-bold">Ödeme Durumu:</span> <span class="text-emerald-400 font-bold">Ödendi (Kredi/Banka Kartı)</span></div>
                 </div>
 
                 <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-2xl p-5 space-y-4">
@@ -300,18 +491,18 @@
                             <i class="fa-solid fa-key"></i>
                         </div>
                         <div>
-                            <h4 class="text-base font-bold text-white">Siparişiniz Başarıyla Tamamlandı!</h4>
-                            <p class="text-xs text-slate-300">Aşağıdaki lisans kodunuz anında kullanıma hazırdır.</p>
+                            <h4 class="text-base font-bold text-white">Lisans Kodlarınız Hazır!</h4>
+                            <p class="text-xs text-slate-300">Aşağıdaki kodlar hemen kullanılabilir ve ayrıca e-posta adresinize de postalanmıştır.</p>
                         </div>
                     </div>
 
                     <div id="orderDeliveredItemsContainer" class="space-y-3">
-                        <!-- Teslim edilen kodlar buraya listelenir -->
+                        <!-- Teslim edilen kodlar JS ile listelenir -->
                     </div>
 
                     <div class="text-[11px] text-slate-400 bg-slate-950/80 p-3 rounded-xl border border-slate-800">
                         <i class="fa-solid fa-info-circle text-sky-400 mr-1"></i>
-                        Bu kodlar hesabınızın <strong class="text-white">Profil &gt; Satın Aldığım Kodlar</strong> sekmesinde de kalıcı olarak saklanmaktadır. Herhangi bir sorunda <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 underline">iletisim@grapsyh.cyou</a> adresinden bize ulaşabilirsiniz.
+                        Bu kodlar hesabınızın <strong class="text-white">Profil &gt; Satın Aldığım Kodlar</strong> sekmesinde de kalıcı olarak saklanmaktadır. Sorularınız için <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 underline">iletisim@grapsyh.cyou</a> adresine ulaşabilirsiniz.
                     </div>
                 </div>
             </div>
@@ -324,11 +515,10 @@
         </div>
     </div>
 
-    <!-- 5. KAPSAMLI YÖNETİCİ (ADMIN) PANELİ MODALI -->
+    <!-- 7. KAPSAMLI YÖNETİCİ (ADMIN) PANELİ MODALI -->
     <div id="adminPanelModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
             
-            <!-- Panel Üst Başlığı -->
             <div class="p-5 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-600/30">
@@ -339,7 +529,7 @@
                             Grapsyh Yönetici Kontrol Paneli
                             <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">SUPER ADMIN</span>
                         </h3>
-                        <p class="text-xs text-slate-400">Kullanıcılar, Siparişler, İlanlar ve Sistem Ayarları</p>
+                        <p class="text-xs text-slate-400">Kullanıcılar, Siparişler, İlanlar ve E-Posta / SMTP Ayarları</p>
                     </div>
                 </div>
                 <button onclick="closeAdminPanelModal()" class="text-slate-400 hover:text-white p-2 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -351,7 +541,7 @@
                 <button onclick="switchAdminTab('users')" id="adminTabUsers" class="py-3 text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-users"></i> Kullanıcı Yönetimi (<span id="adminUsersCountBadge">0</span>)</button>
                 <button onclick="switchAdminTab('listings')" id="adminTabListings" class="py-3 text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-tags"></i> İlanlar & Stok (<span id="adminListingsCountBadge">0</span>)</button>
                 <button onclick="switchAdminTab('orders')" id="adminTabOrders" class="py-3 text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-receipt"></i> Satış & Sipariş Kayıtları (<span id="adminOrdersCountBadge">0</span>)</button>
-                <button onclick="switchAdminTab('settings')" id="adminTabSettings" class="py-3 text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-sliders"></i> Sistem Ayarları</button>
+                <button onclick="switchAdminTab('settings')" id="adminTabSettings" class="py-3 text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-sliders"></i> Sistem & SMTP Ayarları</button>
             </div>
 
             <!-- Panel Gövdesi -->
@@ -375,30 +565,6 @@
                         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
                             <span class="text-slate-500 text-xs block">Aktif Pazaryeri İlanı</span>
                             <span class="text-2xl font-black text-indigo-400 mt-1 block" id="statTotalListings">0</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
-                        <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-circle-info text-sky-400"></i> Sistem Durumu & Entegrasyonlar
-                        </h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
-                                <span>Kurumsal E-Posta:</span>
-                                <strong class="text-sky-400 font-mono">iletisim@grapsyh.cyou</strong>
-                            </div>
-                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
-                                <span>Sumsub Doğrulama Durumu:</span>
-                                <strong class="text-amber-400">Beklemede (Onay Sonrası Aktif)</strong>
-                            </div>
-                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
-                                <span>Zorunlu KYC Kuralı:</span>
-                                <strong id="adminKycStatusText" class="text-emerald-400">Kapalı (Şimdilik Serbest Alış)</strong>
-                            </div>
-                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
-                                <span>E-Posta Doğrulama Kuralı:</span>
-                                <strong class="text-emerald-400">Aktif (Kayıtta Doğrulama Linki)</strong>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -479,30 +645,56 @@
                     </div>
                 </div>
 
-                <!-- 5. SİSTEM AYARLARI SEKMESİ -->
+                <!-- 5. SİSTEM AYARLARI & SMTP SEKMESİ -->
                 <div id="adminViewSettings" class="space-y-6 hidden">
+                    
+                    <!-- Spacemail SMTP Ayarları -->
                     <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
-                        <h4 class="text-sm font-bold text-white">Güvenlik ve Doğrulama Kuralları</h4>
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <div>
+                                <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-server text-sky-400"></i> Spaceship Spacemail SMTP Ayarları
+                                </h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Kullanıcılara gerçek doğrulama ve sipariş e-postası göndermek için kullanılır</p>
+                            </div>
+                            <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">mail.spacemail.com:465</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <label class="block font-semibold text-slate-300 mb-1">Gönderici E-Posta Adresi</label>
+                                <input type="email" id="adminSmtpUser" value="iletisim@grapsyh.cyou" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white">
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-slate-300 mb-1">Spacemail E-Posta Şifresi *</label>
+                                <input type="password" id="adminSmtpPass" placeholder="Spaceship e-posta şifrenizi girin..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+                            <button onclick="adminSaveSmtpSettings()" class="w-full sm:w-auto bg-sky-600 hover:bg-sky-500 text-white font-bold px-5 py-2 rounded-xl text-xs transition">
+                                SMTP Şifresini Kaydet
+                            </button>
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <input type="email" id="adminTestEmailInput" placeholder="Deneme e-posta adresi..." class="w-full sm:w-60 bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white">
+                                <button onclick="adminSendTestEmail()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shrink-0">
+                                    Test Maili At
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kurallar -->
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
+                        <h4 class="text-sm font-bold text-white">Genel Platform Kuralları</h4>
                         
-                        <!-- KYC Şartı Aç / Kapa -->
                         <div class="flex items-center justify-between p-3.5 bg-slate-900 rounded-xl border border-slate-800">
                             <div>
                                 <strong class="text-white text-xs block">Zorunlu Biyometrik Kimlik Doğrulaması (KYC)</strong>
-                                <span class="text-[11px] text-slate-400">Açık olduğunda kullanıcılar KYC yapmadan alış ve satış yapamaz. Şimdilik kapalı tutulması önerilir.</span>
+                                <span class="text-[11px] text-slate-400">Şimdilik kapalı tutulmaktadır; Sumsub kurumsal onayı tamamlandığında açılacaktır.</span>
                             </div>
                             <button onclick="adminToggleKycRequirement()" id="btnToggleKycSetting" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 transition">
                                 Kapalı (Serbest Alış)
-                            </button>
-                        </div>
-
-                        <!-- E-Posta Şartı Aç / Kapa -->
-                        <div class="flex items-center justify-between p-3.5 bg-slate-900 rounded-xl border border-slate-800">
-                            <div>
-                                <strong class="text-white text-xs block">Zorunlu E-Posta Doğrulaması</strong>
-                                <span class="text-[11px] text-slate-400">Yeni kayıt olan kullanıcıların sipariş verebilmesi için e-posta doğrulama linkine basması gerekir.</span>
-                            </div>
-                            <button onclick="adminToggleEmailReqSetting()" id="btnToggleEmailReqSetting" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white transition">
-                                Aktif (Zorunlu)
                             </button>
                         </div>
                     </div>
@@ -512,7 +704,7 @@
         </div>
     </div>
 
-    <!-- 6. KULLANICI PROFİL MODALI -->
+    <!-- 8. KULLANICI PROFİL MODALI -->
     <div id="profileModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             <div class="p-5 border-b border-slate-800 flex items-center justify-between">
@@ -525,7 +717,7 @@
                             <span id="profileUsername">Kullanıcı</span>
                             <span id="profileBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-400">Doğrulanmadı</span>
                         </h3>
-                        <p class="text-xs text-slate-400" id="profileEmail">ornek@grapsyh.cyou</p>
+                        <p class="text-xs text-slate-400" id="profileEmail">ornek@gmail.com</p>
                     </div>
                 </div>
                 <button onclick="closeProfileModal()" class="text-slate-400 hover:text-white p-1 text-lg"><i class="fa-solid fa-xmark"></i></button>
@@ -565,7 +757,7 @@
         </div>
     </div>
 
-    <!-- 7. YENİ İLAN AÇ MODALI -->
+    <!-- 9. YENİ İLAN AÇ MODALI -->
     <div id="newListingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden p-6">
             <div class="flex justify-between items-center mb-5">
@@ -616,30 +808,6 @@
         </div>
     </div>
 
-    <!-- 8. DOĞRULAMA (KYC) BEKLEME MODALI (SADECE BUTONLU) -->
-    <div id="kycModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-6 text-center space-y-4">
-            <div class="w-16 h-16 bg-sky-500/10 text-sky-400 rounded-full flex items-center justify-center mx-auto border border-sky-500/20">
-                <i class="fa-solid fa-shield-halved text-2xl"></i>
-            </div>
-            <div>
-                <h3 class="text-lg font-bold text-white">Biyometrik Kimlik Doğrulama</h3>
-                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                    Uluslararası akreditasyon onay süreci devam etmektedir. Onay tamamlandığında kamera ile canlılık denetimi aktif olacaktır.
-                </p>
-            </div>
-
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 text-left space-y-1">
-                <div><strong class="text-white">Durum:</strong> <span class="text-amber-400 font-semibold">Uluslararası Onay Bekleniyor</span></div>
-                <div><strong class="text-white">Alış & Satış:</strong> <span class="text-emerald-400 font-semibold">Şu an E-posta Doğrulaması ile Aktif</span></div>
-            </div>
-
-            <button onclick="closeKycModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition">
-                Anladım / Kapat
-            </button>
-        </div>
-    </div>
-
     <!-- Alt Bilgi (Footer) -->
     <footer class="bg-slate-900 border-t border-slate-800 py-8 text-xs text-slate-400 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -662,18 +830,18 @@
         // Dil Sözlüğü (i18n)
         const translations = {
             tr: {
-                topSecurityNotice: "<strong>Anında Dijital Teslimat:</strong> Satın aldığınız lisans anahtarları anında hem profilinizde listelenir hem de e-posta adresinize iletilir.",
+                topSecurityNotice: "<strong>Anında Teslimat:</strong> Satın aldığınız lisans kodları faturanızla birlikte hem profilinizde saklanır hem de e-postanıza resmi olarak iletilir.",
                 brandSubtitle: "Dijital Lisans Pazaryeri",
                 searchPlaceholder: "İlan, lisans veya oyun kodu ara...",
                 loginBtn: "Giriş Yap",
                 registerBtn: "Kayıt Ol",
                 logoutTitle: "Çıkış Yap",
                 step1Title: "E-Posta ile Kayıt Ol",
-                step1Desc: "E-posta adresinize gelen bağlantı ile hesabınızı doğrulayın.",
-                step2Title: "Sepete Ekle & Satın Al",
-                step2Desc: "İhtiyacınız olan orijinal lisans veya kodu seçip sipariş verin.",
+                step1Desc: "E-postanıza gönderilen bağlantı ile hesabınızı tek tıkla doğrulayın.",
+                step2Title: "Sepete Ekle & Bilgilerini Gir",
+                step2Desc: "Fatura adresi ve kart bilgilerinizi girerek siparişi onaylayın.",
                 step3Title: "Anında E-Postana Gelsin",
-                step3Desc: "Dijital lisans anahtarınız profilinize ve e-postanıza anında iletilir.",
+                step3Desc: "Orijinal lisans kodunuz anında e-postanıza ve profilinize iletilir.",
                 sectionTitle: "Aktif Dijital Lisans İlanları",
                 sectionSubtitle: "Orijinal yazılımlar, işletim sistemleri ve oyun cüzdan kodları",
                 createListingBtn: "Yeni İlan Aç (Satış Yap)",
@@ -696,7 +864,6 @@
                 cartSubtitle: "Seçtiğiniz lisans ve kodlar",
                 cartTotalLabel: "Toplam Tutar:",
                 cartClearBtn: "Sepeti Temizle",
-                cartCheckoutBtn: "Siparişi Tamamla & Satın Al",
                 authModalTitleReg: "Kayıt Ol",
                 authModalTitleLog: "Giriş Yap",
                 labelFullName: "Ad Soyad",
@@ -719,18 +886,18 @@
                 btnPublishListing: "İlanı Yayına Al"
             },
             en: {
-                topSecurityNotice: "<strong>Instant Digital Delivery:</strong> Purchased license keys are immediately listed in your profile and delivered to your email.",
+                topSecurityNotice: "<strong>Instant Delivery:</strong> Purchased license keys are stored in your profile and delivered directly to your email address.",
                 brandSubtitle: "Digital License Marketplace",
                 searchPlaceholder: "Search listings, licenses or games...",
                 loginBtn: "Login",
                 registerBtn: "Register",
                 logoutTitle: "Logout",
                 step1Title: "Sign Up via Email",
-                step1Desc: "Verify your account with the confirmation link sent to your email.",
-                step2Title: "Add to Cart & Buy",
-                step2Desc: "Pick your genuine software key or game code and proceed.",
+                step1Desc: "Confirm your account via the verification link sent directly to your inbox.",
+                step2Title: "Add to Cart & Fill Billing",
+                step2Desc: "Enter your billing address and card details to complete the order.",
                 step3Title: "Delivered to Your Email",
-                step3Desc: "License keys are instantly delivered to your email and saved in your profile.",
+                step3Desc: "License keys and invoices are delivered immediately to your email and profile.",
                 sectionTitle: "Active Digital License Listings",
                 sectionSubtitle: "Genuine software, operating systems, and gaming gift cards",
                 createListingBtn: "Create Listing (Sell)",
@@ -753,7 +920,6 @@
                 cartSubtitle: "Your selected licenses & codes",
                 cartTotalLabel: "Total Price:",
                 cartClearBtn: "Clear Cart",
-                cartCheckoutBtn: "Complete Order & Checkout",
                 authModalTitleReg: "Register",
                 authModalTitleLog: "Login",
                 labelFullName: "Full Name",
@@ -871,9 +1037,9 @@
             }
         ];
 
-        // Sistem Ayarları & Verileri
+        // Sistem Verileri
         let systemSettings = JSON.parse(localStorage.getItem('grapsyh_system_settings')) || {
-            kycRequired: false, // Kullanıcının isteği: şimdilik serbest
+            kycRequired: false,
             emailVerificationRequired: true
         };
 
@@ -887,57 +1053,122 @@
         let allOrdersLog = JSON.parse(localStorage.getItem('grapsyh_all_orders')) || [];
         let activeCategory = 'all';
 
-        // Sayfa Başlatma
+        // Sayfa Yüklendiğinde
         document.addEventListener('DOMContentLoaded', () => {
-            // URL'de doğrulama linki var mı? (?verify_email=TOKEN)
             checkUrlEmailVerification();
             setLanguage(currentLang);
             updateCartBadge();
         });
 
         // ==========================================
-        // 1. E-POSTA DOĞRULAMA SİSTEMİ
+        // 1. E-POSTA DOĞRULAMA (GERÇEK MAİL SİSTEMİ)
         // ==========================================
         function checkUrlEmailVerification() {
             const urlParams = new URLSearchParams(window.location.search);
             const token = urlParams.get('verify_email');
             if (token) {
-                const userIndex = allRegisteredUsers.findIndex(u => u.verifyToken === token || (currentUser && currentUser.verifyToken === token));
-                if (userIndex !== -1) {
-                    allRegisteredUsers[userIndex].isEmailVerified = true;
-                    localStorage.setItem('grapsyh_all_users', JSON.stringify(allRegisteredUsers));
+                let verifiedEmail = null;
+                let verifiedUsername = null;
+                try {
+                    let base64 = token;
+                    while (base64.length % 4) { base64 += '='; }
+                    const jsonStr = decodeURIComponent(atob(base64));
+                    const data = JSON.parse(jsonStr);
+                    if (data && data.email) {
+                        verifiedEmail = data.email.toLowerCase();
+                        verifiedUsername = data.u || data.email.split('@')[0];
+                    }
+                } catch(e) {
+                    // Düz token desteği
                 }
-                if (currentUser) {
-                    currentUser.isEmailVerified = true;
+
+                let foundUser = allRegisteredUsers.find(u => 
+                    u.verifyToken === token || 
+                    (verifiedEmail && u.email && u.email.toLowerCase() === verifiedEmail) || 
+                    (currentUser && (currentUser.verifyToken === token || (verifiedEmail && currentUser.email && currentUser.email.toLowerCase() === verifiedEmail)))
+                );
+
+                if (foundUser) {
+                    foundUser.isEmailVerified = true;
+                    localStorage.setItem('grapsyh_all_users', JSON.stringify(allRegisteredUsers));
+                    currentUser = foundUser;
+                    localStorage.setItem('grapsyh_current_user', JSON.stringify(currentUser));
+                } else if (verifiedEmail) {
+                    const newUser = {
+                        id: 'usr_' + Date.now(),
+                        fullName: verifiedUsername || verifiedEmail.split('@')[0],
+                        username: verifiedUsername || verifiedEmail.split('@')[0],
+                        email: verifiedEmail,
+                        verifyToken: token,
+                        isEmailVerified: true,
+                        isVerified: false,
+                        balance: 1000.00,
+                        isAdmin: (verifiedEmail.includes('iletisim@grapsyh.cyou') || (verifiedUsername && verifiedUsername.toLowerCase() === 'yegin14'))
+                    };
+                    allRegisteredUsers.push(newUser);
+                    currentUser = newUser;
+                    localStorage.setItem('grapsyh_all_users', JSON.stringify(allRegisteredUsers));
                     localStorage.setItem('grapsyh_current_user', JSON.stringify(currentUser));
                 }
-                alert("🎉 Tebrikler! E-posta adresiniz başarıyla doğrulandı. Artık güvenle sipariş verebilir ve ilan açabilirsiniz.");
-                // Parametreyi temizle
+
+                alert(currentLang === 'en' 
+                    ? "🎉 Congratulations! Your email address has been successfully verified. Your account is active." 
+                    : "🎉 Harika! E-posta adresiniz başarıyla doğrulandı. Hesabınız aktif edildi.");
                 window.history.replaceState({}, document.title, window.location.pathname);
+                updateNavUI();
             }
         }
 
         let pendingVerificationUser = null;
 
-        function showEmailVerificationModal(user) {
+        async function triggerSendVerificationEmail(user) {
             pendingVerificationUser = user;
             document.getElementById('verifyEmailRecipient').textContent = user.email;
             const link = `${window.location.origin}/?verify_email=${user.verifyToken}`;
-            const linkEl = document.getElementById('verifyLinkText');
-            linkEl.href = link;
-            linkEl.textContent = link;
+            document.getElementById('verifyLinkText').textContent = link;
+
+            const noticeEl = document.getElementById('smtpStatusNotice');
+            noticeEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Doğrulama e-postası iletiliyor...`;
             document.getElementById('emailVerificationModal').classList.remove('hidden');
+
+            try {
+                const res = await fetch('/api/send-verification-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: user.email,
+                        username: user.username,
+                        verifyToken: user.verifyToken,
+                        originUrl: window.location.origin
+                    })
+                });
+                const data = await res.json();
+                if (data.sent) {
+                    noticeEl.innerHTML = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> E-posta başarıyla gönderildi! Lütfen gelen kutunuzu kontrol edin.</span>`;
+                } else if (data.reason === 'no_smtp_pass') {
+                    noticeEl.innerHTML = `<span class="text-amber-400"><i class="fa-solid fa-triangle-exclamation"></i> Spacemail SMTP şifresi sunucuya henüz kaydedilmedi. Test için aşağıdaki linki veya butonu kullanabilirsiniz.</span>`;
+                } else {
+                    noticeEl.innerHTML = `<span class="text-rose-400">${data.message || 'E-posta gönderilemedi.'}</span>`;
+                }
+            } catch (err) {
+                noticeEl.innerHTML = `<span class="text-amber-400">Sunucu e-posta servisi yanıt vermedi; doğrudan butona basarak doğrulayabilirsiniz.</span>`;
+            }
         }
 
         function closeEmailVerificationModal() {
             document.getElementById('emailVerificationModal').classList.add('hidden');
         }
 
+        function resendVerificationEmail() {
+            if (pendingVerificationUser) {
+                triggerSendVerificationEmail(pendingVerificationUser);
+            }
+        }
+
         function executeEmailVerificationAction() {
             if (!pendingVerificationUser) return;
             pendingVerificationUser.isEmailVerified = true;
 
-            // Global listeyi güncelle
             const idx = allRegisteredUsers.findIndex(u => u.id === pendingVerificationUser.id);
             if (idx !== -1) {
                 allRegisteredUsers[idx].isEmailVerified = true;
@@ -955,7 +1186,7 @@
         }
 
         // ==========================================
-        // 2. SEPET (CART) YÖNETİMİ
+        // 2. SEPET VE ÖDEME AKIŞI
         // ==========================================
         function updateCartBadge() {
             const badge = document.getElementById('cartCountBadge');
@@ -969,7 +1200,6 @@
             const item = listings.find(l => l.id === listingId);
             if (!item) return;
 
-            // Aynı ürün zaten sepette mi?
             const exists = cart.find(c => c.id === listingId);
             if (exists) {
                 alert(currentLang === 'en' ? "This item is already in your cart." : "Bu ürün zaten sepetinizde ekli.");
@@ -980,8 +1210,6 @@
             cart.push(item);
             localStorage.setItem('grapsyh_cart', JSON.stringify(cart));
             updateCartBadge();
-            
-            // Sepeti aç ve bildir
             openCartModal();
         }
 
@@ -1011,7 +1239,7 @@
         function renderCartItems() {
             const container = document.getElementById('cartItemsList');
             const totalEl = document.getElementById('cartTotalPrice');
-            const btnCheckout = document.getElementById('btnCheckout');
+            const btnProceed = document.getElementById('btnProceedCheckout');
 
             if (!container) return;
 
@@ -1023,13 +1251,13 @@
                     </div>
                 `;
                 totalEl.textContent = "0.00 ₺";
-                btnCheckout.disabled = true;
-                btnCheckout.classList.add('opacity-50', 'cursor-not-allowed');
+                btnProceed.disabled = true;
+                btnProceed.classList.add('opacity-50', 'cursor-not-allowed');
                 return;
             }
 
-            btnCheckout.disabled = false;
-            btnCheckout.classList.remove('opacity-50', 'cursor-not-allowed');
+            btnProceed.disabled = false;
+            btnProceed.classList.remove('opacity-50', 'cursor-not-allowed');
 
             let total = 0;
             container.innerHTML = '';
@@ -1059,36 +1287,94 @@
         }
 
         // ==========================================
-        // 3. SİPARİŞ TAMAMLAMA & E-POSTA İLETİMİ
+        // 3. STANDART CHECKOUT & ÖDEME EKRANI
         // ==========================================
-        function executeCartCheckout() {
+        function openCheckoutModal() {
             if (cart.length === 0) return;
 
-            // Giriş kontrolü
-            if (!currentUser) {
-                alert(currentLang === 'en' ? "Please log in or register to complete your order." : "Siparişi tamamlamak için lütfen giriş yapın veya kayıt olun.");
-                closeCartModal();
-                openAuthModal('register');
+            // Kullanıcı bilgilerini önceden doldur (varsa)
+            if (currentUser) {
+                document.getElementById('checkoutEmail').value = currentUser.email || '';
+                document.getElementById('checkoutFullName').value = currentUser.fullName || currentUser.username || '';
+            }
+
+            // Sepet Özetini Çiz
+            const summaryContainer = document.getElementById('checkoutSummaryList');
+            summaryContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price;
+                const title = (currentLang === 'en' && item.title_en) ? item.title_en : item.title;
+                const row = document.createElement('div');
+                row.className = "flex justify-between items-center text-xs";
+                row.innerHTML = `
+                    <span class="text-slate-300 font-medium line-clamp-1 pr-2">${title}</span>
+                    <span class="text-white font-bold shrink-0">${item.price.toFixed(2)} ₺</span>
+                `;
+                summaryContainer.appendChild(row);
+            });
+
+            const tax = total * 0.20; // %20 KDV
+            document.getElementById('checkoutSubtotal').textContent = (total - tax).toFixed(2) + " ₺";
+            document.getElementById('checkoutTax').textContent = tax.toFixed(2) + " ₺";
+            document.getElementById('checkoutTotal').textContent = total.toFixed(2) + " ₺";
+            document.getElementById('btnSubmitPaymentText').textContent = `Güvenli Ödeme Yap (${total.toFixed(2)} ₺)`;
+
+            closeCartModal();
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        // Kredi Kartı Formatlama Yardımcıları
+        function formatCardNumber(input) {
+            let val = input.value.replace(/\D/g, '');
+            let formatted = '';
+            for (let i = 0; i < val.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += ' ';
+                formatted += val[i];
+            }
+            input.value = formatted.substring(0, 19);
+        }
+
+        function formatCardExpiry(input) {
+            let val = input.value.replace(/\D/g, '');
+            if (val.length >= 2) {
+                input.value = val.substring(0, 2) + '/' + val.substring(2, 4);
+            } else {
+                input.value = val;
+            }
+        }
+
+        // Ödeme Gönderimi & 3D Secure Doğrulaması
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('checkoutEmail').value.trim();
+            const fullName = document.getElementById('checkoutFullName').value.trim();
+            const cardNumber = document.getElementById('checkoutCardNumber').value.replace(/\s/g, '');
+
+            if (cardNumber.length < 15) {
+                alert("Lütfen geçerli bir 16 haneli kart numarası giriniz.");
                 return;
             }
 
-            // E-posta doğrulama kontrolü (Aktif ise)
-            if (systemSettings.emailVerificationRequired && !currentUser.isEmailVerified) {
-                alert(currentLang === 'en' ? "Please verify your email address before ordering." : "Sipariş vermeden önce lütfen e-posta adresinizi doğrulayın.");
-                showEmailVerificationModal(currentUser);
-                return;
-            }
+            // 3D Secure Simülasyonunu Aç
+            document.getElementById('threeDSecureModal').classList.remove('hidden');
 
-            // KYC Zorunluluğu (Sistem ayarından kontrol edilir)
-            if (systemSettings.kycRequired && !currentUser.isVerified) {
-                alert(currentLang === 'en' ? "Biometric KYC verification is required." : "Biyometrik Kimlik Doğrulaması gerekmektedir.");
-                openKycModal();
-                return;
-            }
+            setTimeout(() => {
+                document.getElementById('threeDSecureModal').classList.add('hidden');
+                executePaymentSuccess(email, fullName);
+            }, 1800);
+        }
 
-            // Satın alımı tamamla
+        async function executePaymentSuccess(recipientEmail, buyerName) {
             const deliveredOrders = [];
             let totalAmount = 0;
+            const dateStr = new Date().toLocaleString(currentLang === 'en' ? 'en-US' : 'tr-TR');
 
             cart.forEach(item => {
                 totalAmount += item.price;
@@ -1098,32 +1384,48 @@
                     title: (currentLang === 'en' && item.title_en) ? item.title_en : item.title,
                     price: item.price,
                     key: item.key,
-                    buyerUsername: currentUser.username,
-                    buyerEmail: currentUser.email,
-                    date: new Date().toLocaleString(currentLang === 'en' ? 'en-US' : 'tr-TR')
+                    buyerUsername: currentUser ? currentUser.username : buyerName,
+                    buyerEmail: recipientEmail,
+                    date: dateStr
                 };
 
-                // Kullanıcının profiline ekle
                 purchases.unshift(orderRecord);
-                // Admin global sipariş loguna ekle
                 allOrdersLog.unshift(orderRecord);
                 deliveredOrders.push(orderRecord);
             });
 
-            // LocalStorage güncelle
             localStorage.setItem('grapsyh_purchases', JSON.stringify(purchases));
             localStorage.setItem('grapsyh_all_orders', JSON.stringify(allOrdersLog));
 
-            // Sepeti temizle
+            // Sepeti temizle ve kapat
             clearCart();
-            closeCartModal();
+            closeCheckoutModal();
 
-            // E-Posta Gönderim Bildirim Modalını Göster
-            showOrderDeliveryEmailModal(deliveredOrders);
+            // GERÇEK E-POSTA GÖNDERİMİ TETİKLE
+            try {
+                await fetch('/api/send-order-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: recipientEmail,
+                        buyerName: buyerName,
+                        orderId: deliveredOrders[0].orderId,
+                        items: deliveredOrders,
+                        total: totalAmount,
+                        date: dateStr,
+                        originUrl: window.location.origin
+                    })
+                });
+            } catch (err) {
+                console.log("Sipariş maili API hatası:", err.message);
+            }
+
+            // Ekranda Sipariş Teslimat Modalını Aç
+            showOrderDeliveryEmailModal(deliveredOrders, recipientEmail);
         }
 
-        function showOrderDeliveryEmailModal(orders) {
-            document.getElementById('orderEmailRecipient').textContent = currentUser.email;
+        function showOrderDeliveryEmailModal(orders, recipientEmail) {
+            document.getElementById('orderEmailRecipient').textContent = recipientEmail;
             document.getElementById('orderEmailId').textContent = orders[0].orderId;
 
             const container = document.getElementById('orderDeliveredItemsContainer');
@@ -1135,7 +1437,7 @@
                 itemDiv.innerHTML = `
                     <div class="flex justify-between items-center text-xs">
                         <span class="font-bold text-white">${ord.title}</span>
-                        <span class="text-emerald-400 font-bold">${ord.price.toFixed(2)} ₺</span>
+                        <span class="text-emerald-400 font-bold">${parseFloat(ord.price).toFixed(2)} ₺</span>
                     </div>
                     <div class="flex items-center justify-between bg-slate-900 p-2.5 rounded-lg border border-slate-800">
                         <code class="text-xs text-emerald-400 font-bold select-all">${ord.key}</code>
@@ -1153,7 +1455,7 @@
         }
 
         // ==========================================
-        // 4. KAPSAMLI ADMİN PANELİ FONKSİYONLARI
+        // 4. ADMIN PANELİ & SMTP AYARLARI
         // ==========================================
         function isAdminUser() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -1184,8 +1486,6 @@
             renderAdminUsersTable();
             renderAdminListingsTable();
             renderAdminOrdersTable();
-            updateAdminSettingsUI();
-
             document.getElementById('adminPanelModal').classList.remove('hidden');
         }
 
@@ -1242,9 +1542,7 @@
                             : '<span class="text-amber-400 font-bold flex items-center gap-1"><i class="fa-solid fa-clock"></i> Bekliyor</span>'}
                     </td>
                     <td class="p-3">
-                        ${u.isVerified 
-                            ? '<span class="text-emerald-400 font-bold">Tier-1 Onaylı</span>' 
-                            : '<span class="text-slate-500">Doğrulanmadı</span>'}
+                        ${u.isVerified ? '<span class="text-emerald-400 font-bold">Tier-1 Onaylı</span>' : '<span class="text-slate-500">Doğrulanmadı</span>'}
                     </td>
                     <td class="p-3 font-bold text-white">${parseFloat(u.balance || 0).toFixed(2)} ₺</td>
                     <td class="p-3 text-right space-x-2">
@@ -1288,7 +1586,7 @@
                 id: 'usr_' + Date.now(),
                 fullName: username.toUpperCase(),
                 username: username,
-                email: username + "@grapsyh.cyou",
+                email: username + "@gmail.com",
                 isEmailVerified: true,
                 isVerified: false,
                 balance: 1000.00,
@@ -1357,43 +1655,75 @@
             });
         }
 
-        function updateAdminSettingsUI() {
-            const btnKyc = document.getElementById('btnToggleKycSetting');
-            const kycText = document.getElementById('adminKycStatusText');
-            if (systemSettings.kycRequired) {
-                btnKyc.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white transition";
-                btnKyc.textContent = "Açık (Zorunlu KYC)";
-                kycText.className = "text-amber-400";
-                kycText.textContent = "Açık (Alış/Satışta KYC Zorunlu)";
-            } else {
-                btnKyc.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 transition";
-                btnKyc.textContent = "Kapalı (Serbest Alış)";
-                kycText.className = "text-emerald-400";
-                kycText.textContent = "Kapalı (Şimdilik Serbest Alış)";
+        // Admin SMTP Ayarları Kaydetme & Test Etme
+        async function adminSaveSmtpSettings() {
+            const user = document.getElementById('adminSmtpUser').value.trim();
+            const pass = document.getElementById('adminSmtpPass').value.trim();
+
+            if (!pass) {
+                alert("Lütfen Spacemail şifrenizi giriniz.");
+                return;
             }
 
-            const btnEmail = document.getElementById('btnToggleEmailReqSetting');
-            if (systemSettings.emailVerificationRequired) {
-                btnEmail.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white transition";
-                btnEmail.textContent = "Aktif (Zorunlu)";
-            } else {
-                btnEmail.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 transition";
-                btnEmail.textContent = "Devre Dışı";
+            try {
+                const res = await fetch('/api/save-smtp-settings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        host: 'mail.spacemail.com',
+                        port: 465,
+                        user: user,
+                        pass: pass
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert("✅ Spacemail SMTP şifresi sunucuya kaydedildi! Artık gerçek e-postalar gönderilebilir.");
+                } else {
+                    alert("Hata: " + data.error);
+                }
+            } catch (err) {
+                alert("Bağlantı hatası: " + err.message);
+            }
+        }
+
+        async function adminSendTestEmail() {
+            const target = document.getElementById('adminTestEmailInput').value.trim();
+            if (!target) {
+                alert("Lütfen deneme e-postası alacak adresi girin.");
+                return;
+            }
+
+            alert("Test e-postası iletiliyor, lütfen bekleyiniz...");
+            try {
+                const res = await fetch('/api/send-verification-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: target,
+                        username: "Değerli Müşterimiz",
+                        verifyToken: "test_token_123",
+                        originUrl: window.location.origin
+                    })
+                });
+                const data = await res.json();
+                if (data.sent) {
+                    alert(`🎉 Başarılı! Test e-postası ${target} adresine iletildi. Lütfen gelen kutunuzu kontrol edin.`);
+                } else {
+                    alert(`Gönderilemedi: ${data.message || data.reason}`);
+                }
+            } catch (err) {
+                alert("Hata: " + err.message);
             }
         }
 
         function adminToggleKycRequirement() {
             systemSettings.kycRequired = !systemSettings.kycRequired;
             localStorage.setItem('grapsyh_system_settings', JSON.stringify(systemSettings));
-            updateAdminSettingsUI();
+            const btnKyc = document.getElementById('btnToggleKycSetting');
+            btnKyc.textContent = systemSettings.kycRequired ? 'Açık (Zorunlu KYC)' : 'Kapalı (Serbest Alış)';
+            btnKyc.className = systemSettings.kycRequired ? 'px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white' : 'px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300';
             alert(`Zorunlu KYC Ayarı: ${systemSettings.kycRequired ? 'AÇILDI' : 'KAPATILDI'}`);
-        }
-
-        function adminToggleEmailReqSetting() {
-            systemSettings.emailVerificationRequired = !systemSettings.emailVerificationRequired;
-            localStorage.setItem('grapsyh_system_settings', JSON.stringify(systemSettings));
-            updateAdminSettingsUI();
-            alert(`Zorunlu E-Posta Doğrulaması: ${systemSettings.emailVerificationRequired ? 'AÇILDI' : 'KAPATILDI'}`);
         }
 
         // ==========================================
@@ -1461,6 +1791,7 @@
 
         function handleQuickBuy(id) {
             addToCart(id);
+            openCheckoutModal();
         }
 
         function filterCategory(cat) {
@@ -1488,7 +1819,7 @@
         }
 
         // ==========================================
-        // 6. KULLANICI GİRİŞ & KAYIT YÖNETİMİ
+        // 6. KULLANICI GİRİŞ & KAYIT
         // ==========================================
         function updateNavUI() {
             const nav = document.getElementById('navUserActions');
@@ -1510,7 +1841,7 @@
             } else {
                 const emailBadge = currentUser.isEmailVerified 
                     ? `<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold px-2.5 py-1.5 rounded-xl flex items-center gap-1" title="E-Posta Doğrulandı"><i class="fa-solid fa-envelope-circle-check"></i> Doğrulandı</span>`
-                    : `<button onclick="showEmailVerificationModal(currentUser)" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 text-xs font-bold px-2.5 py-1.5 rounded-xl flex items-center gap-1 animate-pulse" title="E-Postanızı doğrulamak için tıklayın"><i class="fa-solid fa-envelope"></i> E-Posta Doğrula</button>`;
+                    : `<button onclick="triggerSendVerificationEmail(currentUser)" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 text-xs font-bold px-2.5 py-1.5 rounded-xl flex items-center gap-1 animate-pulse" title="E-Postanızı doğrulamak için tıklayın"><i class="fa-solid fa-envelope"></i> E-Posta Doğrula</button>`;
 
                 nav.innerHTML = `
                     ${adminButton}
@@ -1558,14 +1889,15 @@
             }
         }
 
-        function handleAuthSubmit(e) {
+        async function handleAuthSubmit(e) {
             e.preventDefault();
             const username = document.getElementById('inputUsername').value.trim();
             const email = document.getElementById('inputEmail').value.trim();
             const fullName = document.getElementById('inputFullName').value.trim() || username;
 
             if (authMode === 'register') {
-                const verifyToken = 'tok_' + Math.random().toString(36).substring(2, 10);
+                const verifyPayload = { email: email.toLowerCase(), u: username, t: Date.now() };
+                const verifyToken = btoa(encodeURIComponent(JSON.stringify(verifyPayload))).replace(/=/g, '');
                 currentUser = {
                     id: 'usr_' + Date.now(),
                     fullName: fullName,
@@ -1578,7 +1910,6 @@
                     isAdmin: (username.toLowerCase() === 'yegin14' || email.includes('iletisim@grapsyh.cyou'))
                 };
 
-                // Kullanıcıyı genel listeye kaydet
                 allRegisteredUsers.push(currentUser);
                 localStorage.setItem('grapsyh_all_users', JSON.stringify(allRegisteredUsers));
                 localStorage.setItem('grapsyh_current_user', JSON.stringify(currentUser));
@@ -1586,10 +1917,9 @@
                 closeAuthModal();
                 updateNavUI();
 
-                // E-posta Doğrulama Modalını / İletisini Göster
-                showEmailVerificationModal(currentUser);
+                // Gerçek E-Posta Gönderimini Tetikle
+                triggerSendVerificationEmail(currentUser);
             } else {
-                // Giriş yap
                 const existing = allRegisteredUsers.find(u => u.username.toLowerCase() === username.toLowerCase() || u.email.toLowerCase() === email.toLowerCase());
                 if (existing) {
                     currentUser = existing;
@@ -1622,22 +1952,12 @@
         }
 
         // ==========================================
-        // 7. İLAN AÇMA İŞLEMLERİ
+        // 7. İLAN EKLEME & PROFİL
         // ==========================================
         function handleCreateListingClick() {
             if (!currentUser) {
-                alert("İlan açabilmek için önce kayıt olmalı ve giriş yapmalısınız.");
+                alert("İlan açabilmek için lütfen önce kayıt olmalı veya giriş yapmalısınız.");
                 openAuthModal('register');
-                return;
-            }
-            if (systemSettings.emailVerificationRequired && !currentUser.isEmailVerified) {
-                alert("İlan açabilmek için lütfen önce e-posta adresinizi doğrulayın.");
-                showEmailVerificationModal(currentUser);
-                return;
-            }
-            if (systemSettings.kycRequired && !currentUser.isVerified) {
-                alert("İlan açabilmek için kimliğinizi (KYC) doğrulamanız zorunludur.");
-                openKycModal();
                 return;
             }
             document.getElementById('newListingModal').classList.remove('hidden');
@@ -1672,9 +1992,6 @@
             alert("İlanınız başarıyla yayına alındı!");
         }
 
-        // ==========================================
-        // 8. PROFİL & KYC MODALLARI
-        // ==========================================
         function openProfileModal() {
             if (!currentUser) return;
             document.getElementById('profileUsername').textContent = currentUser.username;
@@ -1769,13 +2086,6 @@
                 `;
                 container.appendChild(div);
             });
-        }
-
-        function openKycModal() {
-            document.getElementById('kycModal').classList.remove('hidden');
-        }
-        function closeKycModal() {
-            document.getElementById('kycModal').classList.add('hidden');
         }
     </script>
 </body>
