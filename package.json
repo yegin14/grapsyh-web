@@ -1,0 +1,12 @@
+{
+  "name": "grapsyh-retail-web",
+  "version": "1.0.0",
+  "description": "Grapsyh Retail - Orijinal Dijital Lisans & Güvenli Kod Mağazası",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["retail", "ecommerce", "kyc", "sumsub", "licenses"],
+  "author": "Grapsyh",
+  "license": "ISC"
+}
