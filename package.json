@@ -1,8 +1,8 @@
 {
   "name": "grapsyh-retail-web",
   "version": "1.0.0",
-  "description": "Grapsyh Retail",
+  "description": "Grapsyh Retail - P2P Lisans & Kod Pazaryeri",
   "scripts": {
-    "dev": "node server.js"
+    "start": "node server.js"
   }
 }
