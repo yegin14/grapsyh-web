@@ -40,7 +40,6 @@ async function generateSumsubToken(userId) {
 }
 
 const server = http.createServer(async (req, res) => {
-    // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -65,12 +64,18 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    // Ana sayfa (index.html) sunumu
-    let filePath = path.join(__dirname, 'index.html');
+    // İstenen dosya (privacy.html veya index.html)
+    const cleanUrl = req.url.split('?')[0];
+    let fileName = 'index.html';
+    if (cleanUrl === '/privacy' || cleanUrl === '/privacy.html') {
+        fileName = 'privacy.html';
+    }
+
+    const filePath = path.join(__dirname, fileName);
     fs.readFile(filePath, (err, content) => {
         if (err) {
-            res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-            res.end('Dosya okuma hatası: ' + err.message);
+            res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+            res.end('Sayfa bulunamadı.');
             return;
         }
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
@@ -79,8 +84,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`\n==================================================`);
-    console.log(`🚀 Grapsyh Retail Web Sitesi Başlatıldı!`);
-    console.log(`🌐 Yerel Adres: http://localhost:${PORT}`);
-    console.log(`==================================================\n`);
+    console.log(`🚀 Grapsyh Retail Server: http://localhost:${PORT}`);
 });
