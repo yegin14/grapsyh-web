@@ -2,8 +2,10 @@
   "name": "grapsyh-retail-web",
   "version": "1.0.0",
   "description": "Grapsyh Retail - P2P Lisans & Kod Pazaryeri",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js",
+    "build": "echo 'Build completed successfully'"
   },
   "dependencies": {
     "nodemailer": "^10.2.1"

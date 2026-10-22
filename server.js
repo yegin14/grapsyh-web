@@ -327,11 +327,15 @@ const server = http.createServer(async (req, res) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`\n========================================================`);
-    console.log(`🚀 Grapsyh Yerel Geliştirme Sunucusu Başlatıldı!`);
-    console.log(`🌐 Ana Sayfa:          http://localhost:${PORT}/`);
-    console.log(`🛡️ Gizlilik Politikası: http://localhost:${PORT}/privacy.html`);
-    console.log(`📧 E-Posta Servisleri: Aktif (mail.spacemail.com:465)`);
-    console.log(`========================================================\n`);
-});
+if (require.main === module) {
+    server.listen(PORT, () => {
+        console.log(`\n========================================================`);
+        console.log(`🚀 Grapsyh Yerel Geliştirme Sunucusu Başlatıldı!`);
+        console.log(`🌐 Ana Sayfa:          http://localhost:${PORT}/`);
+        console.log(`🛡️ Gizlilik Politikası: http://localhost:${PORT}/privacy.html`);
+        console.log(`📧 E-Posta Servisleri: Aktif (mail.spacemail.com:465)`);
+        console.log(`========================================================\n`);
+    });
+}
+
+module.exports = server;
