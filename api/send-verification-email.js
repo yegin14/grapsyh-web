@@ -81,8 +81,7 @@ module.exports = async (req, res) => {
             res.status(200).json({
                 sent: false,
                 reason: 'no_smtp_pass',
-                message: 'Sunucuda Spacemail SMTP şifresi henüz girilmedi.',
-                verifyLink: verifyLink
+                message: 'Sunucuda Spacemail SMTP şifresi henüz girilmediği için e-posta gönderilemedi.'
             });
             return;
         }
@@ -94,7 +93,7 @@ module.exports = async (req, res) => {
             html: mailHtml
         });
 
-        res.status(200).json({ sent: true, messageId: info.messageId, verifyLink: verifyLink });
+        res.status(200).json({ sent: true, messageId: info.messageId });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

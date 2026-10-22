@@ -90,12 +90,11 @@ async function sendVerificationEmail(toEmail, username, verifyToken, originUrl) 
     `;
 
     if (!transporter) {
-        console.log(`[SMTP UYARI] SMTP Şifresi tanımlı değil. Doğrulama e-postası gönderilemedi: ${toEmail} | Link: ${verifyLink}`);
+        console.log(`[SMTP UYARI] SMTP Şifresi tanımlı değil. Doğrulama e-postası gönderilemedi: ${toEmail}`);
         return {
             sent: false,
             reason: 'no_smtp_pass',
-            message: 'Sunucuda Spacemail SMTP şifresi henüz girilmediği için e-posta gönderilemedi.',
-            verifyLink: verifyLink
+            message: 'Sunucuda Spacemail SMTP şifresi henüz girilmediği için e-posta gönderilemedi.'
         };
     }
 
@@ -107,7 +106,7 @@ async function sendVerificationEmail(toEmail, username, verifyToken, originUrl) 
     });
 
     console.log(`[SMTP BAŞARILI] Doğrulama e-postası iletildi: ${toEmail} (MessageId: ${info.messageId})`);
-    return { sent: true, messageId: info.messageId, verifyLink: verifyLink };
+    return { sent: true, messageId: info.messageId };
 }
 
 // 2. Sipariş & Lisans Kodu Teslimat E-Postası Gönderme Fonksiyonu
