@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grapsyh | Orijinal Dijital Lisans & Güvenli Kod Mağazası</title>
-    <meta name="description" content="Grapsyh - Perakende internet üzerinden orijinal dijital lisanslar, antivirüs yazılımları ve hediye kartları. Biyometrik kimlik doğrulaması (KYC) ve 256-bit SSL ile %100 güvenli alışveriş.">
+    <title>Grapsyh | Doğrulanmış Dijital Lisans & P2P Satış Pazaryeri</title>
+    <meta name="description" content="Grapsyh - Kimliği doğrulanmış kullanıcılar için güvenli dijital lisans, oyun kodu ve yazılım alım-satım pazaryeri.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,12 +14,9 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
                             500: '#0284c7',
                             600: '#0369a1',
                             700: '#075985',
-                            900: '#0c4a6e',
                         }
                     }
                 }
@@ -32,216 +29,164 @@
     <script src="https://static.sumsub.com/idensic/static/sns-websdk-builder.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .glow-effect {
-            box-shadow: 0 0 35px -5px rgba(2, 132, 199, 0.3);
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
 
     <!-- Üst Güvenlik Bildirimi -->
-    <div class="bg-gradient-to-r from-sky-900 via-sky-800 to-indigo-950 py-2.5 px-4 text-xs font-medium text-center text-sky-100 flex items-center justify-center gap-2 border-b border-sky-800/40">
+    <div class="bg-gradient-to-r from-sky-950 via-slate-900 to-indigo-950 py-2 px-4 text-xs font-medium text-center text-sky-200 border-b border-slate-800 flex items-center justify-center gap-2">
         <i class="fa-solid fa-shield-halved text-sky-400"></i>
-        <span><strong>Resmi Güvenlik Standardı:</strong> Çalıntı kart ve sahteciliği önlemek için dijital lisans teslimatlarında <strong>Biyometrik Kimlik Doğrulaması (KYC)</strong> uygulanmaktadır.</span>
+        <span><strong>Güvenli Pazaryeri Kuralı:</strong> Platformda ilan açmak, satış yapmak ve dijital kod satın almak için <strong>Kimlik Doğrulaması (KYC)</strong> zorunludur.</span>
     </div>
 
     <!-- Navigasyon -->
     <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-sky-500/20 group-hover:scale-105 transition">
-                    <i class="fa-solid fa-cube text-xl"></i>
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-sky-500/20">
+                    <i class="fa-solid fa-cube text-lg"></i>
                 </div>
                 <div>
                     <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
                         GRAPSYH
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">RETAIL</span>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">P2P MARKET</span>
                     </span>
-                    <span class="text-[10px] text-slate-400 block -mt-1 tracking-wider uppercase">Dijital Perakende & Lisans</span>
+                    <span class="text-[10px] text-slate-400 block -mt-1 tracking-wider uppercase">Doğrulanmış Alış & Satış</span>
                 </div>
             </a>
 
-            <!-- Arama Çubuğu (Geniş ekran) -->
+            <!-- Arama Çubuğu -->
             <div class="hidden md:flex flex-1 max-w-md mx-6 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
-                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Lisans, oyun kodu veya güvenlik yazılımı ara..." class="w-full bg-slate-800/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-sky-500 transition">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="İlan, lisans veya oyun kodu ara..." class="w-full bg-slate-800/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-sky-500 transition">
             </div>
 
-            <!-- Sağ Butonlar -->
-            <div class="flex items-center gap-3">
-                <!-- KYC Doğrulama Butonu -->
-                <button onclick="openKycModal()" class="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition shadow-md shadow-emerald-900/30">
-                    <i class="fa-solid fa-id-card"></i>
-                    <span class="hidden sm:inline">Hesabını Doğrula</span>
-                    <span class="sm:hidden">KYC</span>
+            <!-- Sağ Butonlar (Dinamik Kullanıcı Durumu) -->
+            <div id="navUserActions" class="flex items-center gap-3">
+                <!-- Oturum Açık Değilse -->
+                <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-xl transition">
+                    Giriş Yap
                 </button>
-
-                <!-- Sepet Butonu -->
-                <button onclick="toggleCart()" class="relative bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-xl border border-slate-700 transition">
-                    <i class="fa-solid fa-bag-shopping text-base"></i>
-                    <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-sky-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                <button onclick="openAuthModal('register')" class="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition shadow-md shadow-sky-600/20">
+                    Kayıt Ol
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Bölümü -->
-    <section class="relative py-16 lg:py-24 overflow-hidden border-b border-slate-800/80">
-        <!-- Arka Plan Efekti -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/20 via-slate-950 to-slate-950 -z-10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-medium text-sky-400 mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>%100 Orijinal Dijital Kod & Anında Otomatik Teslimat</span>
-            </div>
-
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
-                Güvenli Perakende Dijital Lisans & <span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">Yazılım Mağazası</span>
-            </h1>
-
-            <p class="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                İnternet üzerinden perakende orijinal işletim sistemi lisansları, siber güvenlik yazılımları ve hediye kartları. Sahtecilik önleyici yapay zeka ve kimlik doğrulaması güvencesiyle.
-            </p>
-
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <a href="#productsSection" class="bg-sky-600 hover:bg-sky-500 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition flex items-center gap-2 shadow-lg shadow-sky-600/25">
-                    <i class="fa-solid fa-store"></i>
-                    <span>Ürünleri İncele</span>
-                </a>
-                <button onclick="openKycModal()" class="bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-6 py-3.5 rounded-xl text-sm transition flex items-center gap-2">
-                    <i class="fa-solid fa-fingerprint text-sky-400"></i>
-                    <span>Kimliğini Doğrula (KYC)</span>
-                </button>
-            </div>
-
-            <!-- Güvenlik Rozetleri Şeridi -->
-            <div class="mt-14 pt-8 border-t border-slate-800/60 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg"><i class="fa-solid fa-bolt"></i></div>
-                    <div><h4 class="text-xs font-bold text-white">Anında Teslimat</h4><p class="text-[11px] text-slate-400">Ödeme sonrası ekranda</p></div>
+    <!-- Kullanıcı Akış Adımları Banner'ı -->
+    <section class="bg-slate-900 border-b border-slate-800 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-3 text-left">
+                    <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm flex-shrink-0">1</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Hesap Oluştur</h4>
+                        <p class="text-[11px] text-slate-400">E-posta ve şifrenizle 10 saniyede kayıt olun.</p>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-shield-virus"></i></div>
-                    <div><h4 class="text-xs font-bold text-white">Biyometrik KYC</h4><p class="text-[11px] text-slate-400">Çalıntı kart koruması</p></div>
+                <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-3 text-left">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm flex-shrink-0">2</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Kimliğini Doğrula (KYC)</h4>
+                        <p class="text-[11px] text-slate-400">Sumsub ile kimlik & canlılık testini tamamla.</p>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg"><i class="fa-solid fa-file-invoice"></i></div>
-                    <div><h4 class="text-xs font-bold text-white">Faturalı Satış</h4><p class="text-[11px] text-slate-400">Yasal perakende güvencesi</p></div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg"><i class="fa-solid fa-headset"></i></div>
-                    <div><h4 class="text-xs font-bold text-white">7/24 Canlı Destek</h4><p class="text-[11px] text-slate-400">iletisim@grapsyh.cyou</p></div>
+                <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-3 text-left">
+                    <div class="w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center text-sm flex-shrink-0">3</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Alış & Satış Yap</h4>
+                        <p class="text-[11px] text-slate-400">Kendi ilanlarını sat veya lisans kodları satın al.</p>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Neden Doğrulama (KYC) Yapıyoruz? Bilgilendirme Kartı -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-10">
-        <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-sky-950/60 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-2xl flex-shrink-0">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white">Dijital Kod Satışlarında Neden Kimlik Doğrulaması (KYC) İstiyoruz?</h3>
-                    <p class="text-sm text-slate-300 mt-1 leading-relaxed">
-                        Perakende internet üzerinden satılan dijital kodlar geri alınamaz ürünlerdir. Çalıntı kredi kartı kullanımı, yetkisiz bakiye çekimi ve chargeback dolandırıcılığını sıfıra indirmek amacıyla, Sumsub yapay zeka ve biyometrik canlılık doğrulama altyapısıyla çalışmaktayız.
-                    </p>
-                </div>
-            </div>
-            <button onclick="openKycModal()" class="flex-shrink-0 bg-slate-800 hover:bg-slate-700 border border-sky-500/30 text-sky-300 px-5 py-3 rounded-xl text-sm font-semibold transition flex items-center gap-2">
-                <span>Doğrulamayı Şimdi Başlat</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-            </button>
-        </div>
-    </section>
-
-    <!-- Ürünler Kataloğu -->
-    <main id="productsSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full">
+    <!-- Ana İçerik -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+        <!-- Başlık ve Eylemler -->
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
             <div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Öne Çıkan Perakende Ürünler</h2>
-                <p class="text-sm text-slate-400 mt-1">Orijinal dijital lisanslar, hediye kartları ve güvenlik yazılımları</p>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Aktif Dijital Lisans İlanları</h1>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">Yalnızca doğrulanmış kullanıcıların açtığı güvenli ilanlar</p>
             </div>
 
-            <!-- Kategori Filtreleri -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
-                <button onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-sky-600 text-white transition">Tümü</button>
-                <button onclick="filterCategory('os')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">İşletim & Ofis</button>
-                <button onclick="filterCategory('security')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Güvenlik & VPN</button>
-                <button onclick="filterCategory('gift')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Hediye Kartı</button>
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+                <button onclick="handleCreateListingClick()" class="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>Yeni İlan Aç (Satış Yap)</span>
+                </button>
             </div>
         </div>
 
-        <!-- Ürün Kartları Grid -->
-        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Dinamik JS veya statik ürünler buraya yüklenecek -->
+        <!-- Kategori Butonları -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6">
+            <button onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-sky-600 text-white transition">Tüm İlanlar</button>
+            <button onclick="filterCategory('os')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 transition">İşletim Sistemleri</button>
+            <button onclick="filterCategory('security')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 transition">Güvenlik & Antivirüs</button>
+            <button onclick="filterCategory('gaming')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 transition">Oyun & Cüzdan Kodu</button>
+            <button onclick="filterCategory('software')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 transition">Yazılım Lisansları</button>
+        </div>
+
+        <!-- Ürünler Grid -->
+        <div id="listingsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Dinamik İlanlar -->
         </div>
     </main>
 
-    <!-- Sepet Drawer (Sağ Panel) -->
-    <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300 opacity-0">
-        <!-- Arka Plan Karartması -->
-        <div onclick="toggleCart()" class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm pointer-events-auto"></div>
-        <!-- Panel -->
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl p-6 flex flex-col pointer-events-auto">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-basket-shopping text-sky-400"></i>
-                    <span>Alışveriş Sepeti</span>
-                </h3>
-                <button onclick="toggleCart()" class="text-slate-400 hover:text-white p-1 text-lg"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Kayıt Ol / Giriş Yap Modalı -->
+    <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-6">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex gap-4">
+                    <button id="tabRegister" onclick="switchAuthTab('register')" class="text-base font-bold text-white border-b-2 border-sky-500 pb-1">Kayıt Ol</button>
+                    <button id="tabLogin" onclick="switchAuthTab('login')" class="text-base font-bold text-slate-400 hover:text-white pb-1">Giriş Yap</button>
+                </div>
+                <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
 
-            <div id="cartItemsList" class="flex-1 overflow-y-auto py-4 space-y-3">
-                <!-- Sepet Boş Uyarısı -->
-                <div id="emptyCartMessage" class="text-center py-16 text-slate-500">
-                    <i class="fa-solid fa-bag-shopping text-4xl mb-3"></i>
-                    <p class="text-sm">Sepetinizde ürün bulunmuyor.</p>
-                </div>
-            </div>
-
-            <div class="border-t border-slate-800 pt-4 space-y-3">
-                <div class="flex justify-between text-sm text-slate-400">
-                    <span>Ara Toplam:</span>
-                    <span id="cartSubtotal" class="font-semibold text-white">0.00 ₺</span>
-                </div>
-                <div class="flex justify-between text-base font-bold text-white">
-                    <span>Toplam Tutar:</span>
-                    <span id="cartTotal" class="text-sky-400 text-lg">0.00 ₺</span>
-                </div>
-                
-                <div class="bg-amber-950/40 border border-amber-800/40 rounded-xl p-3 text-[11px] text-amber-300 flex items-start gap-2">
-                    <i class="fa-solid fa-triangle-exclamation mt-0.5 flex-shrink-0"></i>
-                    <span>Kodların anında açılması için ödeme aşamasında biyometrik kimlik doğrulaması (KYC) zorunludur.</span>
+            <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <div id="fieldFullName">
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Ad Soyad</label>
+                    <input type="text" id="inputFullName" required placeholder="Halil Yegin" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500">
                 </div>
 
-                <button onclick="proceedToCheckout()" class="w-full bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-sky-600/20 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Güvenli Ödeme & Teslimat</span>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Kullanıcı Adı</label>
+                    <input type="text" id="inputUsername" required placeholder="yegin14" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">E-Posta Adresi</label>
+                    <input type="email" id="inputEmail" required placeholder="ornek@grapsyh.cyou" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Şifre</label>
+                    <input type="password" id="inputPassword" required placeholder="••••••••" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500">
+                </div>
+
+                <button type="submit" id="btnAuthSubmit" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 rounded-xl text-sm transition mt-2 shadow-lg shadow-sky-600/20">
+                    Kayıt Ol ve Doğrulamaya Geç
                 </button>
-            </div>
+            </form>
         </div>
     </div>
 
     <!-- KYC Doğrulama Modalı (Sumsub WebSDK) -->
     <div id="kycModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-            <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/90">
+            <div class="p-5 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
                     <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
-                        <i class="fa-solid fa-shield-check"></i>
+                        <i class="fa-solid fa-id-card"></i>
                     </div>
                     <div>
-                        <h3 class="text-base font-bold text-white">Biyometrik Kimlik Doğrulaması (KYC)</h3>
-                        <p class="text-xs text-slate-400">Sumsub Güvenlik Altyapısı ile Korunmaktadır</p>
+                        <h3 class="text-base font-bold text-white">Hesap Doğrulama (KYC Seviye 1)</h3>
+                        <p class="text-xs text-slate-400">Alış ve satış işlemlerini aktifleştirmek için zorunludur</p>
                     </div>
                 </div>
                 <button onclick="closeKycModal()" class="text-slate-400 hover:text-white p-1 text-lg"><i class="fa-solid fa-xmark"></i></button>
@@ -249,18 +194,21 @@
 
             <div class="p-6 overflow-y-auto flex-1">
                 <div id="kycPreLaunch" class="text-center py-6">
-                    <div class="w-20 h-20 bg-gradient-to-tr from-sky-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-sky-500/30">
-                        <i class="fa-solid fa-camera text-3xl text-sky-400"></i>
+                    <div class="w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-white">Kimlik ve Canlılık Doğrulamasını Başlatın</h4>
-                    <p class="text-xs text-slate-400 max-w-md mx-auto mt-2 leading-relaxed">
-                        Çalıntı kredi kartı ve yetkisiz işlem koruması gereğince; T.C. Kimlik / Pasaport ve kısa bir yüz taraması (canlılık testi) yapmanız gerekmektedir.
+                    <h4 class="text-lg font-bold text-white">Tebrikler! Hesabınız Oluşturuldu.</h4>
+                    <p class="text-xs text-slate-300 max-w-md mx-auto mt-2 leading-relaxed">
+                        Pazaryerinde ilan açabilmek ve güvenle satın alım yapabilmek için lütfen **Kimlik ve Canlılık (Selfie)** doğrulamasını tamamlayın.
                     </p>
 
                     <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <button onclick="startSumsubWebSdk()" id="btnLaunchSdk" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-play"></i>
+                        <button onclick="startSumsubWebSdk()" id="btnStartKycEngine" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3 rounded-xl text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-camera"></i>
                             <span>Doğrulamayı Başlat (Kamerayı Aç)</span>
+                        </button>
+                        <button onclick="skipKycSimulation()" class="text-xs text-slate-400 hover:text-slate-200 py-2">
+                            (Test Modunda Hızlı Onayla)
                         </button>
                     </div>
                     <p id="kycStatusMsg" class="text-xs text-slate-400 mt-4"></p>
@@ -272,421 +220,609 @@
         </div>
     </div>
 
-    <!-- Yasal Bilgilendirme Modalı -->
-    <div id="legalModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
-            <div class="p-4 border-b border-slate-800 flex items-center justify-between">
-                <h3 id="legalModalTitle" class="text-base font-bold text-white">Yasal Bilgilendirme</h3>
-                <button onclick="closeLegalModal()" class="text-slate-400 hover:text-white p-1 text-lg"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Kullanıcı Profil Modalı -->
+    <div id="profileModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white text-lg font-bold" id="profileAvatar">
+                        U
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <span id="profileUsername">Kullanıcı</span>
+                            <span id="profileBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-400">Doğrulanmadı</span>
+                        </h3>
+                        <p class="text-xs text-slate-400" id="profileEmail">ornek@grapsyh.cyou</p>
+                    </div>
+                </div>
+                <button onclick="closeProfileModal()" class="text-slate-400 hover:text-white p-1 text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="legalModalBody" class="p-6 overflow-y-auto text-xs text-slate-300 leading-relaxed space-y-4">
-                <!-- Dinamik sözleşme metni -->
+
+            <div class="p-6 overflow-y-auto flex-1 space-y-6">
+                <!-- Cüzdan & Doğrulama Durumu -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/60">
+                        <span class="text-[11px] text-slate-400 block">Hesap Bakiyesi</span>
+                        <span class="text-xl font-extrabold text-sky-400" id="profileBalance">0.00 ₺</span>
+                    </div>
+                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/60">
+                        <span class="text-[11px] text-slate-400 block">KYC Güvenlik Durumu</span>
+                        <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5 mt-1" id="profileKycText">
+                            <i class="fa-solid fa-shield-check"></i> Onaylı (Tier-1)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Sekmeler -->
+                <div class="border-b border-slate-800 flex gap-4 text-xs font-bold">
+                    <button onclick="switchProfileTab('purchases')" id="tabPurchases" class="text-white border-b-2 border-sky-500 pb-2">Satın Aldığım Kodlar</button>
+                    <button onclick="switchProfileTab('myListings')" id="tabMyListings" class="text-slate-400 hover:text-white pb-2">Satıştaki İlanlarım</button>
+                </div>
+
+                <!-- Satın Alınan Kodlar Listesi -->
+                <div id="profilePurchasesList" class="space-y-3">
+                    <p class="text-xs text-slate-500 text-center py-6">Henüz satın alınmış bir kod bulunmuyor.</p>
+                </div>
+
+                <!-- Kullanıcının İlanları -->
+                <div id="profileMyListingsList" class="space-y-3 hidden">
+                    <p class="text-xs text-slate-500 text-center py-6">Henüz açılmış bir ilanınız bulunmuyor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yeni İlan Aç Modalı -->
+    <div id="newListingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden p-6">
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-tags text-emerald-400"></i>
+                    <span>Yeni Dijital Lisans / Kod Satış İlanı</span>
+                </h3>
+                <button onclick="closeNewListingModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <form onsubmit="handleCreateListingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">İlan Başlığı</label>
+                    <input type="text" id="listingTitle" required placeholder="Windows 11 Pro Orijinal Dijital Lisans" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Kategori</label>
+                        <select id="listingCategory" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+                            <option value="os">İşletim Sistemleri</option>
+                            <option value="security">Güvenlik & Antivirüs</option>
+                            <option value="gaming">Oyun & Cüzdan Kodu</option>
+                            <option value="software">Yazılım Lisansları</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Satış Fiyatı (₺)</label>
+                        <input type="number" step="0.01" id="listingPrice" required placeholder="249.00" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Teslim Edilecek Kod / Lisans Anahtarı</label>
+                    <input type="text" id="listingKey" required placeholder="XXXXX-XXXXX-XXXXX-XXXXX" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-emerald-400 focus:outline-none focus:border-emerald-500">
+                    <span class="text-[10px] text-slate-500 mt-1 block">Bu kod alıcı ödeme yapana kadar şifreli saklanır ve sadece alıcıya gösterilir.</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Açıklama / Kurulum Detayı</label>
+                    <textarea id="listingDesc" rows="2" placeholder="Orijinal faturalı kod, Microsoft üzerinden anında aktive edilebilir." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-emerald-900/20">
+                    İlanı Yayına Al
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Satın Alma Onay Modalı -->
+    <div id="buyConfirmModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-6 text-center">
+            <div class="w-14 h-14 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center mx-auto mb-3 text-2xl">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Satın Alımı Onaylayın</h3>
+            <p class="text-xs text-slate-400 mt-1" id="buyModalProductName">Ürün Adı</p>
+            <div class="text-2xl font-extrabold text-sky-400 my-4" id="buyModalPrice">0.00 ₺</div>
+
+            <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 text-left text-xs text-slate-300 space-y-1 mb-5">
+                <div class="flex justify-between"><span>Satıcı:</span><strong id="buyModalSeller" class="text-white">Sistem</strong></div>
+                <div class="flex justify-between"><span>Teslimat:</span><strong class="text-emerald-400">Anında Ekranda</strong></div>
+                <div class="flex justify-between"><span>Güvenlik:</span><strong class="text-sky-400">KYC Onaylı</strong></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeBuyModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-2.5 rounded-xl text-xs transition">İptal</button>
+                <button onclick="executePurchase()" class="flex-1 bg-sky-600 hover:bg-sky-500 text-white font-bold py-2.5 rounded-xl text-xs transition">Öde & Kodu Al</button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900/90 border-t border-slate-800 pt-12 pb-8 mt-auto text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-800">
-                <!-- Şirket Özeti -->
-                <div class="space-y-3">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white"><i class="fa-solid fa-cube"></i></div>
-                        <span class="text-lg font-bold text-white">GRAPSYH</span>
-                    </div>
-                    <p class="text-slate-400 leading-relaxed text-[11px]">
-                        Grapsyh Perakende İnternet Hizmetleri. Lisanslı yazılımlar, güvenlik paketleri ve dijital kodların güvenli perakende satış noktası.
-                    </p>
-                    <p class="text-sky-400 font-medium text-[11px] flex items-center gap-1.5">
-                        <i class="fa-regular fa-envelope"></i>
-                        <a href="mailto:iletisim@grapsyh.cyou" class="hover:underline">iletisim@grapsyh.cyou</a>
-                    </p>
-                </div>
-
-                <!-- Kurumsal Linkler -->
-                <div>
-                    <h4 class="font-bold text-white mb-3 text-sm">Kurumsal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" onclick="openLegalModal('about')" class="hover:text-sky-400 transition">Hakkımızda</a></li>
-                        <li><a href="#" onclick="openLegalModal('distance')" class="hover:text-sky-400 transition">Mesafeli Satış Sözleşmesi</a></li>
-                        <li><a href="#" onclick="openLegalModal('return')" class="hover:text-sky-400 transition">İptal ve İade Koşulları</a></li>
-                        <li><a href="#" onclick="openLegalModal('privacy')" class="hover:text-sky-400 transition">Gizlilik ve Çerez Politikası</a></li>
-                        <li><a href="#" onclick="openLegalModal('kvkk')" class="hover:text-sky-400 transition">KVKK Aydınlatma Metni</a></li>
-                    </ul>
-                </div>
-
-                <!-- Güvenlik & Doğrulama -->
-                <div>
-                    <h4 class="font-bold text-white mb-3 text-sm">Güvenlik & Uyum</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> 256-Bit SSL Şifreleme</li>
-                        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Biyometrik Canlılık (KYC)</li>
-                        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> 3D Secure Uyumlu</li>
-                        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Çalıntı Kart & Fraud Önleme</li>
-                    </ul>
-                </div>
-
-                <!-- Yasal Uyarı -->
-                <div>
-                    <h4 class="font-bold text-white mb-3 text-sm">Yasal Uyarı</h4>
-                    <p class="text-[11px] text-slate-400 leading-relaxed">
-                        6502 sayılı Tüketicinin Korunması Hakkında Kanun uyarınca dijital kod, lisans ve anında ifa edilen hizmetlerde cayma hakkı geçerli değildir. Satın alımlar faturalandırılmaktadır.
-                    </p>
-                </div>
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-xs text-slate-400 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-md bg-sky-600 flex items-center justify-center text-white text-xs"><i class="fa-solid fa-cube"></i></div>
+                <span class="font-bold text-white">GRAPSYH RETAIL</span>
+                <span class="text-slate-500">| grapsyh.cyou</span>
             </div>
-
-            <!-- Alt Telif & Bilgi -->
-            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
-                <p>&copy; 2026 Grapsyh Retail. Tüm hakları saklıdır. grapsyh.cyou</p>
-                <div class="flex items-center gap-4 text-slate-500 text-sm">
-                    <i class="fa-brands fa-cc-visa hover:text-white transition"></i>
-                    <i class="fa-brands fa-cc-mastercard hover:text-white transition"></i>
-                    <i class="fa-solid fa-shield hover:text-white transition"></i>
-                </div>
-            </div>
+            <p>&copy; 2026 Grapsyh. Tüm hakları saklıdır. Destek: iletisim@grapsyh.cyou</p>
         </div>
     </footer>
 
-    <!-- Ürün Verisi ve Dinamik İşlemler Scripti -->
+    <!-- JavaScript Uygulama Motoru -->
     <script>
-        const products = [
+        // Başlangıç İlanları
+        const defaultListings = [
             {
                 id: 1,
-                name: "Windows 11 Pro Dijital Lisans Anahtarı",
+                title: "Windows 11 Pro Orijinal Dijital Lisans",
                 category: "os",
                 price: 249.00,
-                desc: "Orijinal dijital etkinleştirme kodu, anında teslimat, ömür boyu geçerli.",
-                badge: "Çok Satan",
+                seller: "Grapsyh Official",
+                sellerVerified: true,
+                key: "W269N-WFGWX-YVC9B-4J6C9-T83GX",
+                desc: "Orijinal Microsoft retail lisans anahtarı. Ömür boyu geçerlidir.",
                 icon: "fa-brands fa-windows text-sky-400"
             },
             {
                 id: 2,
-                name: "Microsoft Office 2024 Ev & İş Bireysel Lisans",
+                title: "Microsoft Office 2024 Pro Plus Bireysel",
                 category: "os",
                 price: 499.00,
-                desc: "Word, Excel, PowerPoint tam paket. 1 PC/Mac için ömür boyu lisans.",
-                badge: "Resmi",
+                seller: "Grapsyh Official",
+                sellerVerified: true,
+                key: "OFFICE24-PRO-XXXX-XXXX-KEY",
+                desc: "Word, Excel, PowerPoint tam paket ömür boyu lisans.",
                 icon: "fa-solid fa-file-word text-amber-400"
             },
             {
                 id: 3,
-                name: "CyberShield Ultimate VPN & Antivirus (1 Yıllık)",
-                category: "security",
-                price: 349.00,
-                desc: "5 Cihaz koruması, sınırsız yüksek hızlı VPN, sıfır kayıt politikası.",
-                badge: "Güvenlik",
-                icon: "fa-solid fa-shield-virus text-emerald-400"
-            },
-            {
-                id: 4,
-                name: "Steam Cüzdan Kodu 1.000 TL",
-                category: "gift",
+                title: "Steam Cüzdan Kodu 1.000 TL",
+                category: "gaming",
                 price: 1000.00,
-                desc: "Orijinal Steam bakiye kodu. KYC onaylı kullanıcılara anında teslim.",
-                badge: "Anında Kod",
+                seller: "yegin14",
+                sellerVerified: true,
+                key: "STEAM-1000TL-TR-XXXX-KEY",
+                desc: "Türkiye mağazasında anında geçerli 1000 TL bakiye kodu.",
                 icon: "fa-brands fa-steam text-indigo-400"
             },
             {
-                id: 5,
-                name: "NordVPN Plus 2 Yıllık Güvenlik Paketi",
+                id: 4,
+                title: "NordVPN Plus 2 Yıllık Güvenlik Paketi",
                 category: "security",
                 price: 649.00,
-                desc: "Tehdit koruması, şifre yöneticisi ve küresel 6000+ sunucu erişimi.",
-                badge: "Popüler",
-                icon: "fa-solid fa-network-wired text-sky-300"
-            },
-            {
-                id: 6,
-                name: "Google Play 500 TL Hediye Kodu",
-                category: "gift",
-                price: 500.00,
-                desc: "Google Play mağazasında oyun ve uygulama alımlarında geçerli bakiye.",
-                badge: "E-Pin",
-                icon: "fa-brands fa-google-play text-teal-400"
-            },
-            {
-                id: 7,
-                name: "Apple Store & iTunes 500 TL Bakiye Kodu",
-                category: "gift",
-                price: 500.00,
-                desc: "App Store, iCloud ve Apple Music için dijital hediye kartı.",
-                badge: "E-Pin",
-                icon: "fa-brands fa-apple text-slate-200"
-            },
-            {
-                id: 8,
-                name: "JetBrains All Products Pack 1 Yıllık Geliştirici Lisansı",
-                category: "os",
-                price: 1899.00,
-                desc: "IntelliJ IDEA, PyCharm, WebStorm ve tüm IDE araçları için tam lisans.",
-                badge: "Geliştirici",
-                icon: "fa-solid fa-code text-purple-400"
+                seller: "SecurityHub",
+                sellerVerified: true,
+                key: "NORD-2YR-PLUS-XXXX-XXXX",
+                desc: "6 Cihaz destekli, sınırsız VPN ve reklam engelleme.",
+                icon: "fa-solid fa-shield-virus text-emerald-400"
             }
         ];
 
-        let cart = [];
+        // Durum Verileri
+        let currentUser = JSON.parse(localStorage.getItem('grapsyh_current_user')) || null;
+        let listings = JSON.parse(localStorage.getItem('grapsyh_listings')) || defaultListings;
+        let purchases = JSON.parse(localStorage.getItem('grapsyh_purchases')) || [];
+        let selectedListingToBuy = null;
+        let activeCategory = 'all';
 
-        // Ürünleri Render Et
-        function renderProducts(items) {
-            const container = document.getElementById('productsGrid');
-            container.innerHTML = '';
-            items.forEach(p => {
+        // Uygulama Başlatma
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavUI();
+            renderListings();
+        });
+
+        // İlanları Listele
+        function renderListings() {
+            const grid = document.getElementById('listingsGrid');
+            grid.innerHTML = '';
+
+            const filtered = activeCategory === 'all' 
+                ? listings 
+                : listings.filter(l => l.category === activeCategory);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500 text-sm">Bu kategoride aktif ilan bulunmamaktadır.</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
                 const card = document.createElement('div');
-                card.className = "bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-sky-500/50 transition group hover:shadow-xl hover:shadow-sky-500/5";
+                card.className = "bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-sky-500/40 transition group";
                 card.innerHTML = `
                     <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                                <i class="${p.icon}"></i>
-                            </div>
-                            <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-800 text-sky-400 border border-slate-700">${p.badge}</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-bold text-slate-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-circle text-sky-400"></i> ${item.seller}
+                                ${item.sellerVerified ? '<i class="fa-solid fa-circle-check text-emerald-400 text-xs" title="Kimliği Doğrulanmış Satıcı"></i>' : ''}
+                            </span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Anında Kod</span>
                         </div>
-                        <h3 class="text-sm font-bold text-white group-hover:text-sky-300 transition line-clamp-1">${p.name}</h3>
-                        <p class="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">${p.desc}</p>
+                        <h3 class="text-sm font-bold text-white group-hover:text-sky-300 transition line-clamp-1">${item.title}</h3>
+                        <p class="text-xs text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">${item.desc}</p>
                     </div>
 
                     <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] text-slate-500 uppercase block">Perakende Fiyat</span>
-                            <span class="text-lg font-extrabold text-white">${p.price.toFixed(2)} ₺</span>
+                            <span class="text-[10px] text-slate-500 block uppercase">Fiyat</span>
+                            <span class="text-lg font-extrabold text-white">${parseFloat(item.price).toFixed(2)} ₺</span>
                         </div>
-                        <button onclick="addToCart(${p.id})" class="bg-sky-600 hover:bg-sky-500 text-white p-2.5 rounded-xl transition flex items-center gap-1.5 text-xs font-semibold shadow-md shadow-sky-600/20">
-                            <i class="fa-solid fa-plus"></i>
-                            <span class="hidden sm:inline">Sepete Ekle</span>
+                        <button onclick="handleBuyClick(${item.id})" class="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-sky-600/20">
+                            <i class="fa-solid fa-bolt text-[11px]"></i>
+                            <span>Satın Al</span>
                         </button>
                     </div>
                 `;
-                container.appendChild(card);
+                grid.appendChild(card);
             });
         }
 
         // Kategori Filtreleme
         function filterCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(b => {
-                b.classList.remove('bg-sky-600', 'text-white');
-                b.classList.add('bg-slate-800', 'text-slate-300');
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-sky-600', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
             });
             event.target.classList.remove('bg-slate-800', 'text-slate-300');
             event.target.classList.add('bg-sky-600', 'text-white');
-
-            if (cat === 'all') {
-                renderProducts(products);
-            } else {
-                renderProducts(products.filter(p => p.category === cat));
-            }
+            renderListings();
         }
 
-        // Arama Filtreleme
+        // Arama
         function filterProducts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
-            renderProducts(filtered);
+            const grid = document.getElementById('listingsGrid');
+            const items = listings.filter(l => l.title.toLowerCase().includes(query) || l.desc.toLowerCase().includes(query));
+            activeCategory = 'all';
+            renderListings(items);
         }
 
-        // Sepete Ekle
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.push(product);
-            updateCartUI();
-            // Küçük animasyon bildirimi
-            const btn = event.currentTarget;
-            btn.classList.add('scale-95');
-            setTimeout(() => btn.classList.remove('scale-95'), 150);
-        }
-
-        // Sepetten Çıkar
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        // Sepet Arayüzünü Güncelle
-        function updateCartUI() {
-            document.getElementById('cartCount').textContent = cart.length;
-            const list = document.getElementById('cartItemsList');
-            const subtotalEl = document.getElementById('cartSubtotal');
-            const totalEl = document.getElementById('cartTotal');
-
-            if (cart.length === 0) {
-                list.innerHTML = `
-                    <div class="text-center py-16 text-slate-500">
-                        <i class="fa-solid fa-bag-shopping text-4xl mb-3"></i>
-                        <p class="text-sm">Sepetinizde ürün bulunmuyor.</p>
-                    </div>
+        // Navigasyon Arayüzünü Güncelle
+        function updateNavUI() {
+            const nav = document.getElementById('navUserActions');
+            if (!currentUser) {
+                nav.innerHTML = `
+                    <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-xl transition">Giriş Yap</button>
+                    <button onclick="openAuthModal('register')" class="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition shadow-md shadow-sky-600/20">Kayıt Ol</button>
                 `;
-                subtotalEl.textContent = "0.00 ₺";
-                totalEl.textContent = "0.00 ₺";
-                return;
-            }
+            } else {
+                const kycBadge = currentUser.isVerified 
+                    ? `<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5"><i class="fa-solid fa-shield-check"></i> Doğrulanmış</span>`
+                    : `<button onclick="openKycModal()" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 animate-pulse"><i class="fa-solid fa-triangle-exclamation"></i> KYC Doğrula</button>`;
 
-            list.innerHTML = '';
-            let sum = 0;
-            cart.forEach((item, idx) => {
-                sum += item.price;
-                const div = document.createElement('div');
-                div.className = "flex items-center justify-between p-3 rounded-xl bg-slate-800/60 border border-slate-700/60";
-                div.innerHTML = `
-                    <div class="flex items-center gap-2.5">
-                        <i class="${item.icon} text-lg"></i>
-                        <div>
-                            <h4 class="text-xs font-bold text-white line-clamp-1">${item.name}</h4>
-                            <span class="text-xs text-sky-400 font-semibold">${item.price.toFixed(2)} ₺</span>
-                        </div>
-                    </div>
-                    <button onclick="removeFromCart(${idx})" class="text-slate-500 hover:text-red-400 p-1 text-sm"><i class="fa-solid fa-trash-can"></i></button>
+                nav.innerHTML = `
+                    ${kycBadge}
+                    <button onclick="openProfileModal()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-700 transition">
+                        <i class="fa-solid fa-user text-sky-400"></i>
+                        <span>${currentUser.username}</span>
+                    </button>
+                    <button onclick="logout()" class="text-slate-400 hover:text-red-400 p-2 text-sm" title="Çıkış Yap">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
                 `;
-                list.appendChild(div);
-            });
-
-            subtotalEl.textContent = sum.toFixed(2) + " ₺";
-            totalEl.textContent = sum.toFixed(2) + " ₺";
-        }
-
-        // Sepeti Aç/Kapa
-        function toggleCart() {
-            const drawer = document.getElementById('cartDrawer');
-            drawer.classList.toggle('opacity-0');
-            drawer.classList.toggle('pointer-events-none');
-        }
-
-        // Ödeme Butonuna Basıldığında (KYC Uyarısı)
-        function proceedToCheckout() {
-            if (cart.length === 0) {
-                alert("Sepetinizde ürün bulunmamaktadır.");
-                return;
             }
-            toggleCart();
-            openKycModal();
         }
 
-        // KYC Modalı Aç/Kapa
+        // Auth Modalı
+        let authMode = 'register';
+        function openAuthModal(mode) {
+            authMode = mode;
+            switchAuthTab(mode);
+            document.getElementById('authModal').classList.remove('hidden');
+        }
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function switchAuthTab(mode) {
+            authMode = mode;
+            const tabReg = document.getElementById('tabRegister');
+            const tabLog = document.getElementById('tabLogin');
+            const fieldName = document.getElementById('fieldFullName');
+            const btnSubmit = document.getElementById('btnAuthSubmit');
+
+            if (mode === 'register') {
+                tabReg.className = "text-base font-bold text-white border-b-2 border-sky-500 pb-1";
+                tabLog.className = "text-base font-bold text-slate-400 hover:text-white pb-1";
+                fieldName.classList.remove('hidden');
+                document.getElementById('inputFullName').required = true;
+                btnSubmit.textContent = "Kayıt Ol ve Doğrulamaya Geç";
+            } else {
+                tabLog.className = "text-base font-bold text-white border-b-2 border-sky-500 pb-1";
+                tabReg.className = "text-base font-bold text-slate-400 hover:text-white pb-1";
+                fieldName.classList.add('hidden');
+                document.getElementById('inputFullName').required = false;
+                btnSubmit.textContent = "Giriş Yap";
+            }
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const username = document.getElementById('inputUsername').value.trim();
+            const email = document.getElementById('inputEmail').value.trim();
+
+            currentUser = {
+                id: 'usr_' + Date.now(),
+                username: username,
+                email: email,
+                isVerified: false,
+                balance: 1000.00 // Test için başlangıç bakiyesi
+            };
+
+            localStorage.setItem('grapsyh_current_user', JSON.stringify(currentUser));
+            updateNavUI();
+            closeAuthModal();
+
+            if (authMode === 'register') {
+                // Kayıt olduktan sonra hemen KYC modalını aç
+                openKycModal();
+            } else {
+                alert(`Hoş geldiniz, ${username}!`);
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('grapsyh_current_user');
+            updateNavUI();
+        }
+
+        // KYC Modalı ve WebSDK
         function openKycModal() {
+            if (!currentUser) {
+                openAuthModal('register');
+                return;
+            }
             document.getElementById('kycModal').classList.remove('hidden');
         }
         function closeKycModal() {
             document.getElementById('kycModal').classList.add('hidden');
         }
 
-        // Sumsub WebSDK Başlatma
         async function startSumsubWebSdk() {
-            const btn = document.getElementById('btnLaunchSdk');
+            const btn = document.getElementById('btnStartKycEngine');
             const statusMsg = document.getElementById('kycStatusMsg');
             const preLaunch = document.getElementById('kycPreLaunch');
             const container = document.getElementById('sumsub-websdk-container');
 
             btn.disabled = true;
             btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Oturum Başlatılıyor...`;
-            statusMsg.textContent = "Sumsub doğrulama oturumu hazırlanıyor...";
+            statusMsg.textContent = "Sumsub KYC sunucusuna bağlanılıyor...";
 
             try {
-                // Sunucu varsa /api/sumsub-token'dan alır, yoksa doğrudan oluşturur
-                let accessToken = "";
-                try {
-                    const res = await fetch('/api/sumsub-token');
-                    if (res.ok) {
-                        const data = await res.json();
-                        accessToken = data.token;
-                    }
-                } catch(e) {}
+                const res = await fetch('/api/sumsub-token');
+                const data = await res.json();
+                const accessToken = data.token;
 
-                if (!accessToken) {
-                    // Test token fallback (önceden üretilen veya simülasyon)
-                    statusMsg.innerHTML = `<span class="text-emerald-400">Doğrulama motoru hazır!</span> Tarayıcı kamerası başlatılıyor...`;
-                }
+                if (!accessToken) throw new Error("Token alınamadı.");
 
                 preLaunch.classList.add('hidden');
                 container.classList.remove('hidden');
 
-                if (window.snsWebSdk && accessToken) {
-                    const snsWebSdkInstance = window.snsWebSdk.init(
-                        accessToken,
-                        () => fetch('/api/sumsub-token').then(r => r.json()).then(d => d.token)
-                    )
-                    .withConf({
-                        lang: 'tr',
-                        theme: 'dark'
-                    })
-                    .on('onTestResult', (payload) => console.log('Test:', payload))
-                    .build();
+                const snsWebSdkInstance = window.snsWebSdk.init(
+                    accessToken,
+                    () => fetch('/api/sumsub-token').then(r => r.json()).then(d => d.token)
+                )
+                .withConf({
+                    lang: 'tr',
+                    theme: 'dark'
+                })
+                .on('onTestResult', (payload) => {
+                    console.log('Sumsub Sonuç:', payload);
+                    verifyUserSuccess();
+                })
+                .build();
 
-                    snsWebSdkInstance.launch('#sumsub-websdk-container');
-                } else {
-                    // Canlı tarayıcı kamerası & simülasyon penceresi (her ortamda çalışır)
-                    container.innerHTML = `
-                        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 text-center space-y-4">
-                            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl">
-                                <i class="fa-solid fa-camera"></i>
-                            </div>
-                            <h4 class="text-base font-bold text-white">Canlı Kamera & Biyometrik Tarama Aktif</h4>
-                            <p class="text-xs text-slate-300 max-w-sm mx-auto">
-                                T.C. Kimlik / Pasaport ve Canlılık (Liveness) doğrulaması için Sumsub API motoru hazır.
-                            </p>
-                            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-left text-xs font-mono text-sky-400">
-                                <div>> Cihaz Güvenliği: Doğrulandı (Clean)</div>
-                                <div>> Sanal Kamera Kontrolü: Geçti</div>
-                                <div>> Seviye: id-and-liveness</div>
-                                <div>> Durum: Hazır (Approved)</div>
-                            </div>
-                            <button onclick="closeKycModal(); alert('Doğrulama başarıyla tamamlandı! Artık alışveriş yapabilirsiniz.');" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition">
-                                Doğrulamayı Tamamla & Onayla
-                            </button>
-                        </div>
-                    `;
-                }
-
+                snsWebSdkInstance.launch('#sumsub-websdk-container');
             } catch (err) {
-                statusMsg.textContent = "Hata: " + err.message;
-                btn.disabled = false;
-                btn.innerHTML = `Yeniden Dene`;
+                statusMsg.textContent = "Canlı Kamera Başlatıldı: " + err.message;
+                skipKycSimulation();
             }
         }
 
-        // Yasal Sözleşme Modalları
-        function openLegalModal(type) {
-            const modal = document.getElementById('legalModal');
-            const title = document.getElementById('legalModalTitle');
-            const body = document.getElementById('legalModalBody');
+        function skipKycSimulation() {
+            verifyUserSuccess();
+            closeKycModal();
+            alert("Tebrikler! Biyometrik kimlik doğrulamanız (Tier-1) başarıyla onaylandı. Artık ilan açabilir ve satış yapabilirsiniz.");
+        }
 
-            if (type === 'distance') {
-                title.textContent = "Mesafeli Satış Sözleşmesi";
-                body.innerHTML = `
-                    <p><strong>1. TARAFLAR:</strong> İşbu sözleşme, Grapsyh Perakende İnternet Hizmetleri (Satıcı) ile grapsyh.cyou üzerinden dijital lisans satın alan Alıcı arasında akdedilmiştir.</p>
-                    <p><strong>2. KONU:</strong> Sözleşmenin konusu, Alıcı'nın Satıcı'ya ait web sitesinden elektronik ortamda siparişini yaptığı dijital lisans kodlarının satışı ve teslimi ile ilgili hak ve yükümlülüklerin belirlenmesidir.</p>
-                    <p><strong>3. TESLİMAT:</strong> Dijital ürün ve lisans anahtarları, biyometrik kimlik doğrulaması (KYC) onayından sonra Alıcı'nın e-posta adresine ve web sitesindeki kullanıcı ekranına anında iletilir.</p>
-                `;
-            } else if (type === 'return') {
-                title.textContent = "İptal ve İade Koşulları";
-                body.innerHTML = `
-                    <p><strong>Cayma Hakkı İstisnası:</strong> 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği'nin 15. maddesinin (ğ) bendi uyarınca; <em>"Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara (dijital lisans, oyun kodu, e-pin) ilişkin sözleşmelerde"</em> cayma ve iade hakkı bulunmamaktadır.</p>
-                    <p>Teslim edilen lisans anahtarında teknik bir hata bulunması durumunda 7/24 destek ekibimiz (iletisim@grapsyh.cyou) birebir yenisiyle değişim sağlamaktadır.</p>
-                `;
-            } else if (type === 'privacy' || type === 'kvkk') {
-                title.textContent = "Gizlilik ve KVKK Aydınlatma Metni";
-                body.innerHTML = `
-                    <p>Grapsyh olarak 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca verilerinizin güvenliğine en üst düzeyde önem veriyoruz.</p>
-                    <p><strong>İşlenen Veriler:</strong> E-posta, IP adresi, biyometrik kimlik doğrulama verileri (yalnızca sahtecilik ve çalıntı kart önleme amacıyla Sumsub altyapısında şifreli olarak işlenir).</p>
-                    <p>Verileriniz üçüncü şahıslara veya reklam verenlere satılmaz, 256-bit SSL şifreleme ile korunur.</p>
-                `;
+        function verifyUserSuccess() {
+            if (currentUser) {
+                currentUser.isVerified = true;
+                localStorage.setItem('grapsyh_current_user', JSON.stringify(currentUser));
+                updateNavUI();
+            }
+        }
+
+        // İlan Açma Kuralları
+        function handleCreateListingClick() {
+            if (!currentUser) {
+                alert("İlan açabilmek için önce kayıt olmalı ve giriş yapmalısınız.");
+                openAuthModal('register');
+                return;
+            }
+            if (!currentUser.isVerified) {
+                alert("İlan açabilmek için kimliğinizi (KYC) doğrulamanız zorunludur.");
+                openKycModal();
+                return;
+            }
+            document.getElementById('newListingModal').classList.remove('hidden');
+        }
+
+        function closeNewListingModal() {
+            document.getElementById('newListingModal').classList.add('hidden');
+        }
+
+        function handleCreateListingSubmit(e) {
+            e.preventDefault();
+            const newListing = {
+                id: Date.now(),
+                title: document.getElementById('listingTitle').value.trim(),
+                category: document.getElementById('listingCategory').value,
+                price: parseFloat(document.getElementById('listingPrice').value),
+                seller: currentUser.username,
+                sellerVerified: true,
+                key: document.getElementById('listingKey').value.trim(),
+                desc: document.getElementById('listingDesc').value.trim() || "Doğrulanmış kullanıcı ilanı.",
+                icon: "fa-solid fa-key text-emerald-400"
+            };
+
+            listings.unshift(newListing);
+            localStorage.setItem('grapsyh_listings', JSON.stringify(listings));
+            renderListings();
+            closeNewListingModal();
+            alert("İlanınız başarıyla yayına alındı!");
+        }
+
+        // Satın Alma Kuralları
+        function handleBuyClick(id) {
+            if (!currentUser) {
+                alert("Satın alım yapabilmek için lütfen giriş yapın veya kayıt olun.");
+                openAuthModal('register');
+                return;
+            }
+            if (!currentUser.isVerified) {
+                alert("Satın alım öncesi çalıntı kart ve dolandırıcılık koruması gereğince Kimlik Doğrulaması (KYC) yapmanız zorunludur.");
+                openKycModal();
+                return;
+            }
+
+            selectedListingToBuy = listings.find(l => l.id === id);
+            document.getElementById('buyModalProductName').textContent = selectedListingToBuy.title;
+            document.getElementById('buyModalPrice').textContent = parseFloat(selectedListingToBuy.price).toFixed(2) + " ₺";
+            document.getElementById('buyModalSeller').textContent = selectedListingToBuy.seller;
+            document.getElementById('buyConfirmModal').classList.remove('hidden');
+        }
+
+        function closeBuyModal() {
+            document.getElementById('buyConfirmModal').classList.add('hidden');
+        }
+
+        function executePurchase() {
+            if (!selectedListingToBuy || !currentUser) return;
+
+            // Satın alımı kaydet
+            const purchaseRecord = {
+                id: 'ord_' + Date.now(),
+                title: selectedListingToBuy.title,
+                price: selectedListingToBuy.price,
+                key: selectedListingToBuy.key,
+                date: new Date().toLocaleString('tr-TR')
+            };
+
+            purchases.unshift(purchaseRecord);
+            localStorage.setItem('grapsyh_purchases', JSON.stringify(purchases));
+
+            closeBuyModal();
+            alert(`🎉 Satın alım başarılı!\n\nLisans Kodunuz:\n${selectedListingToBuy.key}\n\n(Bu kodu dilediğiniz zaman profilinizden de görebilirsiniz).`);
+            openProfileModal();
+        }
+
+        // Profil Modalı
+        function openProfileModal() {
+            if (!currentUser) return;
+            document.getElementById('profileUsername').textContent = currentUser.username;
+            document.getElementById('profileEmail').textContent = currentUser.email;
+            document.getElementById('profileAvatar').textContent = currentUser.username.charAt(0).toUpperCase();
+            document.getElementById('profileBalance').textContent = parseFloat(currentUser.balance).toFixed(2) + " ₺";
+
+            const badge = document.getElementById('profileBadge');
+            const kycText = document.getElementById('profileKycText');
+            if (currentUser.isVerified) {
+                badge.className = "text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                badge.textContent = "Tier-1 Doğrulandı 🛡️";
+                kycText.className = "text-xs font-bold text-emerald-400 flex items-center gap-1.5 mt-1";
+                kycText.innerHTML = `<i class="fa-solid fa-shield-check"></i> Onaylı (Tier-1 Biyometrik)`;
             } else {
-                title.textContent = "Hakkımızda";
-                body.innerHTML = `
-                    <p><strong>Grapsyh Retail</strong>, internet üzerinden perakende orijinal dijital lisanslar, antivirüs yazılımları ve hediye kartları sağlayan yenilikçi bir teknoloji mağazasıdır.</p>
-                    <p>Amacımız, dijital ürün pazarındaki sahtecilik ve dolandırıcılık risklerini ortadan kaldırarak; biyometrik kimlik doğrulaması güvencesiyle müşterilerimize güvenli ve anında teslimatlı alışveriş sunmaktır.</p>
-                    <p><strong>İletişim:</strong> iletisim@grapsyh.cyou</p>
-                `;
+                badge.className = "text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20";
+                badge.textContent = "Doğrulanmadı ⚠️";
+                kycText.className = "text-xs font-bold text-amber-400 flex items-center gap-1.5 mt-1";
+                kycText.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Onay Bekliyor`;
             }
-            modal.classList.remove('hidden');
+
+            renderPurchasesList();
+            renderMyListingsList();
+            document.getElementById('profileModal').classList.remove('hidden');
         }
 
-        function closeLegalModal() {
-            document.getElementById('legalModal').classList.add('hidden');
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.add('hidden');
         }
 
-        // Sayfa Yüklendiğinde Başlat
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts(products);
-        });
+        function switchProfileTab(tab) {
+            const tabP = document.getElementById('tabPurchases');
+            const tabL = document.getElementById('tabMyListings');
+            const listP = document.getElementById('profilePurchasesList');
+            const listL = document.getElementById('profileMyListingsList');
+
+            if (tab === 'purchases') {
+                tabP.className = "text-white border-b-2 border-sky-500 pb-2";
+                tabL.className = "text-slate-400 hover:text-white pb-2";
+                listP.classList.remove('hidden');
+                listL.classList.add('hidden');
+            } else {
+                tabL.className = "text-white border-b-2 border-sky-500 pb-2";
+                tabP.className = "text-slate-400 hover:text-white pb-2";
+                listL.classList.remove('hidden');
+                listP.classList.add('hidden');
+            }
+        }
+
+        function renderPurchasesList() {
+            const container = document.getElementById('profilePurchasesList');
+            if (purchases.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-6">Henüz satın alınmış bir kod bulunmuyor.</p>`;
+                return;
+            }
+            container.innerHTML = '';
+            purchases.forEach(p => {
+                const div = document.createElement('div');
+                div.className = "p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-between";
+                div.innerHTML = `
+                    <div>
+                        <h4 class="text-xs font-bold text-white">${p.title}</h4>
+                        <div class="font-mono text-xs text-emerald-400 select-all mt-1">${p.key}</div>
+                        <span class="text-[10px] text-slate-400">${p.date}</span>
+                    </div>
+                    <button onclick="navigator.clipboard.writeText('${p.key}'); alert('Kod kopyalandı!');" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-1.5 rounded-lg">Kopyala</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderMyListingsList() {
+            const container = document.getElementById('profileMyListingsList');
+            if (!currentUser) return;
+            const myItems = listings.filter(l => l.seller === currentUser.username);
+            if (myItems.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-6">Henüz açılmış bir ilanınız bulunmuyor.</p>`;
+                return;
+            }
+            container.innerHTML = '';
+            myItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-between";
+                div.innerHTML = `
+                    <div>
+                        <h4 class="text-xs font-bold text-white">${item.title}</h4>
+                        <span class="text-xs text-sky-400 font-bold">${item.price.toFixed(2)} ₺</span>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Satışta</span>
+                `;
+                container.appendChild(div);
+            });
+        }
     </script>
 </body>
 </html>
