@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy and Personal Data Protection | Grapsyh Retail</title>
+    <meta name="description" content="Official Privacy and Personal Data Protection Policy of Grapsyh Retail. Compliant with GDPR (EU 2016/679) and applicable data protection legislation.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+        
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        @media print {
+            header, footer, #toc-sidebar, #quick-search-box { display: none !important; }
+            body { background: #fff !important; color: #000 !important; }
+            main { max-width: 100% !important; padding: 0 !important; }
+            .bg-slate-900, .bg-slate-950 { background: #fff !important; border: none !important; color: #000 !important; }
+            .text-white, .text-slate-200, .text-slate-300, .text-slate-400 { color: #111 !important; }
+            a { text-decoration: underline !important; color: #000 !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white text-sm">
+
+    <!-- Top Bar -->
+    <header class="bg-slate-900/90 border-b border-slate-800 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white font-bold text-sm">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="leading-tight">
+                    <span class="text-base font-extrabold tracking-wide text-white">GRAPSYH</span>
+                    <span class="block text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Legal & Compliance</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-slate-800 border border-slate-700 rounded-lg p-0.5 text-xs font-bold text-slate-300">
+                    <a href="/privacy.html" class="px-2.5 py-1 rounded text-slate-400 hover:text-white transition">TR</a>
+                    <a href="/privacy-en.html" class="px-2.5 py-1 rounded bg-sky-600 text-white transition">EN</a>
+                </div>
+
+                <button onclick="window.print()" class="text-xs text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-print"></i> Print / PDF
+                </button>
+                <a href="/" class="text-xs font-semibold text-slate-200 hover:text-white bg-sky-600 hover:bg-sky-500 px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Marketplace
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Document Header Area -->
+    <section class="border-b border-slate-800/80 bg-slate-900/40 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="max-w-3xl">
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    Personal Data Protection, Processing, and Privacy Policy
+                </h1>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                    Official privacy policy prepared in accordance with the European Union General Data Protection Regulation (“GDPR” EU 2016/679) and applicable electronic commerce laws.
+                </p>
+                <div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-500 mt-3 pt-3 border-t border-slate-800">
+                    <span><strong>Data Controller:</strong> Grapsyh Retail</span>
+                    <span>•</span>
+                    <span><strong>Document Ref:</strong> GRP-LEGAL-2026/V3-EN</span>
+                    <span>•</span>
+                    <span><strong>Last Revised:</strong> October 22, 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Layout (Left: Table of Contents, Right: Text) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Left Navigation / Table of Contents -->
+        <aside id="toc-sidebar" class="lg:col-span-4 xl:col-span-3 sticky top-24 space-y-4">
+            
+            <!-- Live Search -->
+            <div id="quick-search-box" class="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-500"></i>
+                    <input type="text" id="policySearch" placeholder="Search sections..." 
+                           class="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
+                </div>
+            </div>
+
+            <!-- Sections List -->
+            <nav class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 max-h-[calc(100vh-180px)] overflow-y-auto text-xs space-y-1">
+                <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 py-1 mb-1 border-b border-slate-800">
+                    Table of Contents
+                </div>
+                <ul class="space-y-0.5 text-slate-400" id="toc-list">
+                    <li><a href="#bolum1" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">1. Data Controller and Scope</a></li>
+                    <li><a href="#bolum2" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">2. Core Data Protection Principles</a></li>
+                    <li><a href="#bolum3" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">3. Categories of Personal Data Processed</a></li>
+                    <li><a href="#bolum4" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">4. Biometric Data & Identity Verification (KYC)</a></li>
+                    <li><a href="#bolum5" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">5. Purposes of Processing & Legal Grounds</a></li>
+                    <li><a href="#bolum6" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">6. P2P Marketplace and Escrow Security</a></li>
+                    <li><a href="#bolum7" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">7. Data Sharing & Recipient Categories</a></li>
+                    <li><a href="#bolum8" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">8. International Cross-Border Transfers</a></li>
+                    <li><a href="#bolum9" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">9. Data Retention and Deletion Schedule</a></li>
+                    <li><a href="#bolum10" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">10. Information Security & Technical Safeguards</a></li>
+                    <li><a href="#bolum11" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">11. Cookies and Tracking Technologies</a></li>
+                    <li><a href="#bolum12" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">12. Commercial Communications & Marketing</a></li>
+                    <li><a href="#bolum13" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">13. Data Subject Rights (GDPR)</a></li>
+                    <li><a href="#bolum14" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">14. Age Restriction (18+) and Children's Privacy</a></li>
+                    <li><a href="#bolum15" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">15. Contact Details and Lodging Complaints</a></li>
+                </ul>
+
+                <div class="mt-3 pt-3 border-t border-slate-800 text-[11px] text-slate-500 px-2">
+                    Email: <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 hover:underline">iletisim@grapsyh.cyou</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Right Main Content Area (Plain Text & Readable) -->
+        <main class="lg:col-span-8 xl:col-span-9 bg-slate-900/60 border border-slate-800 rounded-xl p-6 sm:p-10 space-y-10 leading-relaxed text-slate-300">
+
+            <!-- SECTION 1 -->
+            <section id="bolum1" class="policy-section scroll-mt-24">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">1.</span> Data Controller and General Provisions
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        This Personal Data Protection and Privacy Policy (“Policy”) has been formulated in full compliance with Regulation (EU) 2016/679 of the European Parliament and of the Council (General Data Protection Regulation - “GDPR”), Turkish Law No. 6698 on the Protection of Personal Data (“KVKK”), and applicable electronic commerce and consumer protection regulations.
+                    </p>
+                    <p>
+                        This Policy applies to all personal data collected, stored, processed, and transferred by <strong>Grapsyh Retail</strong> (“Company”, “we”, or “Data Controller”) via the official website located at <code class="text-sky-400">https://grapsyh.cyou</code> and associated web applications, API endpoints, and escrow services.
+                    </p>
+                    <div class="border-l-2 border-slate-700 pl-4 py-1 text-xs text-slate-400 space-y-1 my-3">
+                        <div><strong>Business Entity:</strong> Grapsyh Retail - Internet Retail Services</div>
+                        <div><strong>Sector Classification:</strong> Retail Sale via Internet (NACE Code: 47.91)</div>
+                        <div><strong>Official Website:</strong> https://grapsyh.cyou</div>
+                        <div><strong>Official Contact:</strong> iletisim@grapsyh.cyou</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="bolum2" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">2.</span> Core Data Protection Principles
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Our Company strictly adheres to the fundamental data protection principles set out in Article 5 of the GDPR:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Lawfulness, fairness, and transparency:</strong> Data is processed lawfully, fairly, and in a transparent manner in relation to the data subject.</li>
+                        <li><strong>Purpose limitation:</strong> Collected for specified, explicit, and legitimate purposes and not further processed in a manner incompatible with those purposes.</li>
+                        <li><strong>Data minimisation:</strong> Adequate, relevant, and limited to what is strictly necessary in relation to the purposes for which they are processed.</li>
+                        <li><strong>Accuracy:</strong> Accurate and, where necessary, kept up to date.</li>
+                        <li><strong>Storage limitation:</strong> Kept in a form that permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed.</li>
+                        <li><strong>Integrity and confidentiality:</strong> Processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="bolum3" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">3.</span> Categories of Personal Data Processed
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        When you register, list digital goods for sale, purchase digital game keys or software licenses, or interact with our platform, we collect and process the following categories of data:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400">
+                        <li>
+                            <strong class="text-slate-200">Identity and Profile Data:</strong> Full name, username, date of birth, nationality, national ID / passport number, and hashed authentication credentials.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Contact Data:</strong> Verified email address, phone number (used for optional two-factor SMS authentication), and billing details.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">P2P Marketplace & Transaction Data:</strong> Listed digital codes, order histories, key delivery timestamps, escrow balances, and user feedback ratings.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Financial & Payout Data:</strong> Payment gateway transaction reference tokens, seller bank account details (IBAN, account holder name), account balances, and invoice records. <em>(Note: Full payment card numbers and CVV security codes are never stored on our servers; they are tokenized directly by PCI-DSS Level 1 certified licensed payment gateways.)</em>
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Technical, Device, and Network Data:</strong> Static and dynamic IP address, port details, Internet Service Provider (ISP), User-Agent string, browser specifications, operating system, and session cookies.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Customer Support & Dispute Records:</strong> Support tickets, dispute inquiries, and user-provided verification attachments or screenshots.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 4: BIOMETRIC KYC -->
+            <section id="bolum4" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">4.</span> Special Categories of Biometric Data & Identity Verification (KYC)
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Digital software licenses, game activation keys, and gift cards represent intangible digital goods that are delivered instantaneously and cannot be physically reclaimed once redeemed. To prevent fraudulent chargebacks, stolen credit card abuse (carding), identity theft, and synthetic bot accounts, our platform mandates <strong>Biometric Identity Verification (KYC)</strong>.
+                    </p>
+
+                    <h3 class="text-sm font-bold text-white mt-4 mb-1">4.1. Accredited Independent Verification Providers</h3>
+                    <p>
+                        Identity verification procedures are conducted via independent, accredited verification and anti-fraud infrastructure providers possessing international security certifications (ISO/IEC 27001, SOC 2 Type II).
+                    </p>
+
+                    <h3 class="text-sm font-bold text-white mt-4 mb-1">4.2. Scope of Verification and Biometric Data</h3>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>
+                            <strong>Government-Issued ID Optical Recognition (OCR):</strong> Verification of front and rear scans of National ID Cards, Driver's Licenses, or Passports, including security hologram and MRZ zone validation.
+                        </li>
+                        <li>
+                            <strong>Facial Liveness & 3D Geometry Detection:</strong> Real-time biometric camera evaluation determining 3D facial depth to prevent spoofing, pre-recorded video injection, printed photos, silicone masks, or synthetic deepfake attacks.
+                        </li>
+                        <li>
+                            <strong>Hardware & Virtual Camera Inspection:</strong> Detection of virtual webcam software, emulators, or hooking scripts at the hardware sensor layer.
+                        </li>
+                        <li>
+                            <strong>Sanctions and PEP Screening:</strong> Automated cross-referencing against global Politically Exposed Persons (PEP) and anti-money laundering (AML) watchlists.
+                        </li>
+                    </ul>
+
+                    <h3 class="text-sm font-bold text-white mt-4 mb-1">4.3. Biometric Safeguards and Explicit Consent</h3>
+                    <p>
+                        Biometric facial geometry records are never stored in raw unencrypted image format on Grapsyh web servers. Data is processed in cryptographic hash representations within accredited secure environments. Prior to verification, explicit consent is obtained from the user. Without completing verification, users cannot create P2P sales listings or execute marketplace withdrawals.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 5: PURPOSES & LEGAL BASES -->
+            <section id="bolum5" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">5.</span> Purposes of Processing & Legal Grounds
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Your personal data is processed pursuant to Article 6 and Article 9 of the GDPR on the following legal bases:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400">
+                        <li>
+                            <strong class="text-slate-200">Performance of a Contract (GDPR Art. 6(1)(b)):</strong> Account management, processing P2P transactions, escrow execution, and digital key delivery.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Compliance with Legal Obligations (GDPR Art. 6(1)(c)):</strong> Commercial tax accounting, invoice issuance, and consumer protection records.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Legitimate Interests (GDPR Art. 6(1)(f)):</strong> Protecting our platform and legitimate merchants against fraudulent payment methods, account takeovers, and cybersecurity attacks.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Explicit Consent (GDPR Art. 9(2)(a)):</strong> Provided voluntarily by the user prior to capturing facial biometric liveness scans.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 6: P2P & ESCROW -->
+            <section id="bolum6" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">6.</span> P2P Marketplace and Escrow Security
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Grapsyh operates as a peer-to-peer marketplace connecting independent buyers and sellers. An automated escrow protocol protects both parties:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>Buyers and sellers never view each other's payment cards, government ID numbers, or physical addresses; only system usernames are visible.</li>
+                        <li>Sellers are only permitted to publish listings after successfully passing biometric identity verification (KYC).</li>
+                        <li>Funds remain frozen in our secure escrow pool until the buyer validates the software key activation or the dispute window elapses.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 7: DATA SHARING -->
+            <section id="bolum7" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">7.</span> Data Sharing & Recipient Categories
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        We do not sell or monetize personal data under any circumstances. Personal data is shared strictly on a need-to-know basis with:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Accredited Identity & Anti-Fraud Providers:</strong> For processing document OCR and facial liveness verification.</li>
+                        <li><strong>Licensed Payment Institutions:</strong> For executing credit card transactions and seller payouts under PCI-DSS standards.</li>
+                        <li><strong>Cloud Infrastructure & CDN Vendors:</strong> To ensure high-availability hosting, encrypted storage, and DDoS mitigation.</li>
+                        <li><strong>Judicial & Law Enforcement Authorities:</strong> When formally required under subpoena, court order, or applicable statutory mandates.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 8: INTERNATIONAL TRANSFERS -->
+            <section id="bolum8" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">8.</span> International Cross-Border Transfers
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Our hosting infrastructure, content delivery networks (CDN), and identity verification data centers are hosted within the European Union (EU) and the United Kingdom (UK).
+                    </p>
+                    <p>
+                        Any cross-border data transfers outside the European Economic Area are safeguarded in full compliance with <strong>Article 46 of the GDPR</strong> via European Commission approved <strong>Standard Contractual Clauses (SCCs)</strong> and robust encryption controls.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 9: RETENTION & DELETION -->
+            <section id="bolum9" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">9.</span> Data Retention and Deletion Schedule
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Personal data is retained only for the duration required by applicable statutory limitation periods or processing purposes:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Accounting & Tax Records:</strong> <strong>10 years</strong> pursuant to statutory tax and commercial codes.</li>
+                        <li><strong>Network Access & IP Logs:</strong> <strong>2 years</strong> for telecommunications and security compliance.</li>
+                        <li><strong>Identity Verification Records:</strong> For the active duration of the account plus <strong>3 years</strong> following closure to defend against potential fraud claims.</li>
+                        <li><strong>Customer Support Records:</strong> <strong>3 years</strong> following inquiry closure.</li>
+                    </ul>
+                    <p class="text-xs text-slate-400 mt-2">
+                        Upon expiration of retention periods, records are permanently deleted, overwritten, or irreversibly anonymized.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 10: CYBERSECURITY -->
+            <section id="bolum10" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">10.</span> Information Security & Technical Safeguards
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        We implement industry-grade technical and organizational safeguards to protect data:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>All web traffic is encrypted using 256-bit TLS 1.3 transport security.</li>
+                        <li>Verification API tokens utilize timestamped HMAC-SHA256 cryptographic signatures.</li>
+                        <li>Web Application Firewalls (WAF) and automated rate limiting mitigate brute-force and DDoS attacks.</li>
+                        <li>Database access is enforced through strict role-based access controls (RBAC) and two-factor authentication.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 11: COOKIES -->
+            <section id="bolum11" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">11.</span> Cookies and Tracking Technologies
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Cookies are utilized to deliver essential functionality and ensure secure user sessions:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Strictly Necessary Cookies:</strong> Essential for session authentication, CSRF security, and shopping basket management.</li>
+                        <li><strong>Functional Cookies:</strong> Retain UI preferences such as theme, filters, and language selections.</li>
+                        <li><strong>Analytical Cookies:</strong> Collect aggregated, anonymous metrics regarding page latency and error logs.</li>
+                    </ul>
+                    <p class="text-xs text-slate-400">
+                        Users may modify cookie preferences or delete cookies at any time through their browser settings.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 12: MARKETING -->
+            <section id="bolum12" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">12.</span> Commercial Communications & Direct Marketing
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        We do not send unsolicited marketing communications. Promotional newsletters are transmitted solely to users who have explicitly opted in.
+                    </p>
+                    <p>
+                        Users can unsubscribe at any time via their profile preferences or by clicking the one-click “Unsubscribe” link in any newsletter.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 13: DATA SUBJECT RIGHTS -->
+            <section id="bolum13" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">13.</span> Data Subject Rights (GDPR Chapter III)
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Under the GDPR, data subjects have the right to:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Right of Access (Art. 15):</strong> Request confirmation and copies of your personal data.</li>
+                        <li><strong>Right to Rectification (Art. 16):</strong> Request correction of inaccurate or incomplete information.</li>
+                        <li><strong>Right to Erasure (Art. 17):</strong> Request deletion of your data (“Right to be Forgotten”), subject to legal retention obligations.</li>
+                        <li><strong>Right to Restriction (Art. 18):</strong> Request restricted processing under certain conditions.</li>
+                        <li><strong>Right to Data Portability (Art. 20):</strong> Receive your personal data in a structured, machine-readable format.</li>
+                        <li><strong>Right to Object (Art. 21):</strong> Object to processing based on legitimate interests.</li>
+                        <li><strong>Automated Decisions (Art. 22):</strong> Request human review of automated decisions (e.g., identity verification reviews).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 14: AGE RESTRICTION -->
+            <section id="bolum14" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">14.</span> Age Restriction (18+) and Children's Privacy
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Our marketplace and digital transaction services are strictly designated for individuals aged <strong>18 years or older</strong> possessing full legal contractual capacity.
+                    </p>
+                    <p>
+                        If identity verification checks reveal an account holder is under 18, the account will be immediately suspended and all associated data handled in accordance with child protection mandates.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 15: CONTACT & COMPLAINTS -->
+            <section id="bolum15" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">15.</span> Contact Details and Lodging Complaints
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        To exercise any statutory data protection rights or submit queries regarding this Policy, please email us from your registered account address at: <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 underline font-medium">iletisim@grapsyh.cyou</a>.
+                    </p>
+                    <p>
+                        Requests will be processed and answered free of charge within <strong>30 (thirty) days</strong>.
+                    </p>
+                    <p class="text-xs text-slate-400 pt-2 border-t border-slate-800">
+                        If you believe your personal data is not processed lawfully, you retain the right to lodge a formal complaint with the competent Data Protection Authority (DPA) in your EU Member State or the Turkish Personal Data Protection Authority (KVKK).
+                    </p>
+                </div>
+            </section>
+
+            <!-- Footer Signature -->
+            <div class="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <span>&copy; 2026 Grapsyh Retail. All rights reserved.</span>
+                <span>Version: V3.3-EN • Privacy & Compliance Policy</span>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Minimal Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-xs text-slate-500 text-center mt-12">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>Grapsyh Retail Internet Services • Legal & Compliance Office</p>
+            <p>Official Domain: <a href="https://grapsyh.cyou" class="text-sky-400">grapsyh.cyou</a> • Inquiries: <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400">iletisim@grapsyh.cyou</a></p>
+        </div>
+    </footer>
+
+    <!-- Search & Scrollspy JavaScript -->
+    <script>
+        const searchInput = document.getElementById('policySearch');
+        const sections = document.querySelectorAll('.policy-section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            if (!query) {
+                sections.forEach(s => s.style.display = '');
+                tocLinks.forEach(l => l.style.opacity = '1');
+                return;
+            }
+
+            sections.forEach(section => {
+                const text = section.innerText.toLowerCase();
+                const id = section.id;
+                const link = document.querySelector(`.toc-link[href="#${id}"]`);
+
+                if (text.includes(query)) {
+                    section.style.display = '';
+                    if (link) link.style.opacity = '1';
+                } else {
+                    section.style.display = 'none';
+                    if (link) link.style.opacity = '0.3';
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('bg-slate-800', 'text-sky-400', 'font-semibold');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('bg-slate-800', 'text-sky-400', 'font-semibold');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

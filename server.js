@@ -65,11 +65,13 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    // 2. Statik Dosyalar (index.html, privacy.html)
+    // 2. Statik Dosyalar (index.html, privacy.html, privacy-en.html)
     const cleanUrl = req.url.split('?')[0];
     let file = 'index.html';
     if (cleanUrl === '/privacy' || cleanUrl === '/privacy.html') {
         file = 'privacy.html';
+    } else if (cleanUrl === '/privacy-en' || cleanUrl === '/privacy-en.html') {
+        file = 'privacy-en.html';
     }
 
     const filePath = path.join(__dirname, file);
