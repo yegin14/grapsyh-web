@@ -981,59 +981,300 @@
             updateCartBadge();
         }
 
-        // Başlangıç İlan Veritabanı
+        // Başlangıç İlan Veritabanı (Piyasa Uyumlu Güncel Fiyatlar & 22 Ürün)
         const defaultListings = [
+            // 1. İŞLETİM SİSTEMLERİ (OS)
             {
                 id: 1,
-                title: "Windows 11 Pro Orijinal Dijital Lisans",
+                title: "Windows 11 Pro Orijinal Dijital Lisans (Retail)",
                 title_en: "Windows 11 Pro Genuine Retail Digital License",
                 category: "os",
-                price: 249.00,
+                price: 189.00,
                 seller: "Grapsyh Official",
                 sellerVerified: true,
                 key: "W269N-WFGWX-YVC9B-4J6C9-T83GX",
-                desc: "Orijinal Microsoft retail lisans anahtarı. Ömür boyu geçerlidir.",
-                desc_en: "Original Microsoft retail license key. Lifetime activation.",
+                desc: "Orijinal Microsoft retail lisans anahtarı. Ömür boyu geçerlidir, formattan etkilenmez.",
+                desc_en: "Genuine Microsoft retail license key. Lifetime validity, persistent after reformat.",
                 icon: "fa-brands fa-windows text-sky-400"
             },
             {
                 id: 2,
-                title: "Microsoft Office 2024 Pro Plus Bireysel",
-                title_en: "Microsoft Office 2024 Pro Plus Lifetime Package",
+                title: "Windows 11 Home Dijital Lisans Anahtarı",
+                title_en: "Windows 11 Home Genuine Digital License",
                 category: "os",
-                price: 499.00,
+                price: 149.00,
                 seller: "Grapsyh Official",
                 sellerVerified: true,
-                key: "OFFICE24-PRO-XXXX-XXXX-KEY",
-                desc: "Word, Excel, PowerPoint tam paket ömür boyu lisans.",
-                desc_en: "Word, Excel, PowerPoint full suite lifetime commercial license.",
-                icon: "fa-solid fa-file-word text-amber-400"
+                key: "NRM9P-TQ3F6-X776B-K4QT7-TY9PK",
+                desc: "Ev kullanıcıları için orijinal dijital aktivasyon anahtarı. Hızlı ve anında teslimat.",
+                desc_en: "Genuine digital activation key for home users. Instant delivery.",
+                icon: "fa-brands fa-windows text-blue-400"
             },
             {
                 id: 3,
-                title: "Steam Cüzdan Kodu 1.000 TL",
+                title: "Windows 10 Pro Orijinal Dijital Lisans",
+                title_en: "Windows 10 Pro Genuine Retail License",
+                category: "os",
+                price: 129.00,
+                seller: "yegin14",
+                sellerVerified: true,
+                key: "VK7JG-NPHTM-C97JM-9MPGT-3V66T",
+                desc: "32/64 Bit tüm dillerle uyumlu, ömür boyu garantili orijinal Windows 10 Pro lisansı.",
+                desc_en: "32/64 Bit compatible, lifetime genuine Windows 10 Pro license.",
+                icon: "fa-brands fa-windows text-cyan-400"
+            },
+            {
+                id: 4,
+                title: "Windows Server 2022 Standard Lisans (16 Core)",
+                title_en: "Windows Server 2022 Standard 16 Core License",
+                category: "os",
+                price: 649.00,
+                seller: "Grapsyh Official",
+                sellerVerified: true,
+                key: "VDYBN-27WPP-V4HQT-9VMD4-VMK7H",
+                desc: "Sunucu ve sanallaştırma altyapıları için orijinal kurumsal Microsoft Server lisansı.",
+                desc_en: "Genuine Microsoft Server license for virtualization and enterprise servers.",
+                icon: "fa-solid fa-server text-indigo-400"
+            },
+
+            // 2. YAZILIM VE OFİS LİSANSLARI (SOFTWARE)
+            {
+                id: 5,
+                title: "Microsoft Office 2024 Pro Plus Bireysel (Ömür Boyu)",
+                title_en: "Microsoft Office 2024 Pro Plus Lifetime Package",
+                category: "software",
+                price: 389.00,
+                seller: "Grapsyh Official",
+                sellerVerified: true,
+                key: "OFFICE24-PRO-8721-9920-KEY",
+                desc: "Word, Excel, PowerPoint, Outlook tam paket ömür boyu orijinal lisans.",
+                desc_en: "Word, Excel, PowerPoint, Outlook full suite lifetime commercial license.",
+                icon: "fa-solid fa-file-word text-amber-500"
+            },
+            {
+                id: 6,
+                title: "Microsoft Office 2021 Pro Plus Dijital Lisans",
+                title_en: "Microsoft Office 2021 Professional Plus License",
+                category: "software",
+                price: 279.00,
+                seller: "yegin14",
+                sellerVerified: true,
+                key: "TKN68-GXG6B-F99H3-D69CR-RFV9D",
+                desc: "1 PC için süresiz kullanım hakkı, resmi Microsoft sunucularından doğrudan kurulum.",
+                desc_en: "Lifetime usage for 1 PC, direct download from official Microsoft servers.",
+                icon: "fa-solid fa-file-excel text-emerald-500"
+            },
+            {
+                id: 7,
+                title: "Microsoft 365 Bireysel (1 Yıl + 1 TB OneDrive)",
+                title_en: "Microsoft 365 Personal (1-Year + 1 TB OneDrive Cloud)",
+                category: "software",
+                price: 549.00,
+                seller: "Grapsyh Official",
+                sellerVerified: true,
+                key: "M365-PERS-1YR-9238-X812-KEY",
+                desc: "5 Cihazda aynı anda kullanım, 1 TB güvenli OneDrive depolama ve en güncel Office sürümleri.",
+                desc_en: "5 simultaneous devices, 1 TB secure OneDrive cloud and always updated apps.",
+                icon: "fa-solid fa-cloud text-sky-400"
+            },
+            {
+                id: 8,
+                title: "Internet Download Manager (IDM) Ömür Boyu Lisans",
+                title_en: "Internet Download Manager (IDM) Lifetime License Key",
+                category: "software",
+                price: 349.00,
+                seller: "CreativeKeys",
+                sellerVerified: true,
+                key: "IDM-LIFE-4921-9902-8812-XPR",
+                desc: "En popüler indirme yöneticisi için resmi seri numarası. Süresiz kullanım ve 3 yıl güncelleme.",
+                desc_en: "Official serial number for IDM. Lifetime usage with 3 years of free updates.",
+                icon: "fa-solid fa-download text-teal-400"
+            },
+            {
+                id: 9,
+                title: "Autodesk AutoCAD 2025 Bireysel Lisans (1 Yıllık)",
+                title_en: "Autodesk AutoCAD 2025 Annual Commercial License",
+                category: "software",
+                price: 890.00,
+                seller: "CreativeKeys",
+                sellerVerified: true,
+                key: "ACAD-2025-COMM-1YR-8831-KEY",
+                desc: "Mühendisler ve mimarlar için 2D/3D CAD tasarım paketi. Kendi Autodesk hesabınıza tanımlanır.",
+                desc_en: "2D/3D CAD engineering suite. Linked directly to your Autodesk account.",
+                icon: "fa-solid fa-compass-drafting text-rose-500"
+            },
+            {
+                id: 10,
+                title: "Adobe Creative Cloud Tüm Uygulamalar (1 Yıllık Lisans)",
+                title_en: "Adobe Creative Cloud All Apps (1-Year Access)",
+                category: "software",
+                price: 1190.00,
+                seller: "CreativeKeys",
+                sellerVerified: true,
+                key: "ADOBE-CC-ALLAPPS-1YR-9941",
+                desc: "Photoshop, Premiere, Illustrator dahil 20+ profesyonel tasarım uygulaması ve 100 GB bulut.",
+                desc_en: "Photoshop, Premiere, Illustrator and 20+ creative apps plus 100 GB cloud.",
+                icon: "fa-solid fa-bezier-curve text-red-500"
+            },
+
+            // 3. GÜVENLİK VE ANTİVİRÜS (SECURITY)
+            {
+                id: 11,
+                title: "Kaspersky Plus 2025 (3 Cihaz / 1 Yıl + Sınırsız VPN)",
+                title_en: "Kaspersky Plus 2025 (3 Devices / 1 Year + Unlimited VPN)",
+                category: "security",
+                price: 389.00,
+                seller: "SecurityHub",
+                sellerVerified: true,
+                key: "KASP-PLUS-3DEV-1YR-7712-KEY",
+                desc: "Gelişmiş fidye yazılımı koruması, güvenli bankacılık ve sınırsız hızlı VPN servisi.",
+                desc_en: "Advanced ransomware defense, secure banking, and unlimited high-speed VPN.",
+                icon: "fa-solid fa-shield-halved text-emerald-400"
+            },
+            {
+                id: 12,
+                title: "Kaspersky Standard 2025 (1 Cihaz / 1 Yıllık Koruma)",
+                title_en: "Kaspersky Standard 2025 (1 Device / 1 Year Essential)",
+                category: "security",
+                price: 219.00,
+                seller: "SecurityHub",
+                sellerVerified: true,
+                key: "KASP-STD-1DEV-1YR-8831-KEY",
+                desc: "Virüs, truva atı ve oltalama saldırılarına karşı temel gerçek zamanlı koruma paketi.",
+                desc_en: "Essential real-time protection against viruses, trojans, and phishing.",
+                icon: "fa-solid fa-shield-virus text-emerald-500"
+            },
+            {
+                id: 13,
+                title: "ESET Internet Security 2025 (1 Cihaz / 1 Yıl)",
+                title_en: "ESET Internet Security 2025 (1 Device / 1 Year)",
+                category: "security",
+                price: 349.00,
+                seller: "SecurityHub",
+                sellerVerified: true,
+                key: "ESET-EIS-1DEV-1YR-9941-KEY",
+                desc: "Efsanevi ESET koruması, bankacılık ve ödeme koruması, web kamerası ve ağ güvenliği.",
+                desc_en: "Legendary ESET protection, online banking shield, network and webcam security.",
+                icon: "fa-solid fa-user-shield text-cyan-400"
+            },
+            {
+                id: 14,
+                title: "NordVPN Plus 2 Yıllık Güvenlik Paketi (6 Cihaz)",
+                title_en: "NordVPN Plus 2-Year Cybersecurity Plan (6 Devices)",
+                category: "security",
+                price: 599.00,
+                seller: "SecurityHub",
+                sellerVerified: true,
+                key: "NORD-2YR-PLUS-6DEV-9921",
+                desc: "Sınırsız ultra hızlı VPN, Threat Protection reklam & malware engelleyici, güvenli DNS.",
+                desc_en: "Ultra-fast VPN, Threat Protection ad & malware blocker, strict no-logs policy.",
+                icon: "fa-solid fa-lock text-sky-400"
+            },
+            {
+                id: 15,
+                title: "Bitdefender Total Security 2025 (5 Cihaz / 1 Yıl)",
+                title_en: "Bitdefender Total Security 2025 (5 Devices / 1 Year)",
+                category: "security",
+                price: 429.00,
+                seller: "SecurityHub",
+                sellerVerified: true,
+                key: "BD-TOTSEC-5DEV-1YR-4821",
+                desc: "Windows, macOS, Android ve iOS için tam kapsamlı çoklu platform güvenlik kalkanı.",
+                desc_en: "Complete multi-platform security shield for Windows, macOS, Android, and iOS.",
+                icon: "fa-solid fa-shield text-red-400"
+            },
+
+            // 4. OYUN VE CÜZDAN KODU (GAMING)
+            {
+                id: 16,
+                title: "Steam Cüzdan Kodu 250 TL (Türkiye)",
+                title_en: "Steam Wallet Digital Gift Card 250 TRY",
+                category: "gaming",
+                price: 250.00,
+                seller: "GamePassTR",
+                sellerVerified: true,
+                key: "STEAM-250TL-TR-8841-K782",
+                desc: "Türkiye Steam mağazasında anında 250 TL bakiye olarak geçerli orijinal dijital kod.",
+                desc_en: "Genuine 250 TRY digital wallet code redeemable directly in Turkish Steam store.",
+                icon: "fa-brands fa-steam text-indigo-400"
+            },
+            {
+                id: 17,
+                title: "Steam Cüzdan Kodu 500 TL (Türkiye)",
+                title_en: "Steam Wallet Digital Gift Card 500 TRY",
+                category: "gaming",
+                price: 500.00,
+                seller: "GamePassTR",
+                sellerVerified: true,
+                key: "STEAM-500TL-TR-3391-J991",
+                desc: "Steam kütüphanenizdeki oyunlar ve oyun içi alışverişler için 500 TL cüzdan kodu.",
+                desc_en: "500 TRY wallet voucher for Steam games and in-game microtransactions.",
+                icon: "fa-brands fa-steam text-indigo-400"
+            },
+            {
+                id: 18,
+                title: "Steam Cüzdan Kodu 1.000 TL (Türkiye)",
                 title_en: "Steam Wallet Digital Gift Card 1,000 TRY",
                 category: "gaming",
                 price: 1000.00,
                 seller: "yegin14",
                 sellerVerified: true,
-                key: "STEAM-1000TL-TR-XXXX-KEY",
-                desc: "Türkiye mağazasında anında geçerli 1000 TL bakiye kodu.",
-                desc_en: "Instant 1,000 TRY wallet code redeemable directly in Steam store.",
+                key: "STEAM-1000TL-TR-9941-L881",
+                desc: "1.000 TL değerinde anında teslim dijital cüzdan aktivasyon kodu.",
+                desc_en: "1,000 TRY instant delivery digital wallet voucher.",
                 icon: "fa-brands fa-steam text-indigo-400"
             },
             {
-                id: 4,
-                title: "NordVPN Plus 2 Yıllık Güvenlik Paketi",
-                title_en: "NordVPN Plus 2-Year Cybersecurity Plan",
-                category: "security",
-                price: 649.00,
-                seller: "SecurityHub",
+                id: 19,
+                title: "Xbox Game Pass Ultimate 3 Aylık Üyelik (PC & Konsol)",
+                title_en: "Xbox Game Pass Ultimate 3-Month Membership (PC & Console)",
+                category: "gaming",
+                price: 589.00,
+                seller: "GamePassTR",
                 sellerVerified: true,
-                key: "NORD-2YR-PLUS-XXXX-XXXX",
-                desc: "6 Cihaz destekli, sınırsız VPN ve reklam engelleme.",
-                desc_en: "Supports 6 simultaneous devices, unlimited ultra-fast VPN & ad blocking.",
-                icon: "fa-solid fa-shield-virus text-emerald-400"
+                key: "XBOX-GPU-3M-TR-9921-KEY",
+                desc: "Yüzlerce kaliteli oyun, EA Play dahil, PC ve konsolda çevrimiçi çok oyunculu deneyim.",
+                desc_en: "Hundreds of top games, EA Play included, online multiplayer for PC & Xbox.",
+                icon: "fa-brands fa-xbox text-emerald-500"
+            },
+            {
+                id: 20,
+                title: "PlayStation Network (PSN) 500 TL Cüzdan Kodu (TR)",
+                title_en: "PlayStation Network (PSN) 500 TRY Wallet Code (TR)",
+                category: "gaming",
+                price: 500.00,
+                seller: "GamePassTR",
+                sellerVerified: true,
+                key: "PSN-500TL-TR-8812-3910",
+                desc: "PS4 & PS5 Türkiye PlayStation Store üzerinde anında 500 TL bakiye yüklemesi.",
+                desc_en: "Instant 500 TRY wallet top-up for PlayStation Store Turkey on PS4 & PS5.",
+                icon: "fa-brands fa-playstation text-blue-500"
+            },
+            {
+                id: 21,
+                title: "Valorant 1.475 VP (Points) Türkiye Dijital Kod",
+                title_en: "Valorant 1,475 VP (Points) Turkey Digital Code",
+                category: "gaming",
+                price: 319.00,
+                seller: "GamePassTR",
+                sellerVerified: true,
+                key: "VALO-1475VP-TR-8831-PP21",
+                desc: "Riot Games Valorant mağazasında silah kaplamaları ve Savaş Bileti için geçerli kod.",
+                desc_en: "Redeemable for weapon skins and Battle Pass in Riot Games Valorant store.",
+                icon: "fa-solid fa-gamepad text-rose-500"
+            },
+            {
+                id: 22,
+                title: "EA Play Pro 1 Yıllık PC Üyelik Kodu",
+                title_en: "EA Play Pro 1-Year PC Membership Key",
+                category: "gaming",
+                price: 799.00,
+                seller: "Grapsyh Official",
+                sellerVerified: true,
+                key: "EAPLAY-PRO-1YR-PC-4891",
+                desc: "FC 25, Battlefield ve en yeni EA oyunlarına erken ve sınırsız erişim paketi.",
+                desc_en: "Early and unlimited access to FC 25, Battlefield, and top EA franchise games.",
+                icon: "fa-solid fa-trophy text-orange-400"
             }
         ];
 
@@ -1044,7 +1285,18 @@
         };
 
         let currentUser = JSON.parse(localStorage.getItem('grapsyh_current_user')) || null;
-        let listings = JSON.parse(localStorage.getItem('grapsyh_listings')) || defaultListings;
+        
+        // İlanları Sürüm Kontrolüyle Yükle (Eski 4 ürünü yeni 22 ürüne ve güncel fiyatlara yükseltir)
+        const LISTINGS_VERSION = 'v2.2';
+        let storedVersion = localStorage.getItem('grapsyh_listings_ver');
+        let listings;
+        if (storedVersion !== LISTINGS_VERSION) {
+            listings = defaultListings;
+            localStorage.setItem('grapsyh_listings', JSON.stringify(listings));
+            localStorage.setItem('grapsyh_listings_ver', LISTINGS_VERSION);
+        } else {
+            listings = JSON.parse(localStorage.getItem('grapsyh_listings')) || defaultListings;
+        }
         let purchases = JSON.parse(localStorage.getItem('grapsyh_purchases')) || [];
         let cart = JSON.parse(localStorage.getItem('grapsyh_cart')) || [];
         let allRegisteredUsers = JSON.parse(localStorage.getItem('grapsyh_all_users')) || [
