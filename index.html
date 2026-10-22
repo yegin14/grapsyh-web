@@ -207,8 +207,9 @@
                             <i class="fa-solid fa-camera"></i>
                             <span>Doğrulamayı Başlat (Kamerayı Aç)</span>
                         </button>
-                        <button onclick="skipKycSimulation()" class="text-xs text-slate-400 hover:text-slate-200 py-2">
-                            (Test Modunda Hızlı Onayla)
+                        <!-- Yalnızca Admin Kullanıcı İçin Gizli Test Butonu -->
+                        <button id="adminSkipBtn" onclick="skipKycSimulation()" class="hidden text-xs text-amber-400/70 hover:text-amber-300 py-2 border border-amber-500/20 px-3 rounded-lg bg-amber-500/5">
+                            <i class="fa-solid fa-lock text-[10px]"></i> (Yönetici Hızlı Onay)
                         </button>
                     </div>
                     <p id="kycStatusMsg" class="text-xs text-slate-400 mt-4"></p>
@@ -574,11 +575,47 @@
             renderListings(items);
         }
 
+        // Admin Yetki Kontrolü (Yalnızca Sizin İçin)
+        function isAdminUser() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'yegin' || urlParams.get('admin') === '1453' || urlParams.get('admin') === 'true') {
+                localStorage.setItem('grapsyh_is_admin', 'true');
+            }
+            const isStoredAdmin = localStorage.getItem('grapsyh_is_admin') === 'true';
+            const isUsernameAdmin = currentUser && (
+                currentUser.username.toLowerCase() === 'yegin14' || 
+                currentUser.username.toLowerCase() === 'admin' ||
+                currentUser.email.toLowerCase().includes('iletisim@grapsyh.cyou')
+            );
+            return isStoredAdmin || isUsernameAdmin;
+        }
+
+        function toggleAdminMode() {
+            if (localStorage.getItem('grapsyh_is_admin') === 'true') {
+                localStorage.removeItem('grapsyh_is_admin');
+                alert('Admin / Test modu kapatıldı. Normal kullanıcı görünümüne geçildi.');
+            } else {
+                const pin = prompt('Admin Şifresini / PIN Giriniz:');
+                if (pin === 'yegin' || pin === '1453') {
+                    localStorage.setItem('grapsyh_is_admin', 'true');
+                    alert('Admin / Test modu aktifleştirildi.');
+                } else {
+                    alert('Hatalı şifre.');
+                }
+            }
+            updateNavUI();
+        }
+
         // Navigasyon Arayüzünü Güncelle
         function updateNavUI() {
             const nav = document.getElementById('navUserActions');
+            const adminPill = isAdminUser() 
+                ? `<button onclick="toggleAdminMode()" class="bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[10px] font-bold px-2.5 py-1 rounded-lg flex items-center gap-1" title="Admin Modunu Kapatmak için tıklayın"><i class="fa-solid fa-crown text-amber-400"></i> Admin Modu</button>` 
+                : `<button onclick="toggleAdminMode()" class="opacity-0 hover:opacity-100 text-[10px] text-slate-600 transition" title="Yönetici Girişi"><i class="fa-solid fa-lock"></i></button>`;
+
             if (!currentUser) {
                 nav.innerHTML = `
+                    ${adminPill}
                     <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-xl transition">Giriş Yap</button>
                     <button onclick="openAuthModal('register')" class="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition shadow-md shadow-sky-600/20">Kayıt Ol</button>
                 `;
@@ -588,6 +625,7 @@
                     : `<button onclick="openKycModal()" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 animate-pulse"><i class="fa-solid fa-triangle-exclamation"></i> KYC Doğrula</button>`;
 
                 nav.innerHTML = `
+                    ${adminPill}
                     ${kycBadge}
                     <button onclick="openProfileModal()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-700 transition">
                         <i class="fa-solid fa-user text-sky-400"></i>
@@ -670,6 +708,17 @@
                 openAuthModal('register');
                 return;
             }
+
+            // Test butonunu yalnızca admin için görünür yap
+            const adminBtn = document.getElementById('adminSkipBtn');
+            if (adminBtn) {
+                if (isAdminUser()) {
+                    adminBtn.classList.remove('hidden');
+                } else {
+                    adminBtn.classList.add('hidden');
+                }
+            }
+
             document.getElementById('kycModal').classList.remove('hidden');
         }
         function closeKycModal() {
@@ -684,14 +733,14 @@
 
             btn.disabled = true;
             btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Oturum Başlatılıyor...`;
-            statusMsg.textContent = "Sumsub KYC sunucusuna bağlanılıyor...";
+            statusMsg.textContent = "Sumsub KYC sunucusuna güvenli bağlantı kuruluyor...";
 
             try {
                 const res = await fetch('/api/sumsub-token');
                 const data = await res.json();
                 const accessToken = data.token;
 
-                if (!accessToken) throw new Error("Token alınamadı.");
+                if (!accessToken) throw new Error("Doğrulama oturumu açılamadı.");
 
                 preLaunch.classList.add('hidden');
                 container.classList.remove('hidden');
@@ -708,19 +757,32 @@
                     console.log('Sumsub Sonuç:', payload);
                     verifyUserSuccess();
                 })
+                .on('onApplicantReviewed', (payload) => {
+                    if (payload && payload.reviewResult && payload.reviewResult.reviewAnswer === 'GREEN') {
+                        verifyUserSuccess();
+                        closeKycModal();
+                        alert("Kimliğiniz başarıyla onaylandı!");
+                    }
+                })
                 .build();
 
                 snsWebSdkInstance.launch('#sumsub-websdk-container');
             } catch (err) {
-                statusMsg.textContent = "Canlı Kamera Başlatıldı: " + err.message;
-                skipKycSimulation();
+                statusMsg.textContent = "Kamera / Oturum Hatası: " + err.message;
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> Yeniden Dene`;
+                // Normal kullanıcılar için asla otomatik atlama yapılmaz
             }
         }
 
         function skipKycSimulation() {
+            if (!isAdminUser()) {
+                alert("Bu işlem yalnızca sistem yöneticisine özeldir.");
+                return;
+            }
             verifyUserSuccess();
             closeKycModal();
-            alert("Tebrikler! Biyometrik kimlik doğrulamanız (Tier-1) başarıyla onaylandı. Artık ilan açabilir ve satış yapabilirsiniz.");
+            alert("👑 Yönetici Onayı: Biyometrik kimlik doğrulama (Tier-1) test amacıyla anında onaylandı.");
         }
 
         function verifyUserSuccess() {
