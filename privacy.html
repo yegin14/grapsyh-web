@@ -4,737 +4,458 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kişisel Verilerin Korunması ve Gizlilik Politikası | Grapsyh Retail</title>
-    <meta name="description" content="Grapsyh Perakende İnternet Hizmetleri resmi Gizlilik ve Çerez Politikası. KVKK (6698) ve GDPR (EU 2016/679) uyumlu, Sumsub biyometrik kimlik doğrulama, P2P emanet sistemi ve veri koruma standartları.">
+    <meta name="description" content="Grapsyh Perakende İnternet Hizmetleri resmi Kişisel Verilerin Korunması ve Gizlilik Politikası. KVKK ve GDPR uyumlu veri işleme ve güvenlik standartları.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         code, pre { font-family: 'JetBrains Mono', monospace; }
         
         /* Özelleştirilmiş Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0b1120; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        /* Yazdırma Modu */
         @media print {
             header, footer, #toc-sidebar, #quick-search-box { display: none !important; }
             body { background: #fff !important; color: #000 !important; }
             main { max-width: 100% !important; padding: 0 !important; }
-            .bg-slate-900, .bg-slate-950 { background: #fff !important; border: 1px solid #ddd !important; color: #000 !important; }
+            .bg-slate-900, .bg-slate-950 { background: #fff !important; border: none !important; color: #000 !important; }
             .text-white, .text-slate-200, .text-slate-300, .text-slate-400 { color: #111 !important; }
             a { text-decoration: underline !important; color: #000 !important; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+<body class="bg-slate-950 text-slate-300 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white text-sm">
 
-    <!-- Üst Kurumsal Header -->
+    <!-- Üst Bar -->
     <header class="bg-slate-900/90 border-b border-slate-800 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <a href="/" class="flex items-center gap-2.5 group">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-sky-500/20 group-hover:scale-105 transition">
-                        <i class="fa-solid fa-cube text-base"></i>
-                    </div>
-                    <div>
-                        <span class="text-lg font-black tracking-wider text-white">GRAPSYH</span>
-                        <span class="block text-[9px] font-bold text-sky-400 tracking-widest uppercase -mt-1">RETAIL</span>
-                    </div>
-                </a>
-                <span class="h-5 w-[1px] bg-slate-800 hidden sm:block"></span>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 border border-slate-700 hidden sm:inline-flex items-center gap-1.5">
-                    <i class="fa-solid fa-scale-balanced text-sky-400"></i> Legal & Compliance Portal
-                </span>
-            </div>
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white font-bold text-sm">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div class="leading-tight">
+                    <span class="text-base font-extrabold tracking-wide text-white">GRAPSYH</span>
+                    <span class="block text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Hukuk & Uyum</span>
+                </div>
+            </a>
 
             <div class="flex items-center gap-3">
-                <button onclick="window.print()" class="hidden md:flex items-center gap-1.5 text-xs text-slate-400 hover:text-white bg-slate-800/60 hover:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700/80 transition">
+                <button onclick="window.print()" class="text-xs text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-print"></i> Yazdır / PDF
                 </button>
-                <a href="/" class="text-xs font-semibold text-slate-200 hover:text-white bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl border border-slate-700 flex items-center gap-2 transition shadow-sm">
-                    <i class="fa-solid fa-store text-sky-400"></i>
-                    <span>Marketplace'e Dön</span>
+                <a href="/" class="text-xs font-semibold text-slate-200 hover:text-white bg-sky-600 hover:bg-sky-500 px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Bilgi ve Sertifikasyon Üst Şeridi -->
-    <section class="bg-gradient-to-r from-slate-900 via-sky-950/40 to-slate-900 border-b border-slate-800 py-6">
+    <!-- Belge Başlık Alanı -->
+    <section class="border-b border-slate-800/80 bg-slate-900/40 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                <div>
-                    <div class="flex flex-wrap items-center gap-2 mb-2">
-                        <span class="px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-[11px] font-bold border border-sky-500/20 flex items-center gap-1">
-                            <i class="fa-solid fa-shield-halved"></i> 6698 KVKK Uyumlu
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20 flex items-center gap-1">
-                            <i class="fa-solid fa-check-double"></i> GDPR (EU 2016/679)
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 text-[11px] font-bold border border-purple-500/20 flex items-center gap-1">
-                            <i class="fa-solid fa-fingerprint"></i> Sumsub Biometric Verified
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[11px] font-bold border border-amber-500/20 flex items-center gap-1">
-                            <i class="fa-solid fa-building"></i> NACE 47.91 Perakende
-                        </span>
-                    </div>
-                    <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                        Kişisel Verilerin Korunması, İşlenmesi ve Gizlilik Politikası
-                    </h1>
-                    <p class="text-xs text-slate-400 mt-1">
-                        Eneba ve uluslararası dijital lisans pazaryerleri mevzuat standartlarına tam uyumlu resmi veri politikası.
-                    </p>
-                </div>
-                <div class="text-xs text-slate-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800 flex flex-col gap-1 sm:text-right shrink-0">
-                    <div><span class="text-slate-500">Doküman Kodu:</span> <code class="text-sky-400">GRP-LEGAL-2026/V3</code></div>
-                    <div><span class="text-slate-500">Son Güncelleme:</span> <span class="text-slate-300 font-medium">22 Ekim 2026</span></div>
-                    <div><span class="text-slate-500">Yürürlük Tarihi:</span> <span class="text-slate-300 font-medium">10 Mart 2026</span></div>
+            <div class="max-w-3xl">
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    Kişisel Verilerin Korunması, İşlenmesi ve Gizlilik Politikası
+                </h1>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                    6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve Avrupa Birliği Genel Veri Koruma Tüzüğü (“GDPR”) uyarınca hazırlanmış resmi aydınlatma metnidir.
+                </p>
+                <div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-500 mt-3 pt-3 border-t border-slate-800">
+                    <span><strong>Veri Sorumlusu:</strong> Grapsyh Retail</span>
+                    <span>•</span>
+                    <span><strong>Doküman No:</strong> GRP-LEGAL-2026/V3</span>
+                    <span>•</span>
+                    <span><strong>Son Güncelleme:</strong> 22 Ekim 2026</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ana Gövde Düzeni (Sol: Sticky Menü, Sağ: Geniş Metin) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- Ana Gövde Düzeni (Sol: İçindekiler, Sağ: Düz Metin) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <!-- Sol Sidebar / İçindekiler Navigasyonu -->
+        <!-- Sol Navigasyon / İçindekiler Menüsü -->
         <aside id="toc-sidebar" class="lg:col-span-4 xl:col-span-3 sticky top-24 space-y-4">
             
-            <!-- Arama Kutusu -->
-            <div id="quick-search-box" class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-lg">
+            <!-- Canlı Arama Kutusu -->
+            <div id="quick-search-box" class="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
                 <div class="relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-500"></i>
-                    <input type="text" id="policySearch" placeholder="Politika maddelerinde ara..." 
-                           class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
+                    <input type="text" id="policySearch" placeholder="Maddelerde ara..." 
+                           class="w-full bg-slate-950 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
                 </div>
             </div>
 
             <!-- İçindekiler Listesi -->
-            <nav class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl max-h-[calc(100vh-180px)] overflow-y-auto">
-                <h3 class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-3 flex items-center justify-between">
-                    <span><i class="fa-solid fa-list-ol mr-1.5"></i> Doküman İçeriği</span>
-                    <span class="text-[10px] text-slate-500">15 Bölüm</span>
-                </h3>
-                <ul class="space-y-1 text-xs text-slate-300" id="toc-list">
-                    <li><a href="#bolum1" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">1. Veri Sorumlusu & Genel Hükümler</a></li>
-                    <li><a href="#bolum2" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">2. Temel Veri Koruma İlkeleri</a></li>
-                    <li><a href="#bolum3" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">3. İşlenen Kişisel Veri Kategorileri</a></li>
-                    <li><a href="#bolum4" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition font-semibold text-emerald-400">4. Biyometrik KYC & Sumsub Doğrulaması</a></li>
-                    <li><a href="#bolum5" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">5. Veri İşleme Amaçları & Hukuki Sebepler</a></li>
-                    <li><a href="#bolum6" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">6. P2P Pazaryeri Güvenliği & Emanet (Escrow)</a></li>
-                    <li><a href="#bolum7" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">7. Veri Aktarımı & Üçüncü Taraf Alıcılar</a></li>
-                    <li><a href="#bolum8" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">8. Uluslararası Sınır Ötesi Aktarımlar</a></li>
-                    <li><a href="#bolum9" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">9. Veri Saklama ve İmha Süreleri</a></li>
-                    <li><a href="#bolum10" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">10. Siber Güvenlik ve Teknik Tedbirler</a></li>
-                    <li><a href="#bolum11" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">11. Çerezler ve Takip Teknolojileri</a></li>
-                    <li><a href="#bolum12" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">12. Pazarlama ve Elektronik İletiler</a></li>
-                    <li><a href="#bolum13" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition font-semibold text-sky-400">13. Kullanıcı Hakları (KVKK & GDPR)</a></li>
-                    <li><a href="#bolum14" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">14. 18+ Yaş Sınırı ve Çocukların Gizliliği</a></li>
-                    <li><a href="#bolum15" class="toc-link block px-2.5 py-1.5 rounded-lg hover:bg-slate-800 hover:text-white transition">15. İletişim, Başvuru ve Denetim Otoritesi</a></li>
+            <nav class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 max-h-[calc(100vh-180px)] overflow-y-auto text-xs space-y-1">
+                <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 py-1 mb-1 border-b border-slate-800">
+                    İçindekiler
+                </div>
+                <ul class="space-y-0.5 text-slate-400" id="toc-list">
+                    <li><a href="#bolum1" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">1. Veri Sorumlusu ve Kapsam</a></li>
+                    <li><a href="#bolum2" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">2. Temel Veri Koruma İlkeleri</a></li>
+                    <li><a href="#bolum3" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">3. İşlenen Kişisel Veri Kategorileri</a></li>
+                    <li><a href="#bolum4" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">4. Biyometrik Veriler ve Kimlik Doğrulama</a></li>
+                    <li><a href="#bolum5" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">5. Veri İşleme Amaçları ve Hukuki Sebepler</a></li>
+                    <li><a href="#bolum6" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">6. P2P Pazaryeri ve Emanet (Escrow)</a></li>
+                    <li><a href="#bolum7" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">7. Veri Aktarımı ve Alıcı Grupları</a></li>
+                    <li><a href="#bolum8" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">8. Uluslararası Veri Aktarımı</a></li>
+                    <li><a href="#bolum9" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">9. Saklama ve İmha Süreleri</a></li>
+                    <li><a href="#bolum10" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">10. Bilgi Güvenliği ve Teknik Tedbirler</a></li>
+                    <li><a href="#bolum11" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">11. Çerez (Cookie) Politikası</a></li>
+                    <li><a href="#bolum12" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">12. Ticari İletişim ve Pazarlama</a></li>
+                    <li><a href="#bolum13" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">13. İlgili Kişi Hakları (KVKK & GDPR)</a></li>
+                    <li><a href="#bolum14" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">14. Yaş Sınırı ve Çocukların Gizliliği</a></li>
+                    <li><a href="#bolum15" class="toc-link block px-2 py-1.5 rounded hover:bg-slate-800 hover:text-white transition">15. İletişim ve Başvuru Usulü</a></li>
                 </ul>
 
-                <!-- Özet Hızlı İletişim -->
-                <div class="mt-4 pt-4 border-t border-slate-800 text-[11px] text-slate-400">
-                    <span class="text-slate-500 block mb-1">Veri Koruma Yetkilisi İrtibat:</span>
-                    <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 font-bold hover:underline flex items-center gap-1.5">
-                        <i class="fa-solid fa-envelope"></i> iletisim@grapsyh.cyou
-                    </a>
+                <div class="mt-3 pt-3 border-t border-slate-800 text-[11px] text-slate-500 px-2">
+                    E-Posta: <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 hover:underline">iletisim@grapsyh.cyou</a>
                 </div>
             </nav>
         </aside>
 
-        <!-- Sağ Ana İçerik Alanı -->
-        <main class="lg:col-span-8 xl:col-span-9 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-12">
-
-            <!-- Özet Vurgu Kutusu (Eneba Tarzı Bilgilendirme) -->
-            <div class="bg-gradient-to-r from-sky-950/60 via-slate-900 to-indigo-950/60 p-5 rounded-2xl border border-sky-800/40 text-xs sm:text-sm text-slate-300 leading-relaxed shadow-lg">
-                <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
-                        <i class="fa-solid fa-shield-heart text-base"></i>
-                    </div>
-                    <div>
-                        <strong class="text-white block font-semibold mb-1 text-sm">Grapsyh Gizlilik Taahhüdü:</strong>
-                        <p class="text-slate-300">
-                            Grapsyh Retail olarak kullanıcılarımızın gizliliğini ve işlem güvenliğini en üst seviyede tutmaktayız. Dijital ürünlerin, oyun anahtarlarının ve yazılım lisanslarının güvenle alınıp satılabildiği P2P pazaryeri platformumuzda, hiçbir kişisel veriniz izniniz olmadan satılmaz, kiralanmaz veya yetkisiz üçüncü şahıslarla paylaşılmaz. Platformumuz 6698 sayılı KVKK ve Avrupa Birliği GDPR standartları uyarınca faaliyet göstermektedir.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <!-- Sağ Ana İçerik Alanı (Düz Metin & Okunaklı Düzen) -->
+        <main class="lg:col-span-8 xl:col-span-9 bg-slate-900/60 border border-slate-800 rounded-xl p-6 sm:p-10 space-y-10 leading-relaxed text-slate-300">
 
             <!-- BÖLÜM 1 -->
             <section id="bolum1" class="policy-section scroll-mt-24">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">1</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Genel Hükümler ve Veri Sorumlusu Bilgileri</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">1.</span> Veri Sorumlusu ve Genel Hükümler
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        İşbu Kişisel Verilerin Korunması, İşlenmesi ve Gizlilik Politikası (“<strong>Politika</strong>”), 6698 sayılı Kişisel Verilerin Korunması Kanunu (“<strong>KVKK</strong>”) ve 2016/679 sayılı Avrupa Birliği Genel Veri Koruma Tüzüğü (“<strong>GDPR</strong>”) başta olmak üzere yürürlükteki elektronik ticaret ve tüketici mevzuatına tam uyumlu olarak hazırlanmıştır.
+                        İşbu Kişisel Verilerin Korunması, İşlenmesi ve Gizlilik Politikası (“Politika”), 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ile Avrupa Birliği Genel Veri Koruma Tüzüğü (“GDPR”) başta olmak üzere yürürlükteki tüketici hakları ve elektronik ticaret mevzuatına uygun olarak hazırlanmıştır.
                     </p>
                     <p>
-                        İşbu Politika, <strong>Grapsyh Retail</strong> (bundan böyle “<strong>Şirket</strong>”, “<strong>Grapsyh</strong>” veya “<strong>Veri Sorumlusu</strong>” olarak anılacaktır) tarafından işletilmekte olan <code class="text-sky-400">https://grapsyh.cyou</code> alan adlı internet sitesi, API servisleri ve bağlı platformlar aracılığıyla toplanan, işlenen ve aktarılan kişisel verilerin hukuki şartlarını düzenler.
+                        İşbu Politika, <strong>Grapsyh Retail</strong> (“Şirket” veya “Veri Sorumlusu”) tarafından işletilmekte olan <code class="text-sky-400">https://grapsyh.cyou</code> internet sitesi ve ilişkili servisler üzerinden sunulan çevrim içi dijital lisans, oyun kodları ve kullanıcılar arası (P2P) emanet hizmetleri kapsamında işlenen kişisel verilere uygulanır.
                     </p>
-                    
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 mt-4">
-                        <div class="font-bold text-sky-400 uppercase tracking-wider text-[11px] mb-2"><i class="fa-solid fa-address-card mr-1"></i> Veri Sorumlusu Künyesi</div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
-                            <div><strong class="text-white">Ticari İşletme:</strong> Grapsyh Retail - Perakende İnternet Hizmetleri</div>
-                            <div><strong class="text-white">Faaliyet Tanımı:</strong> İnternet Üzerinden Perakende Ticaret (NACE: 47.91)</div>
-                            <div><strong class="text-white">Resmi Web Sitesi:</strong> <a href="https://grapsyh.cyou" class="text-sky-400 underline">https://grapsyh.cyou</a></div>
-                            <div><strong class="text-white">Kurumsal E-Posta:</strong> <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 underline">iletisim@grapsyh.cyou</a></div>
-                        </div>
+                    <div class="border-l-2 border-slate-700 pl-4 py-1 text-xs text-slate-400 space-y-1 my-3">
+                        <div><strong>Ticari Unvan:</strong> Grapsyh Retail - Perakende İnternet Hizmetleri</div>
+                        <div><strong>Faaliyet Alanı:</strong> İnternet Üzerinden Perakende Ticaret (NACE Kodu: 47.91)</div>
+                        <div><strong>İnternet Adresi:</strong> https://grapsyh.cyou</div>
+                        <div><strong>Resmi İletişim:</strong> iletisim@grapsyh.cyou</div>
                     </div>
                 </div>
             </section>
 
             <!-- BÖLÜM 2 -->
             <section id="bolum2" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">2</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Temel Veri Koruma İlkeleri</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">2.</span> Temel Veri Koruma İlkeleri
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Şirketimiz, tüm veri işleme faaliyetlerinde GDPR Madde 5 ve KVKK Madde 4’te düzenlenen temel ilkelere sıkı sıkıya riayet etmektedir:
+                        Şirketimiz kişisel veri işleme süreçlerinde aşağıdaki temel ilkelere uygun hareket eder:
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mt-3">
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <span class="font-bold text-sky-400 block mb-1"><i class="fa-solid fa-scale-balanced mr-1"></i> Hukuka ve Dürüstlük Kuralına Uygunluk</span>
-                            <span class="text-slate-400">Veriler yalnızca meşru yasal dayanaklar ve şeffaf bilgilendirme çerçevesinde işlenir.</span>
-                        </div>
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <span class="font-bold text-sky-400 block mb-1"><i class="fa-solid fa-bullseye mr-1"></i> Belirli, Açık ve Meşru Amaçlar</span>
-                            <span class="text-slate-400">Veri toplama amacı açıkça belirtilir; bu amaçların dışında keyfi kullanım yapılamaz.</span>
-                        </div>
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <span class="font-bold text-sky-400 block mb-1"><i class="fa-solid fa-compress mr-1"></i> Veri Minimizasyonu (Ölçülülük)</span>
-                            <span class="text-slate-400">Yalnızca sunulan hizmetin gerektirdiği kadar asgari veri toplanır, aşırı veriden kaçınılır.</span>
-                        </div>
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <span class="font-bold text-sky-400 block mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> Süreyle Sınırlı Saklama</span>
-                            <span class="text-slate-400">Yasal zorunluluk veya amaç sona erdiğinde veriler periyodik olarak güvenle imha edilir.</span>
-                        </div>
-                    </div>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Hukuka ve dürüstlük kurallarına uygun olma:</strong> Veriler şeffaf ve hukuka uygun sebeplerle toplanır.</li>
+                        <li><strong>Doğru ve gerektiğinde güncel olma:</strong> Kullanıcının beyan ettiği bilgilerin doğruluğu ve güncelliği esastır.</li>
+                        <li><strong>Belirli, açık ve meşru amaçlar için işlenme:</strong> Veri işleme amacı önceden açıkça belirlenir.</li>
+                        <li><strong>İşlendikleri amaçla bağlantılı, sınırlı ve ölçülü olma:</strong> Hizmet için zorunlu olandan fazla veri talep edilmez.</li>
+                        <li><strong>Gerekli olan süre kadar muhafaza edilme:</strong> Yasal saklama süresi sona eren veriler güvenle imha edilir.</li>
+                    </ul>
                 </div>
             </section>
 
             <!-- BÖLÜM 3 -->
             <section id="bolum3" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">3</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">İşlenen Kişisel Veri Kategorileri</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">3.</span> İşlenen Kişisel Veri Kategorileri
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Platformumuzu ziyaret etmeniz, hesap açmanız, ilan listelemeniz, dijital oyun/yazılım kodu satın almanız veya destek talebi iletmeniz halinde toplanan veriler şu kategorilerdedir:
+                        Platformumuz üzerinde hesap açmanız, ilan listelemeniz veya dijital ürün satın almanız durumunda işlenen kişisel veriler kategorik olarak aşağıda belirtilmiştir:
                     </p>
-                    
-                    <div class="space-y-3 text-xs">
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 text-sm mb-1.5 flex items-center gap-2">
-                                <i class="fa-solid fa-id-badge text-sky-500"></i> A. Kimlik ve Üyelik Profil Verileri
-                            </h4>
-                            <p class="text-slate-400">
-                                Ad, soyad, kullanıcı adı, şifrelenmiş parola özeti (salted-hash), doğum tarihi, cinsiyet (isteğe bağlı), uyruk, T.C. Kimlik Numarası veya pasaport/yabancı kimlik numarası, profil avatarı ve hesap oluşturma tarihi.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 text-sm mb-1.5 flex items-center gap-2">
-                                <i class="fa-solid fa-address-book text-sky-500"></i> B. İletişim Verileri
-                            </h4>
-                            <p class="text-slate-400">
-                                Doğrulanmış e-posta adresi, telefon numarası (varsa iki adımlı SMS doğrulama kaydı), faturalandırma adresi, teslimat iletim e-postası ve sistem bildirim logları.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 text-sm mb-1.5 flex items-center gap-2">
-                                <i class="fa-solid fa-gamepad text-sky-500"></i> C. P2P Pazaryeri ve Dijital İşlem Verileri
-                            </h4>
-                            <p class="text-slate-400">
-                                Satışa sunulan dijital lisans anahtarları, oyun aktivasyon kodları, hediye kartı seri numaraları, sipariş geçmişi, ilan açıklamaları, teklifler, emanet (escrow) bloke ve serbest bırakma kayıtları, satıcı/alıcı puanlamaları ve alıcı yorumları.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 text-sm mb-1.5 flex items-center gap-2">
-                                <i class="fa-solid fa-credit-card text-sky-500"></i> D. Finansal ve Ödeme Verileri
-                            </h4>
-                            <p class="text-slate-400">
-                                Ödeme sağlayıcısı (PSP) işlem referans kodları, 3D Secure onay durumları, satıcı para çekme talepleri (IBAN, banka adı, hesap sahibi adı-soyadı), fatura bilgileri, bakiye yükleme ve harcama dökümleri. <em class="text-amber-400">Not: Kredi kartı numarası, son kullanma tarihi veya CVV kodları kesinlikle Grapsyh sunucularında saklanmaz; PCI-DSS Seviye 1 sertifikalı lisanslı ödeme geçitleri tarafından tokenlaştırılır.</em>
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 text-sm mb-1.5 flex items-center gap-2">
-                                <i class="fa-solid fa-microchip text-sky-500"></i> E. Cihaz, Ağ ve İşlem Güvenliği Verileri
-                            </h4>
-                            <p class="text-slate-400">
-                                Statik ve dinamik IP adresi, port bilgisi, internet servis sağlayıcısı (ISP), coğrafi konum bilgisi (ülke/şehir bazında), User-Agent, tarayıcı türü ve sürümü, işletim sistemi, ekran çözünürlüğü, donanım parmak izi (fingerprint), oturum çerezleri ve HTTP erişim logları.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 text-sm mb-1.5 flex items-center gap-2">
-                                <i class="fa-solid fa-headset text-sky-500"></i> F. Destek ve Uyuşmazlık Kayıtları
-                            </h4>
-                            <p class="text-slate-400">
-                                Canlı destek yazışmaları, e-posta destek biletleri, dijital kodların çalışmadığına ilişkin kullanıcı tarafından yüklenen ekran görüntüleri, video kayıtları ve müşteri temsilcisi inceleme notları.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- BÖLÜM 4: BİYOMETRİK KYC & SUMSUB -->
-            <section id="bolum4" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-sky-950/40 p-6 sm:p-8 rounded-2xl border border-emerald-500/30 shadow-2xl space-y-4">
-                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
-                        <span class="w-8 h-8 rounded-xl bg-emerald-600/20 text-emerald-400 font-bold text-sm flex items-center justify-center border border-emerald-500/30">4</span>
-                        <div>
-                            <h2 class="text-xl font-bold text-white tracking-tight">Özel Nitelikli Biyometrik Veriler ve Sumsub Kimlik Doğrulaması (KYC)</h2>
-                            <span class="text-[11px] text-emerald-400 font-medium">Biyometrik Veri İşleme ve Canlılık (Liveness) Denetimi Kılavuzu</span>
-                        </div>
-                    </div>
-                    
-                    <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
-                        <p>
-                            Dijital lisans anahtarları, oyun hediye kartları ve yazılım seri numaraları, anında teslim edilen ve kullanıldıktan sonra fiziki iadesi mümkün olmayan gayrimaddi niteliktedir. Bu nedenle, çalıntı kredi kartı kullanımı (<strong>carding</strong>), yetkisiz chargeback (ters ibraz) dolandırıcılığı, sahte ve çoklu bot hesap açılışları ile kara para aklama (<strong>AML</strong>) risklerini engellemek amacıyla platformumuzda <strong>Biyometrik Kimlik Doğrulama (KYC)</strong> zorunludur.
-                        </p>
-
-                        <div class="bg-slate-950/90 p-4 rounded-xl border border-emerald-500/20 space-y-2">
-                            <h4 class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 text-emerald-400">
-                                <i class="fa-solid fa-shield-virus"></i> 4.1. Akredite Sağlayıcı: Sum and Substance Ltd (Sumsub)
-                            </h4>
-                            <p class="text-xs text-slate-300">
-                                Kimlik doğrulama süreçleri, küresel ölçekte bankalar, ödeme kuruluşları ve küresel kripto/fintech devleri tarafından kullanılan akredite kimlik altyapı sağlayıcısı <strong>Sum and Substance Ltd</strong> (Adres: 30 St. Mary Axe, London, England, EC3A 8EP) altyapısı üzerinden yürütülür.
-                            </p>
-                        </div>
-
-                        <h4 class="text-xs font-bold text-white uppercase tracking-wider mt-4">4.2. İşlenen Biyometrik ve Doğrulama Verileri:</h4>
-                        <ul class="list-disc pl-5 space-y-2 text-xs text-slate-300">
-                            <li>
-                                <strong>Optik Karakter Tanıma (OCR) ve Belge Doğrulama:</strong> Devlet tarafından verilmiş fotoğraflı resmi kimlik belgesi (T.C. Kimlik Kartı, Sürücü Belgesi veya Pasaport) ön ve arka yüz taraması, belge hologramı, mikrometrik yazı denetimi ve MRZ (Makinede Okunabilir Alan) bütünlük kontrolü.
-                            </li>
-                            <li>
-                                <strong>Yüz Biyometrisi ve Canlılık (Liveness) Analizi:</strong> Kullanıcının cihaz kamerası aracılığıyla anlık olarak alınan 3 boyutlu yüz geometrisi taraması. Bu tarama ile kullanıcının gerçek ve canlı bir insan olduğu (ekran yansıtma, basılı fotoğraf, 3D silikon maske veya deepfake video manipülasyonu olmadığı) doğrulanır.
-                            </li>
-                            <li>
-                                <strong>Donanım & Enjeksiyon Tespiti:</strong> Cihazın sanal kamera yazılımları (OBS, emülatörler) veya kancalama (hooking) kütüphaneleri kullanıp kullanmadığının donanım seviyesinde doğrulanması.
-                            </li>
-                            <li>
-                                <strong>AML & PEP Taraması:</strong> Uluslararası yaptırım listeleri (OFAC, AB, BM) ve Politik Nüfuz Sahibi Kişi (PEP) veritabanlarında otomatik sahtecilik ve kara liste kontrolleri.
-                            </li>
-                        </ul>
-
-                        <div class="bg-slate-950/90 p-4 rounded-xl border border-emerald-500/20 space-y-2 mt-3">
-                            <h4 class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 text-emerald-400">
-                                <i class="fa-solid fa-lock"></i> 4.3. Biyometrik Veri Güvenliği ve Açık Rıza
-                            </h4>
-                            <p class="text-xs text-slate-300">
-                                Biyometrik yüz verileri <strong>kesinlikle Grapsyh web sunucularında düz metin veya işlenmemiş görsel olarak depolanmaz</strong>. Veriler doğrudan Sumsub'ın ISO/IEC 27001 ve SOC 2 Type II sertifikalı, yüksek güvenlikli şifreli sunucularında işlenir ve matematiksel kriptografik hash formatında saklanır. Doğrulama süreci öncesinde kullanıcıdan kamera erişimi ve biyometrik veri işleme için açık rıza (Explicit Consent) alınır. Açık rıza verilmemesi durumunda kullanıcı P2P alım-satım ve ilan açma özelliklerini kullanamaz.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- BÖLÜM 5: AMAÇLAR & HUKUKİ SEBEPLER MATRİSİ -->
-            <section id="bolum5" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">5</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Veri İşleme Amaçları ve Hukuki Dayanaklar Matrisi</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-4">
-                    <p>
-                        Kişisel verileriniz, 6698 sayılı KVKK'nın 5. ve 6. maddeleri ile AB GDPR Tüzüğü'nün 6. ve 9. maddelerinde öngörülen hukuki sebeplere dayanılarak aşağıdaki amaçlarla işlenmektedir:
-                    </p>
-
-                    <!-- Detaylı Hukuki Matris Tablosu -->
-                    <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
-                        <table class="w-full text-left text-xs">
-                            <thead class="bg-slate-800/80 text-sky-400 font-bold border-b border-slate-700">
-                                <tr>
-                                    <th class="p-3">İşleme Amacı</th>
-                                    <th class="p-3">İlgili Veri Kategorisi</th>
-                                    <th class="p-3">Hukuki Dayanak (KVKK / GDPR)</th>
-                                    <th class="p-3">Azami Saklama Süresi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-800/60 text-slate-300">
-                                <tr class="hover:bg-slate-900/50">
-                                    <td class="p-3 font-medium text-white">Platforma üyelik açılması ve profil yönetimi</td>
-                                    <td class="p-3">Kimlik, İletişim, Kullanıcı Adı</td>
-                                    <td class="p-3 text-sky-400">Sözleşmenin Kurulması ve İfası (KVKK m.5/2-c, GDPR m.6/1-b)</td>
-                                    <td class="p-3">Hesap aktif olduğu sürece + 3 yıl</td>
-                                </tr>
-                                <tr class="hover:bg-slate-900/50">
-                                    <td class="p-3 font-medium text-white">Biyometrik Kimlik Doğrulama (KYC / Liveness)</td>
-                                    <td class="p-3">Resmi Kimlik Belgesi, 3D Yüz Geometrisi</td>
-                                    <td class="p-3 text-emerald-400">Açık Rıza & Meşru Menfaat (KVKK m.6/2, GDPR m.9/2-a & m.6/1-f)</td>
-                                    <td class="p-3">Doğrulama süresince + Yasal zamanaşımı</td>
-                                </tr>
-                                <tr class="hover:bg-slate-900/50">
-                                    <td class="p-3 font-medium text-white">P2P Dijital Kod Siparişi & Escrow İfası</td>
-                                    <td class="p-3">İşlem Verileri, Lisans Kodları, Bakiye</td>
-                                    <td class="p-3 text-sky-400">Sözleşmenin İfası (KVKK m.5/2-c, GDPR m.6/1-b)</td>
-                                    <td class="p-3">İşlemden itibaren 10 yıl</td>
-                                </tr>
-                                <tr class="hover:bg-slate-900/50">
-                                    <td class="p-3 font-medium text-white">Fatura Düzenleme & Vergi Mevzuatına Uyum</td>
-                                    <td class="p-3">Ad-Soyad, T.C. No, Adres, Tutar</td>
-                                    <td class="p-3 text-amber-400">Kanuni Yükümlülük (KVKK m.5/2-ç, GDPR m.6/1-c, VUK, TTK)</td>
-                                    <td class="p-3">10 yıl (Vergi Usul Kanunu)</td>
-                                </tr>
-                                <tr class="hover:bg-slate-900/50">
-                                    <td class="p-3 font-medium text-white">Dolandırıcılık, Carding ve Bot Koruması</td>
-                                    <td class="p-3">IP Adresi, Cihaz Parmak İzi, Loglar</td>
-                                    <td class="p-3 text-purple-400">Meşru Menfaat & Siber Güvenlik (KVKK m.5/2-f, GDPR m.6/1-f)</td>
-                                    <td class="p-3">2 yıl (5651 Sayılı Kanun)</td>
-                                </tr>
-                                <tr class="hover:bg-slate-900/50">
-                                    <td class="p-3 font-medium text-white">Müşteri Desteği & İtiraz Çözümü</td>
-                                    <td class="p-3">Yazışma Logları, Ekran Görüntüleri</td>
-                                    <td class="p-3 text-sky-400">Hakkın Tesisi, Korunması (KVKK m.5/2-e, GDPR m.6/1-f)</td>
-                                    <td class="p-3">Talep kapanışından itibaren 3 yıl</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- BÖLÜM 6: P2P PAZARYERİ & EMANET (ESCROW) -->
-            <section id="bolum6" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">6</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">P2P Pazaryeri Güvenliği, Emanet (Escrow) ve Gizlilik</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
-                    <p>
-                        Grapsyh platformu, bağımsız satıcılar ile alıcıları bir araya getiren bir <strong>P2P (Peer-to-Peer / Eşler Arası) Dijital Pazaryeri</strong> modeline sahiptir. Alıcı ve satıcı arasındaki işlemler Emanet Havuzu (Escrow) güvencesiyle yürütülür:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-xs text-slate-400">
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400">
                         <li>
-                            <strong class="text-white">Alıcı Gizliliği:</strong> Bir alıcı dijital kod satın aldığında, satıcıya alıcının T.C. Kimlik Numarası, kredi kartı veya adresi asla gösterilmez. Yalnızca teslimat için gerekli olan sistem kullanıcı adı ve işlem referans kodu paylaşılır.
+                            <strong class="text-slate-200">Kimlik ve Profil Verileri:</strong> Ad, soyad, kullanıcı adı, doğum tarihi, uyruk, T.C. Kimlik Numarası veya yabancı kimlik/pasaport seri numarası.
                         </li>
                         <li>
-                            <strong class="text-white">Satıcı Güvencesi ve İlan Denetimi:</strong> Satıcıların listelediği dijital ürün anahtarları teslimat anına kadar şifrelenmiş veritabanında muhafaza edilir. Satıcılar ancak Sumsub KYC seviyesini tamamladıktan sonra ilan açabilir.
+                            <strong class="text-slate-200">İletişim Verileri:</strong> E-posta adresi, telefon numarası (varsa iki adımlı SMS doğrulama kaydı) ve tebligat/fatura adresi.
                         </li>
                         <li>
-                            <strong class="text-white">Escrow Bloke Sistemi:</strong> Alıcı sipariş verdiğinde tutar emanet havuzunda bloke edilir. Alıcı lisans anahtarını aktive edip onay verdiğinde (veya itiraz süresi dolduğunda) bakiye satıcı hesabına aktarılır.
+                            <strong class="text-slate-200">P2P Pazaryeri ve İşlem Verileri:</strong> Satışa sunulan veya satın alınan dijital ürün kodları, sipariş geçmişi, ilan açıklamaları, emanet (escrow) bloke hareketleri ve kullanıcı değerlendirmeleri.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Finansal ve Ödeme Verileri:</strong> Lisanslı ödeme kuruluşlarınca üretilen işlem referans numaraları, satıcı para çekim IBAN bilgileri, bakiye geçmişi ve fatura bilgileri. <em>(Kredi kartı numarası veya güvenlik kodları şirket sunucularında tutulmaz; PCI-DSS Seviye 1 lisanslı ödeme kuruluşlarınca işlenir.)</em>
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Cihaz, Ağ ve Güvenlik Verileri:</strong> IP adresi, port bilgisi, internet servis sağlayıcısı, User-Agent, tarayıcı türü, işletim sistemi ve oturum çerezleri.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Destek ve Talep Kayıtları:</strong> Müşteri destek yazışmaları, uyuşmazlık bildirimleri ve yüklenen doğrulama belgeleri.
                         </li>
                     </ul>
                 </div>
             </section>
 
-            <!-- BÖLÜM 7: VERİ AKTARIMI & ALICILAR -->
-            <section id="bolum7" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">7</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Verilerin Üçüncü Taraflara Aktarılması ve Alıcı Grupları</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+            <!-- BÖLÜM 4: BİYOMETRİK VERİLER & KYC -->
+            <section id="bolum4" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">4.</span> Özel Nitelikli Biyometrik Verilerin İşlenmesi ve Kimlik Doğrulaması (KYC)
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Kişisel verileriniz hiçbir zaman ticari gelir elde etmek amacıyla üçüncü taraflara satılmaz veya pazarlama şirketlerine devredilmez. Verileriniz yalnızca hizmetin yürütülmesi amacıyla asgari düzeyde aşağıdaki alıcılarla paylaşılabilir:
+                        Dijital lisans anahtarları, oyun kodları ve yazılım hakları anında teslim edilen ve kullanıldıktan sonra fiziki iadesi mümkün olmayan gayrimaddi niteliktedir. Çalıntı kredi kartı kullanımı, yetkisiz ters ibraz (chargeback) dolandırıcılığı, kimlik hırsızlığı ve sahte hesap açılışlarını engellemek amacıyla platformumuzda <strong>Biyometrik Kimlik Doğrulaması (KYC)</strong> uygulanmaktadır.
                     </p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mt-3">
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-user-check"></i> Kimlik Doğrulama Sağlayıcısı
-                            </h4>
-                            <p class="text-slate-400">
-                                <strong>Sum and Substance Ltd (Sumsub):</strong> Kimlik belgesi, canlılık (liveness) ve AML/PEP kontrollerinin yürütülmesi amacıyla şifreli API protokolleri üzerinden aktarılır.
-                            </p>
-                        </div>
 
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-sky-400 mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-credit-card"></i> Ödeme ve Finans Kuruluşları
-                            </h4>
-                            <p class="text-slate-400">
-                                Lisanslı ödeme geçitleri ve bankalar: Bakiye yükleme, çekme ve kredi kartı ile ödeme tahsilatlarının PCI-DSS Seviye 1 güvencesiyle tamamlanması için.
-                            </p>
-                        </div>
+                    <h3 class="text-sm font-bold text-white mt-4 mb-1">4.1. Bağımsız Akredite Altyapı Sağlayıcıları</h3>
+                    <p>
+                        Kimlik doğrulama süreçleri, uluslararası güvenlik standartlarına (ISO/IEC 27001, SOC 2 Type II) sahip, regüle edilmiş bağımsız kimlik doğrulama ve sahtecilik önleme altyapı sağlayıcıları aracılığıyla yürütülmektedir.
+                    </p>
 
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-indigo-400 mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-server"></i> Bulut & Altyapı Sağlayıcıları
-                            </h4>
-                            <p class="text-slate-400">
-                                Vercel Inc., Cloudflare Inc., Spaceship (Spacemail) ve kurumsal barındırma sağlayıcıları: Web sitesinin kesintisiz yayını, CDN önbellekleme ve DDoS engelleme için.
-                            </p>
-                        </div>
+                    <h3 class="text-sm font-bold text-white mt-4 mb-1">4.2. İşlenen Biyometrik ve Doğrulama Verileri</h3>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>
+                            <strong>Resmi Belge Optik Taraması (OCR):</strong> T.C. Kimlik Kartı, Sürücü Belgesi veya Pasaportun ön ve arka yüzünün okunması, hologram ve geçerlilik kontrolü.
+                        </li>
+                        <li>
+                            <strong>Canlılık (Liveness) & Yüz Geometrisi Tespiti:</strong> Gerçek zamanlı kamera kaydı üzerinden 3 boyutlu yüz geometrisi analizi (fotoğraf tutma, video oynatma, maske veya deepfake sahteciliklerinin tespiti).
+                        </li>
+                        <li>
+                            <strong>Donanım ve Kamera Kontrolü:</strong> Sanal kamera veya emülatör manipülasyonlarının denetimi.
+                        </li>
+                        <li>
+                            <strong>Yaptırım ve Kara Liste Taraması:</strong> Uluslararası yaptırım listeleri (PEP/AML) üzerinden otomatik sahtecilik denetimi.
+                        </li>
+                    </ul>
 
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="font-bold text-amber-400 mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-building-columns"></i> Adli ve İdari Resmi Makamlar
-                            </h4>
-                            <p class="text-slate-400">
-                                Mahkemeler, Cumhuriyet Başsavcılıkları, MASAK ve BTK: Yürürlükteki mevzuat gereği adli bir müzekkere veya resmi soruşturma talep edildiğinde yasal sınırlar dahilinde.
-                            </p>
-                        </div>
-                    </div>
+                    <h3 class="text-sm font-bold text-white mt-4 mb-1">4.3. Biyometrik Veri Güvenliği ve Açık Rıza</h3>
+                    <p>
+                        Biyometrik veriler hiçbir surette Grapsyh sunucularında ham görüntü olarak barındırılmaz. Veriler akredite doğrulama altyapısında şifreli ve kriptografik hash formatında işlenir. Bu süreç öncesinde kullanıcıdan kamera açma ve veri işleme amacıyla açık rıza (Explicit Consent) alınır. Açık rıza verilmemesi halinde P2P ilan açma ve alım-satım işlemleri sınırlandırılır.
+                    </p>
+                </div>
+            </section>
+
+            <!-- BÖLÜM 5: AMAÇLAR & HUKUKİ SEBEPLER -->
+            <section id="bolum5" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">5.</span> Veri İşleme Amaçları ve Hukuki Sebepler
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Kişisel verileriniz, KVKK'nın 5. ve 6. maddeleri ile GDPR'ın 6. ve 9. maddelerinde düzenlenen aşağıdaki hukuki sebeplere dayanılarak işlenmektedir:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400">
+                        <li>
+                            <strong class="text-slate-200">Sözleşmenin Kurulması ve İfası:</strong> Kullanıcı kaydının açılması, dijital lisans anahtarlarının alıcıya teslimi, emanet (escrow) havuzunun işletilmesi.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Kanuni Yükümlülüklerin Yerine Getirilmesi:</strong> 6563 sayılı Elektronik Ticaret Kanunu, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Vergi Usul Kanunu uyarınca işlem ve fatura kayıtlarının tutulması.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Meşru Menfaat ve Siber Güvenlik:</strong> Platformun, kullanıcıların ve hak sahiplerinin dolandırıcılığa, çalıntı kart kullanımına ve siber saldırılara karşı korunması.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200">Açık Rıza:</strong> Biyometrik canlılık ve yüz geometrisi testlerinin yürütülmesi esnasında kullanıcının verdiği açık elektronik onay.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- BÖLÜM 6: P2P & ESCROW -->
+            <section id="bolum6" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">6.</span> P2P Pazaryeri ve Emanet (Escrow) Güvenliği
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Grapsyh platformunda satıcılar ile alıcılar doğrudan işlem gerçekleştirir. Taraflar arasındaki güvenliği sağlamak için Emanet Havuzu (Escrow) mekanizması uygulanır:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>Alıcı ve satıcı birbirlerinin T.C. kimlik numarası, kart bilgileri veya açık adreslerini göremez; yalnızca sistem kullanıcı adları paylaşılır.</li>
+                        <li>Satıcılar ancak kimlik doğrulama sürecini başarıyla tamamladıktan sonra ilan açabilir.</li>
+                        <li>Alıcının ödediği tutar teslimat onaylanana kadar güvenli emanet havuzunda bloke edilir.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- BÖLÜM 7: VERİ AKTARIMI -->
+            <section id="bolum7" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">7.</span> Kişisel Verilerin Aktarılması ve Alıcı Grupları
+                </h2>
+                <div class="space-y-3">
+                    <p>
+                        Kişisel verileriniz hiçbir surette üçüncü şahıslara ticari kazanç amacıyla satılmaz veya kiralanmaz. Verileriniz yalnızca aşağıdaki taraflarla sınırlı olarak paylaşılabilir:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Akredite Kimlik ve Sahtecilik Doğrulama Sağlayıcıları:</strong> Biyometrik kimlik doğrulama ve yaptırım kontrolleri için.</li>
+                        <li><strong>Lisanslı Ödeme ve Finans Kuruluşları:</strong> PCI-DSS Seviye 1 standartlarında bakiye ve ödeme işlemlerinin tahsili için.</li>
+                        <li><strong>Bulut ve Barındırma Sağlayıcıları:</strong> Sitenin kesintisiz yayını, CDN önbellekleme ve DDoS filtrelemesi için.</li>
+                        <li><strong>Adli ve İdari Makamlar:</strong> Mahkemeler, Cumhuriyet Başsavcılıkları ve yetkili kamu kurumlarının yasal müzekkereleri doğrultusunda.</li>
+                    </ul>
                 </div>
             </section>
 
             <!-- BÖLÜM 8: SINIR ÖTESİ AKTARIM -->
             <section id="bolum8" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">8</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Uluslararası Veri Aktarımları (Sınır Ötesi Aktarım)</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">8.</span> Uluslararası Veri Aktarımı (Sınır Ötesi)
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Platformumuzun kullandığı küresel bulut bilişim, dağıtık sunucu mimarileri (Vercel CDN, Cloudflare Anycast DNS) ve Sumsub kimlik doğrulama sunucuları Avrupa Birliği (AB) ve Birleşik Krallık sınırları içerisinde yer alabilmektedir.
+                        Platformumuzun kullandığı küresel bulut sunucuları (CDN, güvenlik duvarları ve akredite kimlik doğrulama veri merkezleri) Avrupa Birliği ve Birleşik Krallık sınırları içerisinde barındırılabilmektedir.
                     </p>
                     <p>
-                        Bu aktarımlar, <strong>GDPR Madde 46</strong> uyarınca Avrupa Komisyonu tarafından onaylanmış <strong>Standart Sözleşme Maddeleri (Standard Contractual Clauses - SCCs)</strong> ve <strong>6698 sayılı KVKK Madde 9</strong> hükümleri gereğince uygun koruma önlemleri alınarak gerçekleştirilir. Tüm sınır ötesi veri iletimleri uçtan uca TLS 1.3 şifreleme ile korunmaktadır.
+                        Bu aktarımlar, <strong>GDPR Madde 46</strong> uyarınca Standart Sözleşme Maddeleri (Standard Contractual Clauses - SCCs) ve <strong>6698 sayılı KVKK Madde 9</strong> hükümlerine uygun teknik ve idari koruma tedbirleri altında gerçekleştirilir.
                     </p>
                 </div>
             </section>
 
-            <!-- BÖLÜM 9: VERİ SAKLAMA & İMHA -->
+            <!-- BÖLÜM 9: SAKLAMA & İMHA -->
             <section id="bolum9" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">9</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Veri Saklama Süreleri ve İmha Politikası</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">9.</span> Veri Saklama ve İmha Politikası
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Kişisel verileriniz, mevzuatta öngörülen bağlayıcı kanuni süreler boyunca veya işlendikleri amaca uygun makul süre kadar muhafaza edilir:
+                        Kişisel verileriniz, mevzuatta zorunlu kılınan süreler boyunca veya işleme amacının gerektirdiği azami müddetçe saklanır:
                     </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-400">
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
                         <li><strong>Mali ve Ticari Belgeler:</strong> Vergi Usul Kanunu ve TTK uyarınca işlem tarihinden itibaren <strong>10 yıl</strong>.</li>
-                        <li><strong>Elektronik İletişim ve Trafik Kayıtları:</strong> 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi Kanunu gereğince <strong>2 yıl</strong>.</li>
-                        <li><strong>Sumsub Kimlik ve Canlılık Kayıtları:</strong> Dolandırıcılık tespiti ve uyuşmazlık zamanaşımı gereği üyelik süresince + <strong>3 yıl</strong>.</li>
-                        <li><strong>Destek Biletleri ve Uyuşmazlık Dosyaları:</strong> Dosya kapandıktan itibaren <strong>3 yıl</strong>.</li>
+                        <li><strong>İnternet Erişim Logları:</strong> 5651 sayılı Kanun gereği <strong>2 yıl</strong>.</li>
+                        <li><strong>Kimlik ve Doğrulama Kayıtları:</strong> Uyuşmazlık zamanaşımı gereği üyelik süresince ve hesap kapanışından itibaren <strong>3 yıl</strong>.</li>
+                        <li><strong>Müşteri Destek Kayıtları:</strong> Talep sonuçlanmasından itibaren <strong>3 yıl</strong>.</li>
                     </ul>
                     <p class="text-xs text-slate-400 mt-2">
-                        Saklama süresi dolan kişisel veriler, Şirketimizin Periyodik İmha Takvimi çerçevesinde geri döndürülemez biçimde silinir, yok edilir veya anonim hale getirilir.
+                        Süre sonunda kişisel veriler periyodik imha takvimimiz kapsamında geri döndürülemez şekilde silinir veya anonim hale getirilir.
                     </p>
                 </div>
             </section>
 
             <!-- BÖLÜM 10: SİBER GÜVENLİK -->
             <section id="bolum10" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">10</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Siber Güvenlik, Şifreleme ve Alınan Teknik Tedbirler</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">10.</span> Bilgi Güvenliği ve Alınan Teknik Tedbirler
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Grapsyh, kişisel verilerin güvenliğini sağlamak için uluslararası kabul görmüş siber güvenlik kontrolleri uygulamaktadır:
+                        Şirketimiz veri güvenliğini sağlamak için uluslararası kabul görmüş siber güvenlik kontrolleri uygular:
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-3">
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <div class="text-emerald-400 font-bold mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-lock"></i> TLS 1.3 / 256-Bit SSL
-                            </div>
-                            <p class="text-slate-400">Web tarayıcınız ile sunucularımız arasındaki tüm veri akışı askeri düzeyde şifrelemeyle korunur.</p>
-                        </div>
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <div class="text-sky-400 font-bold mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-key"></i> HMAC-SHA256 Token
-                            </div>
-                            <p class="text-slate-400">Sumsub SDK oturumları zaman damgalı kriptografik dijital imzalarla yetkilendirilir.</p>
-                        </div>
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <div class="text-indigo-400 font-bold mb-1 flex items-center gap-1.5">
-                                <i class="fa-solid fa-shield-halved"></i> WAF & DDoS Filtreleme
-                            </div>
-                            <p class="text-slate-400">Botnet saldırıları, brute-force denemeleri ve kötü amaçlı yazılımlar gerçek zamanlı engellenir.</p>
-                        </div>
-                    </div>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>Tüm ağ iletişimi 256-bit TLS 1.3 şifreleme ile korunur.</li>
+                        <li>Kimlik doğrulama API oturumları zaman damgalı kriptografik dijital imzalarla yetkilendirilir.</li>
+                        <li>Web Uygulama Güvenlik Duvarı (WAF) ve botnet filtreleme sistemleri aktiftir.</li>
+                        <li>Veritabanı erişimleri en az yetki prensibi (PoLP) ve çift aşamalı kimlik doğrulama ile sınırlandırılmıştır.</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- BÖLÜM 11: ÇEREZ POLİTİKASI -->
+            <!-- BÖLÜM 11: ÇEREZLER -->
             <section id="bolum11" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">11</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Çerezler (Cookies) ve Takip Teknolojileri</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">11.</span> Çerezler (Cookies) ve Takip Teknolojileri
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        İnternet sitemizde kullanıcı deneyimini iyileştirmek, oturum güvenliğini sağlamak ve tercihlerinizi hatırlamak amacıyla çerezler (cookies) kullanılmaktadır:
+                        Sitemizde oturum güvenliğini sağlamak ve tercihlerinizi hatırlamak amacıyla çerezler kullanılmaktadır:
                     </p>
-                    <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 text-xs">
-                        <table class="w-full text-left">
-                            <thead class="bg-slate-800/60 text-sky-400 font-bold border-b border-slate-700">
-                                <tr>
-                                    <th class="p-2.5">Çerez Türü</th>
-                                    <th class="p-2.5">Amaç ve Fonksiyon</th>
-                                    <th class="p-2.5">Zorunluluk Durumu</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-800/60 text-slate-300">
-                                <tr>
-                                    <td class="p-2.5 font-medium text-white">Zorunlu / Güvenlik Çerezleri</td>
-                                    <td class="p-2.5">Oturum açma, sepet takibi, CSRF saldırı engelleme ve KYC doğrulaması.</td>
-                                    <td class="p-2.5 text-emerald-400 font-bold">Zorunlu (Kapatılamaz)</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2.5 font-medium text-white">İşlevsellik Çerezleri</td>
-                                    <td class="p-2.5">Karanlık/aydınlık tema seçimi, dil tercihi ve filtreleme geçmişi.</td>
-                                    <td class="p-2.5 text-sky-400">İsteğe Bağlı</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2.5 font-medium text-white">Performans ve Analitik</td>
-                                    <td class="p-2.5">Sayfa yükleme hızları, hata logları ve genel site trafiği analizi.</td>
-                                    <td class="p-2.5 text-slate-400">İsteğe Bağlı</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li><strong>Zorunlu Çerezler:</strong> Giriş oturumunu korumak, CSRF saldırılarını engellemek ve işlem sepetini takip etmek için zorunludur.</li>
+                        <li><strong>İşlevsel Çerezler:</strong> Dil ve tema tercihlerinizi hatırlamak için kullanılır.</li>
+                        <li><strong>Analitik Çerezler:</strong> Sayfa yükleme performansını ve hata oranlarını ölçmek amacıyla anonim olarak işlenir.</li>
+                    </ul>
                     <p class="text-xs text-slate-400">
-                        Çerez tercihlerinizi dilediğiniz zaman kullandığınız internet tarayıcısının (Chrome, Firefox, Safari, Edge) <em>“Ayarlar &gt; Gizlilik ve Güvenlik &gt; Çerezler”</em> menüsünden yönetebilir veya silebilirsiniz.
+                        Çerez tercihlerinizi tarayıcınızın ayarlar menüsünden dilediğiniz zaman silebilir veya engelleyebilirsiniz.
                     </p>
                 </div>
             </section>
 
             <!-- BÖLÜM 12: PAZARLAMA -->
             <section id="bolum12" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">12</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">Pazarlama ve Ticari Elektronik İletişim Politikası</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">12.</span> Ticari İletişim ve Pazarlama İletileri
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Grapsyh, 6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun uyarınca kullanıcının önceden verilmiş açık onayı olmaksızın promosyon, kampanya veya reklam amaçlı ticari elektronik ileti (e-posta veya SMS) göndermez.
+                        6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun gereği, kullanıcının önceden verilmiş açık onayı bulunmaksızın ticari tanıtım veya reklam iletisi gönderilmez.
                     </p>
                     <p>
-                        Kullanıcılar verdikleri pazarlama iznini diledikleri an profil ayarlarından veya gönderilen e-postaların altındaki <em>“Abonelikten Çık”</em> bağlantısına tıklayarak hiçbir gerekçe göstermeksizin derhal iptal edebilirler.
+                        Kullanıcılar bülten aboneliğinden diledikleri an hesap ayarlarından veya gelen e-postanın altındaki çıkış bağlantısını kullanarak tek tıkla ayrılabilirler.
                     </p>
                 </div>
             </section>
 
             <!-- BÖLÜM 13: KULLANICI HAKLARI -->
             <section id="bolum13" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">13</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">İlgili Kişi Hakları (KVKK Madde 11 & GDPR Hakları)</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-4">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">13.</span> İlgili Kişi Hakları (KVKK Madde 11 & GDPR)
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        KVKK’nın 11. maddesi ve GDPR Chapter III hükümleri uyarınca veri sahibi olarak aşağıdaki yasal haklara sahipsiniz:
+                        Veri sahibi olarak aşağıdaki kanuni haklara sahipsiniz:
                     </p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span class="font-bold text-white block mb-0.5"><i class="fa-solid fa-eye text-sky-400 mr-1"></i> Bilgi Edinme & Erişim Hakkı</span>
-                            <span class="text-slate-400">Hangi verilerinizin işlendiğini öğrenme ve bir kopyasını talep etme hakkı (GDPR Art. 15).</span>
-                        </div>
-                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span class="font-bold text-white block mb-0.5"><i class="fa-solid fa-pen-to-square text-sky-400 mr-1"></i> Düzeltme Hakkı</span>
-                            <span class="text-slate-400">Eksik veya yanlış işlenen verilerin güncellenmesini isteme hakkı (GDPR Art. 16).</span>
-                        </div>
-                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span class="font-bold text-white block mb-0.5"><i class="fa-solid fa-trash-can text-rose-400 mr-1"></i> Silinme ("Unutulma") Hakkı</span>
-                            <span class="text-slate-400">Yasal saklama süreleri haricindeki verilerin kalıcı olarak silinmesini talep etme (GDPR Art. 17).</span>
-                        </div>
-                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span class="font-bold text-white block mb-0.5"><i class="fa-solid fa-file-export text-emerald-400 mr-1"></i> Veri Taşınabilirliği</span>
-                            <span class="text-slate-400">Verilerinizi yapılandırılmış, yaygın kullanılan makinece okunabilir formatta alma hakkı (GDPR Art. 20).</span>
-                        </div>
-                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span class="font-bold text-white block mb-0.5"><i class="fa-solid fa-hand text-amber-400 mr-1"></i> İşlemeye İtiraz Etme</span>
-                            <span class="text-slate-400">Meşru menfaat gerekçesiyle işlenen verilere özel gerekçelerle itiraz etme hakkı (GDPR Art. 21).</span>
-                        </div>
-                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span class="font-bold text-white block mb-0.5"><i class="fa-solid fa-user-gear text-purple-400 mr-1"></i> İnsan Müdahalesi Talep Etme</span>
-                            <span class="text-slate-400">Otomatik kararlara (örneğin reddedilen bir KYC başvurusuna) insan eliyle yeniden bakılmasını talep hakkı.</span>
-                        </div>
-                    </div>
+                    <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+                        <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme ve işlenmişse bilgi talep etme,</li>
+                        <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+                        <li>Yurt içinde veya yurt dışında verilerin aktarıldığı üçüncü kişileri bilme,</li>
+                        <li>Eksik veya yanlış işlenmişse bunların düzeltilmesini isteme,</li>
+                        <li>Kanuni şartlar oluştuğunda verilerin silinmesini veya yok edilmesini talep etme ("Unutulma Hakkı"),</li>
+                        <li>Verilerinizi yaygın kullanılan makinece okunabilir bir formatta talep etme ("Veri Taşınabilirliği"),</li>
+                        <li>Otomatik sistemlerle analiz edilme sonucu aleyhinize bir sonucun doğmasına itiraz etme ve insan incelemesi talep etme.</li>
+                    </ul>
                 </div>
             </section>
 
             <!-- BÖLÜM 14: YAŞ SINIRI -->
             <section id="bolum14" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">14</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">18+ Yaş Sınırı ve Çocukların Gizliliği</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">14.</span> 18+ Yaş Sınırı ve Çocukların Gizliliği
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Grapsyh platformunda sunulan dijital lisans, oyun anahtarları ve finansal bakiye transfer hizmetleri, yalnızca <strong>18 yaşını doldurmuş</strong> ve medeni hakları kullanma ehliyetine sahip bireylere yöneliktir.
+                        Platformumuzda sunulan dijital lisans satış ve finansal transfer hizmetleri yalnızca <strong>18 yaşını doldurmuş</strong> ve medeni hakları kullanma ehliyetine sahip kişilere yöneliktir.
                     </p>
                     <p>
-                        Sumsub kimlik doğrulama sürecinde veya kullanıcı bildirimlerinde 18 yaşın altındaki bireylerin hesap açtığı tespit edildiğinde, söz konusu hesap derhal askıya alınır, kimlik verileri mevzuat gereği güvenli biçimde tasfiye edilir ve veli/vasi onayı olmaksızın işlem yapılmasına müsaade edilmez.
+                        Kimlik doğrulama süreçlerinde veya şikayet bildirimlerinde 18 yaş altı olduğu anlaşılan hesaplar derhal askıya alınır ve mevzuata uygun şekilde tasfiye edilir.
                     </p>
                 </div>
             </section>
 
-            <!-- BÖLÜM 15: İLETİŞİM & DENETİM -->
+            <!-- BÖLÜM 15: İLETİŞİM & BAŞVURU -->
             <section id="bolum15" class="policy-section scroll-mt-24 border-t border-slate-800/80 pt-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <span class="w-8 h-8 rounded-xl bg-sky-600/20 text-sky-400 font-bold text-sm flex items-center justify-center border border-sky-500/30">15</span>
-                    <h2 class="text-xl font-bold text-white tracking-tight">İletişim, Başvuru Usulü ve Denetim Otoritesi</h2>
-                </div>
-                <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-4">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="text-sky-400 font-mono">15.</span> İletişim, Başvuru Usulü ve Denetim Otoritesi
+                </h2>
+                <div class="space-y-3">
                     <p>
-                        Kişisel verilerinizle ilgili yasal haklarınızı kullanmak, bilgi almak veya şikayette bulunmak için Şirketimize başvurabilirsiniz:
+                        Kişisel verilerinizle ilgili yasal haklarınızı kullanmak için kayıtlı e-posta adresinizden konuya <em>“Veri Sahibi Başvurusu”</em> yazarak doğrudan <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 underline font-medium">iletisim@grapsyh.cyou</a> adresine başvurabilirsiniz.
                     </p>
-                    
-                    <div class="bg-slate-950 p-5 rounded-2xl border border-sky-800/40 space-y-3">
-                        <h4 class="font-bold text-white text-sm flex items-center gap-2">
-                            <i class="fa-solid fa-paper-plane text-sky-400"></i> Başvuru Kanalları
-                        </h4>
-                        <div class="text-xs text-slate-300 space-y-2">
-                            <p>
-                                <strong>E-Posta Yoluyla Başvuru:</strong> Platforma kayıtlı resmi e-posta adresinizden konuya <em>“Veri Sahibi Başvurusu (KVKK / GDPR)”</em> yazarak <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400 font-bold underline">iletisim@grapsyh.cyou</a> adresine başvurabilirsiniz.
-                            </p>
-                            <p>
-                                <strong>Cevap Süresi:</strong> Başvurularınız niteliğine göre en kısa sürede ve en geç <strong>30 (otuz) gün</strong> içerisinde ücretsiz olarak yazılı şekilde yanıtlandırılacaktır.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-400">
-                        <strong class="text-white block mb-1">Yetkili Denetim Otoriteleri:</strong>
-                        <p>
-                            Şirketimizin veri sorumlusu sıfatıyla verdiği yanıttan tatmin olmamanız halinde, Türkiye'de <strong>Kişisel Verileri Koruma Kurumu'na (KVKK)</strong> (<a href="https://www.kvkk.gov.tr" target="_blank" class="text-sky-400 hover:underline">www.kvkk.gov.tr</a>) veya ikamet ettiğiniz Avrupa Birliği üye ülkesindeki yetkili Veri Koruma Otoritesine (DPA) şikayette bulunma hakkınız saklıdır.
-                        </p>
-                    </div>
+                    <p>
+                        Başvurularınız en geç <strong>30 (otuz) gün</strong> içerisinde ücretsiz olarak yazılı şekilde yanıtlandırılacaktır.
+                    </p>
+                    <p class="text-xs text-slate-400 pt-2 border-t border-slate-800">
+                        Şirketimizin cevabından tatmin olmamanız halinde Türkiye'de <strong>Kişisel Verileri Koruma Kurumu'na</strong> (www.kvkk.gov.tr) veya ikamet ettiğiniz AB ülkesindeki yetkili Veri Koruma Otoritesine şikayette bulunma hakkınız saklıdır.
+                    </p>
                 </div>
             </section>
 
-            <!-- Revizyon Geçmişi ve Alt İmza -->
+            <!-- Alt İmza -->
             <div class="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-                <div>
-                    <span>&copy; 2026 Grapsyh Retail. Tüm hakları saklıdır.</span>
-                    <span class="block text-[11px] text-slate-600 mt-0.5">NACE 47.91 Perakende Ticaret • İstanbul, Türkiye</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-emerald-400 font-medium flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check text-[10px]"></i> Sumsub KYC Certified
-                    </span>
-                    <span class="text-slate-600">•</span>
-                    <a href="/" class="text-sky-400 hover:underline">Pazaryeri Ana Sayfa</a>
-                </div>
+                <span>&copy; 2026 Grapsyh Retail. Tüm hakları saklıdır.</span>
+                <span>Doküman Sürümü: V3.3 • Gizlilik & Çerez Politikası</span>
             </div>
 
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-xs text-slate-500 text-center mt-12">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p class="font-semibold text-slate-400">Grapsyh Perakende İnternet Hizmetleri • Yasal Uyum ve Veri Koruma Ofisi</p>
+    <!-- Minimal Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-xs text-slate-500 text-center mt-12">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>Grapsyh Perakende İnternet Hizmetleri • Hukuk ve Uyum Ofisi</p>
             <p>Resmi Alan Adı: <a href="https://grapsyh.cyou" class="text-sky-400">grapsyh.cyou</a> • İletişim: <a href="mailto:iletisim@grapsyh.cyou" class="text-sky-400">iletisim@grapsyh.cyou</a></p>
-            <p class="text-[11px] text-slate-600">Doküman Revizyonu: V3.2 • Enterprise Digital Goods Marketplace Compliance</p>
         </div>
     </footer>
 
-    <!-- Arama ve Aktif Menü JavaScript'i -->
+    <!-- Arama ve Scrollspy JavaScript -->
     <script>
-        // Arama Filtresi
         const searchInput = document.getElementById('policySearch');
         const sections = document.querySelectorAll('.policy-section');
         const tocLinks = document.querySelectorAll('.toc-link');
@@ -762,7 +483,6 @@
             });
         });
 
-        // Scrollspy - Aktif Bölümü Sidebar'da Vurgula
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
@@ -773,9 +493,9 @@
             });
 
             tocLinks.forEach(link => {
-                link.classList.remove('bg-sky-600/20', 'text-sky-400', 'font-bold');
+                link.classList.remove('bg-slate-800', 'text-sky-400', 'font-semibold');
                 if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('bg-sky-600/20', 'text-sky-400', 'font-bold');
+                    link.classList.add('bg-slate-800', 'text-sky-400', 'font-semibold');
                 }
             });
         });
