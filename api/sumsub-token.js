@@ -1,8 +1,9 @@
 const crypto = require('crypto');
 
-const APP_TOKEN = 'sbx:yt1TK0FxMCaMn4jLsvalTmjK.Y4DMkP8CPwM94v7rHTjaWit1zbSUCadD';
-const SECRET_KEY = 'FrYu7xj4f2GvLXQdafgjl8w5wtLj554u';
-const LEVEL_NAME = 'id-and-liveness';
+// Güvenlik gereği anahtarlar ortam değişkenlerinden (environment variables) okunur
+const APP_TOKEN = process.env.SUMSUB_APP_TOKEN || '';
+const SECRET_KEY = process.env.SUMSUB_SECRET_KEY || '';
+const LEVEL_NAME = process.env.SUMSUB_LEVEL_NAME || 'id-and-liveness';
 
 module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,6 +12,15 @@ module.exports = async (req, res) => {
 
     if (req.method === 'OPTIONS') {
         res.status(204).end();
+        return;
+    }
+
+    // Anahtarlar henüz canlı ortam değişkeni olarak atanmamışsa veya beklemedeyse
+    if (!APP_TOKEN || !SECRET_KEY) {
+        res.status(200).json({ 
+            status: 'standby',
+            message: 'Biyometrik doğrulama sistemi kurumsal onay sonrasında aktif hale getirilecektir.' 
+        });
         return;
     }
 

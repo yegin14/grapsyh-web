@@ -4,11 +4,18 @@ const path = require('path');
 const crypto = require('crypto');
 
 const PORT = 3000;
-const APP_TOKEN = 'sbx:yt1TK0FxMCaMn4jLsvalTmjK.Y4DMkP8CPwM94v7rHTjaWit1zbSUCadD';
-const SECRET_KEY = 'FrYu7xj4f2GvLXQdafgjl8w5wtLj554u';
-const LEVEL_NAME = 'id-and-liveness';
+const APP_TOKEN = process.env.SUMSUB_APP_TOKEN || '';
+const SECRET_KEY = process.env.SUMSUB_SECRET_KEY || '';
+const LEVEL_NAME = process.env.SUMSUB_LEVEL_NAME || 'id-and-liveness';
 
 async function generateSumsubToken(userId) {
+    if (!APP_TOKEN || !SECRET_KEY) {
+        return {
+            status: 'standby',
+            message: 'Biyometrik doğrulama sistemi kurumsal onay sonrasında aktif hale getirilecektir.'
+        };
+    }
+
     const ts = Math.floor(Date.now() / 1000).toString();
     const uri = '/resources/accessTokens/sdk';
     const payload = JSON.stringify({
@@ -33,7 +40,7 @@ async function generateSumsubToken(userId) {
 
     if (!response.ok) {
         const err = await response.text();
-        throw new Error(`Sumsub API Hatası (${response.status}): ${err}`);
+        throw new Error(`API Hatası (${response.status}): ${err}`);
     }
 
     return await response.json();
@@ -51,7 +58,7 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    // 1. Sumsub Token Endpoint'i
+    // 1. Token Endpoint'i (Anahtarlar çıkınca güvenli bekleme moduna geçer)
     if (req.url.startsWith('/api/sumsub-token')) {
         try {
             const data = await generateSumsubToken();
@@ -91,6 +98,7 @@ server.listen(PORT, () => {
     console.log(`🚀 Grapsyh Yerel Geliştirme Sunucusu Başlatıldı!`);
     console.log(`🌐 Ana Sayfa:          http://localhost:${PORT}/`);
     console.log(`🛡️ Gizlilik Politikası: http://localhost:${PORT}/privacy.html`);
+    console.log(`🇬🇧 Privacy Policy (EN): http://localhost:${PORT}/privacy-en.html`);
     console.log(`🔑 Token API:          http://localhost:${PORT}/api/sumsub-token`);
     console.log(`========================================================\n`);
 });
